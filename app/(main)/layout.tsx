@@ -9,7 +9,7 @@ export default function MainLayout({
     <>
       <nav className="bg-orange-600 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold">🍽️ Mi Restaurante</Link>
+          <Link href="/" className="text-xl font-bold">🍽️ Elescapao</Link>
           <div className="flex gap-4">
             <Link href="/menu">Menú</Link>
             <Link href="/combos">Combos</Link>
