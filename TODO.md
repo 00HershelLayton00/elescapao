@@ -1,1 +1,9 @@
-- [ ] Poner que cosas hay q hacer en el todo
+- [no hecho] Poner que cosas hay q hacer en el todo
+- [ ] Quitar carros de compra
+- [ ] Crear barra desplegable para mas secciones de web
+- [ ] Sistema de usuarios
+- [ ] Cualquier juego para que sean felices
+- [ ] Poner Menu real
+- [ ] Poner fotos del lugar
+- [ ] Poner fotos en menu
+- [ ] Poner historia y vision
