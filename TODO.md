@@ -1,0 +1,1 @@
+- [ ] Poner que cosas hay q hacer en el todo
