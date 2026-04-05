@@ -5,5 +5,6 @@
 - [ ] Cualquier juego para que sean felices
 - [ ] Poner Menu real
 - [ ] Poner fotos del lugar
-- [ ] Poner fotos en menu
+- [x] Poner fotos en menu
 - [ ] Poner historia y vision
+- [ ] Poner más fotos, y que se puedan ir cambiando de una a otra como un carrucel
