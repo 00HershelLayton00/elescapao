@@ -1,8 +1,9 @@
 import ProductCard from "../ProductCard";
 export default function MenuPage() {
-  const productos = [
-    { nombre: "Brownie con Helado", desc: "Chocolate caliente con helado", precio: "$7.99" },
-    { nombre: "Tiramisú", desc: "Postre italiano con café", precio: "$6.99" }
+  const productos_postres=[
+    {nombre:"Flan de leche",desc:"",precio:"$750"},
+    {nombre:"Tres leches",desc:"",precio:"$1000"},
+    {nombre:"Postre de la casa",desc:"",precio:""},
   ]
 
   return (
@@ -11,7 +12,7 @@ export default function MenuPage() {
 
       {/* Productos */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {productos.map((p, i) => (
+        {productos_postres.map((p, i) => (
          <ProductCard name={p.nombre} description={p.desc} price={p.precio} />
         ))}
       </div>

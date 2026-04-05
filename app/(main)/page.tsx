@@ -78,7 +78,7 @@ export default function Home() {
                 </div>
                 <div className="mt-4 text-center">
                   <span className={`${pacifico.className} text-[#EBDCCB] opacity-60 text-lg`}>
-                    Momento #{id}
+                    {id}
                   </span>
                 </div>
               </div>

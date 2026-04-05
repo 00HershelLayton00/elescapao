@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: hwb(48 57% 5%);
-}
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;

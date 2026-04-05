@@ -19,17 +19,38 @@ export default function MenuPage() {
     {nombre:"Braba",desc:"Salsa roja/vegetales/picante",precio:"$3800",},
   ]
 
-  const Productos_cordero=[
+  const productos_cordero=[
     {nombre:"Cordero al Corte en su salsa",desc:"Sellado al carbón y cocinado en cerveza más agregados secretos",precio:"$4800",},
     {nombre:"Pierna de Cordero al carbón",desc:"Salsa roja/vegetales/picante",precio:"$8000",},
     {nombre:"Costilla de Obejo al carbón",desc:"Salsa roja/vegetales/picante",precio:"",},
+  ]
+
+  const productos_pollo=[
+    {nombre:"Bistec de Pollo Natural",desc:"",precio:"$3000"},
+    {nombre:"Bistec de Pollo encebollado",desc:"",precio:"$3200"},
+    {nombre:"Bistec de Pollo empanizado",desc:"",precio:"$3800"},
+    {nombre:"1/4 de Pollo asado/frito",desc:"",precio:"$3200"},
+    {nombre:"Pollo Escapao",desc:"Asado con vegetales salteados y gratinado con queso",precio:"$4000"},
+  ]
+
+  const productos_res=[
+    {nombre:"Bistec con Cebolla",desc:"",precio:""},
+    {nombre:"Ropa vieja",desc:"Carne de res desmenuzada/cocinada en salsa de tomate",precio:""},
+    {nombre:"Baca frita",desc:"Carne en hilachas fritas con cebolla",precio:""},
+  ]
+
+  const productos_camaron=[
+    {nombre:"Ceviche",desc:"Pico de gallo/cerveza. Se sirve frío",precio:"$4000"},
+    {nombre:"Coctel",desc:"Base de mayonesa",precio:"$3000"},
+    {nombre:"Rebosado",desc:"",precio:"$3600"},
+    {nombre:"Al ajillo",desc:"",precio:"$4000"},
+    {nombre:"Enchilado",desc:"",precio:"$4000"},
   ]
 
   return (
     <div className="container mx-auto px-4 py-8">
       
       <h1 className="text-4xl font-bold text-center mb-8">Plato Fuerte de Cerdo</h1>
-      {/* productos_puerco*/}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {productos_puerco.map((p, i) => (
           <ProductCard name={p.nombre} description={p.desc} price={p.precio} />
@@ -37,9 +58,29 @@ export default function MenuPage() {
       </div>
 
       <h1 className="text-4xl font-bold text-center mb-8">Plato Fuerte de Cordero</h1>
-      {/* productos_puerco*/}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Productos_cordero.map((p, i) => (
+        {productos_cordero.map((p, i) => (
+          <ProductCard name={p.nombre} description={p.desc} price={p.precio} />
+        ))}
+      </div>
+
+      <h1 className="text-4xl font-bold text-center mb-8">Plato Fuerte de Pollo</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {productos_pollo.map((p, i) => (
+          <ProductCard name={p.nombre} description={p.desc} price={p.precio} />
+        ))}
+      </div>
+
+      <h1 className="text-4xl font-bold text-center mb-8">Plato Fuerte de res</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {productos_res.map((p, i) => (
+          <ProductCard name={p.nombre} description={p.desc} price={p.precio} />
+        ))}
+      </div>
+
+      <h1 className="text-4xl font-bold text-center mb-8">Plato Fuerte de Camarón</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {productos_camaron.map((p, i) => (
           <ProductCard name={p.nombre} description={p.desc} price={p.precio} />
         ))}
       </div>

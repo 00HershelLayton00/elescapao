@@ -86,7 +86,7 @@ export default function MainLayout({
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/+5354797723?text=Las+cosas+son+cuando+son"
+              href="https://wa.me/+5351591471?text=Las+cosas+son+cuando+son"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform active:scale-90"

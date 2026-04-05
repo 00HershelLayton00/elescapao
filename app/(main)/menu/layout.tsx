@@ -9,6 +9,11 @@ export default function MenuLayout({
   const links = [
     { href: "/menu/entrada", label: "Entrada" },
     { href: "/menu/principal", label: "Principal" },
+    { href: "/menu/viandas", label: "Viandas" },
+    { href: "/menu/ensalada", label: "Ensaladas" },
+    { href: "/menu/parrillada", label: "Parrillada" },
+    { href: "/menu/variedades", label: "Variedades" },
+    { href: "/menu/guarnicion", label: "Guarnición" },
     { href: "/menu/postre", label: "Postre" },
     { href: "/menu/bebida", label: "Bebida" },
     { href: "/menu/vip", label: "VIP" },
