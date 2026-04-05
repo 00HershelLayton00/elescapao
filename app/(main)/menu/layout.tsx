@@ -1,4 +1,4 @@
-// layout.tsx (Sin 'use client')
+// layout.tsx (Server Component - 100% Estático)
 import Link from 'next/link'
 
 export default function MenuLayout({
@@ -15,57 +15,32 @@ export default function MenuLayout({
   ]
 
   return (
-    <div className="relative flex h-screen w-full overflow-hidden">
-      {/* EL TRUCO: Checkbox oculto que controla el estado del menú */}
-      <input type="checkbox" id="menu-drawer" className="peer hidden" />
-
-      <main className="flex-1 p-6 overflow-auto">
-        {children}
-      </main>
-
-      {/* BOTÓN PARA ABRIR (Label vinculado al checkbox) */}
-      {/* Solo se ve cuando el checkbox NO está marcado (peer-checked:hidden) */}
-      <label 
-        htmlFor="menu-drawer"
-        className="fixed right-0 top-0 bottom-0 z-50 w-8 bg-[#3D2B1F] text-white hover:bg-[#5D4037] transition-all flex items-center justify-center shadow-lg cursor-pointer peer-checked:hidden"
-      >
-        <span className="rotate-180">▶️</span>
-      </label>
-
-      {/* OVERLAY (Fondo oscuro) */}
-      {/* Se muestra solo cuando el checkbox está marcado */}
-      <label
-        htmlFor="menu-drawer"
-        className="fixed inset-0 bg-black/50 z-30 opacity-0 pointer-events-none transition-opacity peer-checked:opacity-100 peer-checked:pointer-events-auto md:hidden"
-      />
-
-      {/* BARRA LATERAL (Aside) */}
-      {/* Cambia su posición según el estado del 'peer' (el checkbox) */}
-      <aside
-        className="fixed right-0 top-0 bottom-0 w-64 bg-gradient-to-b from-[#3D2B1F] to-[#1A120B] text-white flex flex-col shadow-2xl z-40 translate-x-full transition-transform duration-300 ease-in-out peer-checked:translate-x-0"
-      >
-        {/* BOTÓN PARA CERRAR (Otro label que desmarca el checkbox) */}
-        <div className="p-4 border-b border-white/10 flex justify-end">
-          <label
-            htmlFor="menu-drawer"
-            className="text-white hover:bg-white/10 p-2 rounded-full transition text-xl cursor-pointer"
-          >
-            ✕
-          </label>
+    <div className="flex flex-col min-h-screen">
+      {/* Sub-Navegación Superior de Categorías */}
+      <nav className="sticky top-[64px] z-40 w-full bg-[#4E342E] bg-[url('/images/wood_pattern.png')] border-b-2 border-[#3D2B1F] shadow-md">
+        <div className="container mx-auto">
+          {/* Añadimos scrollbar-hide (clase personalizada que definiremos abajo) */}
+          <ul className="flex items-center justify-start md:justify-center gap-2 overflow-x-auto scrollbar-hide py-2 px-4">
+            {links.map((link) => (
+              <li key={link.href} className="shrink-0">
+                <Link
+                  href={link.href}
+                  className="block px-4 py-2 text-sm md:text-base font-bold uppercase tracking-widest text-[#EBDCCB] hover:text-white hover:bg-white/10 rounded-sm transition-all border border-transparent active:border-white/20"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
+      </nav>
 
-        <nav className="flex flex-col p-6 gap-4 flex-1">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-lg font-medium hover:text-yellow-500 transition-colors border-b border-white/5 pb-2"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-      </aside>
+      {/* Contenido de la categoría seleccionada */}
+      <main className="flex-1 p-6 bg-[#F4ECE1] bg-[url('/images/papel.jpg')] bg-cover bg-fixed">
+        <div className="container mx-auto">
+          {children}
+        </div>
+      </main>
     </div>
   )
 }
