@@ -10,10 +10,10 @@ export default function MainLayout({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F4ECE1] bg-[url('https://www.transparenttextures.com/patterns/fabric-of-the-nation.png')] text-[#3D2B1F] font-serif">
+    <div className="min-h-screen bg-[#F4ECE1]  text-[#3D2B1F] font-serif">
 
       {/* Navegación */}
-      <nav className="bg-[#3a2310] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] border-b-4 border-[#3D2B1F] p-4 shadow-xl sticky top-0 z-50">
+      <nav className="bg-[#3a2310] bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] p-4 shadow-xl sticky top-0 z-50">
         <div className="container mx-auto relative"> {/* Relative aquí es clave */}
           <div className="flex justify-between items-center">
 
@@ -46,7 +46,7 @@ export default function MainLayout({
 
           {/* Menú Móvil - Rectángulo Flotante a la Derecha */}
           {isOpen && (
-            <div className="absolute right-0 top-14 w-48 bg-[#3a2310] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] 
+            <div className="absolute right-0 top-14 w-48 bg-[#3a2310] bg-[url('/images/wood_pattern.png')] 
                             border-2 border-[#3D2B1F] shadow-2xl rounded-sm py-4 flex flex-col gap-4 
                             md:hidden z-[60] animate-in fade-in slide-in-from-top-2 duration-200">
               <Link
@@ -77,7 +77,7 @@ export default function MainLayout({
 
       <main>{children}</main>
 
-      <footer className="bg-[#1A120B] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] text-[#FFF8DC] py-6 border-t-4 border-[#3D2B1F] mt-12">
+      <footer className="bg-[#1A120B] bg-[url('/images/wood_pattern.png')] text-[#FFF8DC] py-6 border-t-4 border-[#3D2B1F] mt-12">
         <div className="container mx-auto px-4 flex justify-between items-center">
 
           {/* Izquierda: Icono de Facebook (Link directo) */}
