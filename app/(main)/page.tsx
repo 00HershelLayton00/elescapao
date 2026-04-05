@@ -31,7 +31,7 @@ export default function Home() {
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className={`text-4xl md:text-7xl font-bold mb-6 drop-shadow-sm ${pacifico.className} text-[#3D2B1F] tracking-tight`}>
-            Bienvenido al escapao
+            Don Santiago el Escapao
           </h1>
           <p className="text-2xl mt-8 md:text-3xl mb-12 font-light text-[#3D2B1F] italic">
             "Donde las cosas son cuando SON!!"

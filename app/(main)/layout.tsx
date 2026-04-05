@@ -1,15 +1,21 @@
 // MainLayout.tsx - Server Component version
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  
   const navLinks = [
     { name: 'Menú', href: '/menu' },
     { name: 'Juego', href: '/cervecero'},
     { name: 'Combos', href: '/combos' },
+    { name: 'Nosotros', href: '/nosotros' },
     { name: 'Contacto', href: '/contacto' },
   ];
 
@@ -34,7 +40,6 @@ export default function MainLayout({
                   <span className="group-hover:text-white transition-colors duration-300">
                     {link.name}
                   </span>
-                  {/* La Barrita Superior Estética */}
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#FFF8DC] -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-300 ease-out shadow-[0_0_5px_rgba(255,248,220,0.5)]" />
                 </Link>
               ))}
@@ -47,23 +52,40 @@ export default function MainLayout({
               🍽️ ElEscapao
             </Link>
 
-            <details className="relative">
-              <summary className="text-[#FFF8DC] p-2 focus:outline-none list-none cursor-pointer">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* Botón hamburguesa manual */}
+            <button
+              onClick={() => setMenuAbierto(!menuAbierto)}
+              className="text-[#FFF8DC] p-2 focus:outline-none z-50 relative"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {menuAbierto ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              </summary>
-              <div className="absolute right-0 top-12 w-48 bg-[#3a2310] bg-[url('/images/wood_pattern.png')] border-2 border-[#3D2B1F] shadow-2xl rounded-sm py-4 flex flex-col gap-4 z-[60]">
-                {navLinks.map((link) => (
-                  <Link key={link.name} href={link.href} className="text-[#FFF8DC] px-6 py-2 font-bold uppercase tracking-widest border-b border-[#FFF8DC]/10 hover:bg-black/20">
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </details>
+                )}
+              </svg>
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Menú móvil desplegable */}
+      {menuAbierto && (
+        <div className="md:hidden fixed inset-0 top-[73px] bg-[#3a2310] bg-[url('/images/wood_pattern.png')] z-40 overflow-y-auto">
+          <div className="flex flex-col py-8 px-6 gap-3">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMenuAbierto(false)}
+                className="text-[#FFF8DC] text-xl font-bold uppercase tracking-widest py-4 px-6 border-b border-[#FFF8DC]/20 hover:bg-black/20 transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <main>{children}</main>
 
