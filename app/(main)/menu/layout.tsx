@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default function MenuLayout({
   children,
@@ -39,7 +39,8 @@ export default function MenuLayout({
             touchAction: 'manipulation'
           }}
         >
-          <FontAwesomeIcon icon={faChevronLeft} />
+          {/* <FontAwesomeIcon icon={faChevronLeft} /> */}
+          ◀️
         </button>
       )}
 
@@ -71,7 +72,8 @@ export default function MenuLayout({
             style={{ touchAction: 'manipulation' }}
             type="button"
           >
-            <FontAwesomeIcon icon={faTimes} />
+            X
+            {/* <FontAwesomeIcon icon={faTimes} /> */} 
           </button>
         </div>
 
