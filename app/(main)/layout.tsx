@@ -43,7 +43,7 @@ export default function MainLayout({
       <main>{children}</main>
 
       {/* Footer remains the same */}
-      <footer className="bg-[#1A120B] bg-[url('/images/wood_pattern.png')] text-[#FFF8DC] py-6 border-t-4 border-[#3D2B1F] mt-12">
+      <footer className="bg-[#1A120B] bg-[url('/images/wood_pattern.png')] text-[#FFF8DC] py-6 border-t-4 border-[#3D2B1F] ">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <a href="https://www.facebook.com/LaVozEscapa" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform active:scale-90" aria-label="Facebook del restaurante">
             <svg className="w-8 h-8 fill-[#FFF8DC]" viewBox="0 0 24 24">
