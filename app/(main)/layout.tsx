@@ -8,6 +8,7 @@ export default function MainLayout({
 }) {
   const navLinks = [
     { name: 'Menú', href: '/menu' },
+    { name: 'Juego', href: '/cervecero'},
     { name: 'Combos', href: '/combos' },
     { name: 'Contacto', href: '/contacto' },
   ];
