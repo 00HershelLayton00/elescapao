@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <div className="relative flex flex-col justify-between pt-10 pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel.jpg')] bg-cover bg-center bg-blend-multiply ">
+      <div className="relative flex flex-col justify-between pt-10 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat bg-blend-multiply">
         
         {/* Plumas Decorativas (PNGs) */}
         <img 
@@ -39,7 +39,7 @@ export default function Home() {
         </div>
 
         {/* Sección Galería: Nuestro Espacio */}
-        <div className="relative py-10 mx-6 md:mx-20 px-6 md:px-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel_arrugado.png')] bg-cover bg-center bg-blend-multiply shadow-inner rounded-xl">
+        <div className="relative pt-10 pb-20 mx-6 md:mx-20 px-6 md:px-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel_arrugado.png')] bg-repeat bg-blend-multiply shadow-inner rounded-xl">
           
           <div className="flex flex-row items-center justify-center gap-6 mb-12 w-full">
             <svg
@@ -78,7 +78,7 @@ export default function Home() {
                 </div>
                 <div className="mt-4 text-center">
                   <span className={`${pacifico.className} text-[#EBDCCB] opacity-60 text-lg`}>
-                    {id}
+                    Momento #{id}
                   </span>
                 </div>
               </div>

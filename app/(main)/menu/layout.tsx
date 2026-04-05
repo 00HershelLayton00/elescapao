@@ -41,7 +41,7 @@ export default function MenuLayout({
       </nav>
 
       {/* Contenido de la categoría seleccionada */}
-      <main className="flex-1 p-6 bg-[#F4ECE1] bg-[url('/images/papel.jpg')] bg-cover bg-fixed">
+      <main className="flex-1 p-6 bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat bg-fixed">
         <div className="container mx-auto">
           {children}
         </div>
