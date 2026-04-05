@@ -2,7 +2,7 @@ import { Pacifico } from 'next/font/google'
 
 const pacifico = Pacifico({
   subsets: ['latin'],
-  weight: ['400'] 
+  weight: ['400']
 })
 
 export default function Home() {
@@ -16,19 +16,6 @@ export default function Home() {
     <main>
       {/* Hero Section */}
       <div className="relative flex flex-col justify-between pt-10 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat bg-blend-multiply">
-        
-        {/* Plumas Decorativas (PNGs) */}
-        <img 
-          src="/images/pluma-rustica.png" 
-          className="absolute top-0 left-[10%] w-[30rem] opacity-[0.03] rotate-45 pointer-events-none" 
-          alt=""
-        />
-        <img 
-          src="/images/pluma-rustica.png" 
-          className="absolute bottom-0 right-[5%] w-[25rem] opacity-[0.03] -rotate-12 scale-x-[-1] pointer-events-none" 
-          alt=""
-        />
-
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className={`text-4xl md:text-7xl font-bold mb-6 drop-shadow-sm ${pacifico.className} text-[#3D2B1F] tracking-tight`}>
             Don Santiago el Escapao
@@ -40,7 +27,6 @@ export default function Home() {
 
         {/* Sección Galería: Nuestro Espacio */}
         <div className="relative pt-10 pb-20 mx-6 md:mx-20 px-6 md:px-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel_arrugado.png')] bg-repeat bg-blend-multiply shadow-inner rounded-xl">
-          
           <div className="flex flex-row items-center justify-center gap-6 mb-12 w-full">
             <svg
               viewBox="0 0 24 24"
@@ -63,13 +49,13 @@ export default function Home() {
           {/* GRID DE FOTOS (Polaroids) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[1, 2, 3].map((id) => (
-              <div 
-                key={id} 
+              <div
+                key={id}
                 className="bg-[#1A120B] p-4 pb-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] rounded-sm transform transition duration-500 hover:scale-105 hover:rotate-0 rotate-1 odd:-rotate-2 even:rotate-2"
               >
                 <div className="relative h-72 w-full overflow-hidden border border-white/5">
-                  <img 
-                    src={`/images/restaurante${id}.jpg`} 
+                  <img
+                    src={`/images/restaurante${id}.jpg`}
                     alt={`Vista de El Escapao ${id}`}
                     className="w-full h-full object-cover grayscale-[20%] sepia-[10%] hover:grayscale-0 transition-all duration-700"
                   />
@@ -89,7 +75,6 @@ export default function Home() {
 
       {/* Actividades */}
       <div className="bg-[#F4ECE1] bg-[url('/images/tela.jpg')] py-24 border-y-2 border-[#3D2B1F]/10">
-        
         {/* Separador de madera con Gafas */}
         <div className="relative flex items-center justify-center w-full my-16 overflow-hidden">
           <div className="flex-1 flex items-center justify-end">
@@ -98,7 +83,6 @@ export default function Home() {
             </div>
             <div className="h-[2px] w-12 md:w-32 bg-gradient-to-l from-[#3D2B1F] to-transparent ml-2"></div>
           </div>
-          
           <div className="flex-shrink-0 mx-6 md:mx-10 text-[#3D2B1F] drop-shadow-xl transform hover:rotate-12 transition-transform">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-12 h-12 md:w-16 md:h-16">
               <path d="M9 11c1.5 0 2 1 3 1s1.5-1 3-1" />
@@ -115,11 +99,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="container mx-auto px-4">
-          <h2 className={`text-4xl md:text-6xl font-black text-center mb-20 ${pacifico.className} text-[#2C1E16]`}>
-            📅 Próximas Actividades
-          </h2>
+         <h2 className={`flex items-center justify-center gap-2 md:gap-4 text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 ${pacifico.className} text-[#2C1E16]`}>
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    className="w-8 h-8 md:w-14 md:h-14 shrink-0"
+  >
+    <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="#4E342E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M3 10H21" stroke="#4E342E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M8 2V6" stroke="#4E342E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16 2V6" stroke="#4E342E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="7" y="14" width="2" height="2" rx="1" fill="#4E342E" />
+    <rect x="11" y="14" width="2" height="2" rx="1" fill="#4E342E" />
+    <rect x="15" y="14" width="2" height="2" rx="1" fill="#4E342E" />
+    <rect x="7" y="18" width="2" height="2" rx="1" fill="#4E342E" />
+    <rect x="11" y="18" width="2" height="2" rx="1" fill="#4E342E" />
+  </svg>
+
+  {/* Usamos leading-tight para que el interlineado no separe mucho el icono si el texto baja de línea */}
+  <span className="leading-tight">Próximas Actividades</span>
+</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {actividades.map((act, i) => (
