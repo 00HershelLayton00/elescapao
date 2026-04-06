@@ -10,13 +10,23 @@ interface Obstaculo {
   pasado: boolean;
 }
 
+interface RecordMundial {
+  nombre: string;
+  puntuacion: number;
+  telefono: string;
+}
+
+const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwJJ8OEkQAUXrqDHZ7h88wE9smWyAKN4ttMlu_LH2lv5DyMRu_zqazSe6dAP1t6DGD4xw/exec';
+
 export default function RunnerEscapa() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [puntos, setPuntos] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [jugando, setJugando] = useState(false);
   const [recordLocal, setRecordLocal] = useState(0);
+  const [recordMundial, setRecordMundial] = useState<RecordMundial>({ nombre: 'Nadie', puntuacion: 0, telefono: '' });
   const [nombreJugador, setNombreJugador] = useState('');
+  const [telefonoJugador, setTelefonoJugador] = useState('');
   const [mostrarInput, setMostrarInput] = useState(false);
 
   // Refs del juego
@@ -24,10 +34,9 @@ export default function RunnerEscapa() {
     jugando: false,
     gameOver: false,
     puntos: 0,
-    velocidad: 7,
+    velocidad: 5,
     ultimoFrame: 0,
     intervaloMovimiento: 30,
-    distanciaUltimoObs: 0,
   });
 
   const autoRef = useRef({
@@ -47,10 +56,27 @@ export default function RunnerEscapa() {
   const sueloY = 220;
   const autoYBase = sueloY - 40;
 
-  // Cargar récord
+  // Cargar récord local y mundial
   useEffect(() => {
     const saved = localStorage.getItem('recordRunnerEscapa');
     if (saved) setRecordLocal(parseInt(saved));
+    
+    const cargarRecordMundial = async () => {
+      try {
+        const res = await fetch(`${URL_SCRIPT}?accion=leer`);
+        const data = await res.json();
+        if (data.success) {
+          setRecordMundial({
+            nombre: data.nombre,
+            puntuacion: data.puntuacion,
+            telefono: data.telefono || ''
+          });
+        }
+      } catch (error) {
+        console.log('Error al cargar récord mundial:', error);
+      }
+    };
+    cargarRecordMundial();
   }, []);
 
   // Generar nuevo obstáculo con distancia variable
@@ -62,7 +88,6 @@ export default function RunnerEscapa() {
     if (tipo === 'piedra') { ancho = 30; alto = 20; }
     if (tipo === 'pozo') { ancho = 40; alto = 15; }
     
-    // Distancia variable entre 400 y 700 píxeles
     const ultimoX = obstaculosRef.current.length > 0 
       ? Math.max(...obstaculosRef.current.map(o => o.x))
       : 800;
@@ -86,15 +111,14 @@ export default function RunnerEscapa() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Fondo
     ctx.fillStyle = '#F4ECE1';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Líneas de fondo (movimiento)
+    // Líneas de fondo
     ctx.strokeStyle = '#D4A373';
     ctx.lineWidth = 2;
     for (let i = 0; i < 10; i++) {
-      const x = (gameRef.current.ultimoFrame * 0.5 + i * 80) % 800;
+      const x = (Date.now() * 0.3 + i * 80) % 800;
       ctx.beginPath();
       ctx.moveTo(x, sueloY - 10);
       ctx.lineTo(x + 40, sueloY - 10);
@@ -134,13 +158,13 @@ export default function RunnerEscapa() {
       }
     });
 
-    // Auto antiguo (en lugar del dinosaurio)
+    // Auto antiguo
     ctx.font = '42px "Segoe UI Emoji"';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('🚗', autoRef.current.x + autoRef.current.ancho/2, autoRef.current.y + autoRef.current.alto/2);
     
-    // Efecto de movimiento (polvo)
+    // Polvo
     if (autoRef.current.enSuelo && gameRef.current.jugando) {
       ctx.fillStyle = 'rgba(0,0,0,0.1)';
       ctx.beginPath();
@@ -148,7 +172,7 @@ export default function RunnerEscapa() {
       ctx.fill();
     }
 
-    // Puntuación y velocidad
+    // Puntuación
     ctx.font = 'bold 24px monospace';
     ctx.fillStyle = '#3D2B1F';
     ctx.textAlign = 'right';
@@ -157,10 +181,7 @@ export default function RunnerEscapa() {
     ctx.font = '12px monospace';
     ctx.fillStyle = '#8B5A2B';
     ctx.fillText(`Velocidad: ${gameRef.current.velocidad.toFixed(1)}`, canvas.width - 20, 70);
-
-    // Nivel de dificultad
-    const nivel = Math.floor(gameRef.current.velocidad / 2);
-    ctx.fillText(`Nivel: ${nivel}`, canvas.width - 20, 90);
+    ctx.fillText(`Nivel: ${Math.floor(gameRef.current.velocidad / 2)}`, canvas.width - 20, 90);
 
     if (!jugando && !gameOver) {
       ctx.font = '20px monospace';
@@ -183,10 +204,10 @@ export default function RunnerEscapa() {
   }, [jugando, gameOver]);
 
   // Actualizar lógica
-  const actualizar = useCallback((deltaTime: number) => {
+  const actualizar = useCallback(() => {
     if (!gameRef.current.jugando || gameRef.current.gameOver) return;
 
-    // 1. Física del auto
+    // Física del auto
     autoRef.current.velocidadY += gravedad;
     autoRef.current.y += autoRef.current.velocidadY;
 
@@ -201,39 +222,35 @@ export default function RunnerEscapa() {
       if (autoRef.current.velocidadY < 0) autoRef.current.velocidadY = 0;
     }
 
-    // 2. Mover obstáculos
+    // Mover obstáculos
     obstaculosRef.current.forEach(obs => {
       obs.x -= gameRef.current.velocidad;
     });
     
-    // 3. Eliminar obstáculos fuera de pantalla
     obstaculosRef.current = obstaculosRef.current.filter(obs => obs.x + obs.ancho > 0);
     
-    // 4. Generar nuevos obstáculos (mantener 2-3 en pantalla)
+    // Generar nuevos obstáculos
     if (obstaculosRef.current.length < 3 && 
         (obstaculosRef.current.length === 0 || 
          obstaculosRef.current[obstaculosRef.current.length - 1].x < 700)) {
       generarObstaculo();
     }
     
-    // 5. Puntuación y dificultad progresiva
+    // Puntuación y dificultad
     obstaculosRef.current.forEach(obs => {
       if (!obs.pasado && obs.x + obs.ancho < autoRef.current.x) {
         obs.pasado = true;
-        // Puntos según tipo de obstáculo
         let puntosGanados = 10;
         if (obs.tipo === 'piedra') puntosGanados = 15;
         if (obs.tipo === 'pozo') puntosGanados = 20;
         
         gameRef.current.puntos += puntosGanados;
         setPuntos(Math.floor(gameRef.current.puntos));
-        
-        // Aumentar velocidad progresivamente (máx 20)
         gameRef.current.velocidad = Math.min(20, 5 + Math.floor(gameRef.current.puntos / 80));
       }
     });
 
-    // 6. Colisiones
+    // Colisiones
     const autoRect = {
       x: autoRef.current.x,
       y: autoRef.current.y,
@@ -286,7 +303,7 @@ export default function RunnerEscapa() {
 
     const delta = Math.min(50, timestamp - gameRef.current.ultimoFrame);
     if (delta >= gameRef.current.intervaloMovimiento) {
-      actualizar(delta);
+      actualizar();
       gameRef.current.ultimoFrame = timestamp;
     }
 
@@ -312,7 +329,6 @@ export default function RunnerEscapa() {
       velocidad: 5,
       ultimoFrame: 0,
       intervaloMovimiento: 30,
-      distanciaUltimoObs: 0,
     };
     
     setPuntos(0);
@@ -320,7 +336,6 @@ export default function RunnerEscapa() {
     setJugando(true);
     setMostrarInput(false);
     
-    // Generar primeros obstáculos
     generarObstaculo();
     setTimeout(() => generarObstaculo(), 500);
     
@@ -338,7 +353,32 @@ export default function RunnerEscapa() {
     }
   }, []);
 
-  // Eventos
+  // Guardar récord mundial
+  const guardarRecordMundial = async () => {
+    if (!nombreJugador.trim()) return;
+    
+    try {
+      const res = await fetch(`${URL_SCRIPT}?accion=escribir&nombre=${encodeURIComponent(nombreJugador)}&puntuacion=${recordLocal}&telefono=${encodeURIComponent(telefonoJugador)}`);
+      const data = await res.json();
+      
+      if (data.success) {
+        alert(`🏆 ¡${data.mensaje}! Te contactaremos al ${telefonoJugador}`);
+        setRecordMundial({
+          nombre: nombreJugador,
+          puntuacion: recordLocal,
+          telefono: telefonoJugador
+        });
+      } else {
+        alert(`❌ ${data.mensaje}`);
+      }
+    } catch (error) {
+      alert('Error de conexión. El récord se guardó localmente.');
+    }
+    
+    setMostrarInput(false);
+  };
+
+  // Eventos de teclado y táctil
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.code === 'Space' || e.code === 'ArrowUp') {
@@ -373,30 +413,35 @@ export default function RunnerEscapa() {
     };
   }, []);
 
-  const guardarRecordMundial = () => {
-    if (!nombreJugador.trim()) return;
-    alert(`🏆 Récord guardado: ${nombreJugador} con ${recordLocal} puntos`);
-    setMostrarInput(false);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full">
         <h1 className="text-4xl font-bold text-center text-[#3D2B1F] mb-2">
-          🚗 Runner Escapao
+          🚗 Runner Escapá
         </h1>
         <p className="text-center text-gray-600 mb-4">
-          🚗 Salta obstáculos con ESPACIO o TOCANDO | 🎋 Más puntos = más velocidad
+          🚗 Salta con ESPACIO o TOCANDO | 🎋 Más puntos = más velocidad
         </p>
 
-        <div className="flex justify-between gap-4 mb-4">
-          <div className="bg-amber-100 rounded-lg px-6 py-3 flex-1 text-center">
+        <div className="flex flex-wrap justify-between gap-4 mb-4">
+          <div className="bg-amber-100 rounded-lg px-6 py-3 flex-1 text-center min-w-[100px]">
             <span className="text-gray-600 text-sm">PUNTOS</span>
             <span className="text-3xl font-bold text-green-700 ml-2">{Math.floor(puntos)}</span>
           </div>
-          <div className="bg-amber-100 rounded-lg px-6 py-3 flex-1 text-center">
-            <span className="text-gray-600 text-sm">🏆 RÉCORD</span>
+          
+          <div className="bg-amber-100 rounded-lg px-6 py-3 flex-1 text-center min-w-[100px]">
+            <span className="text-gray-600 text-sm">🏆 RÉCORD LOCAL</span>
             <span className="text-3xl font-bold text-yellow-700 ml-2">{recordLocal}</span>
+          </div>
+          
+          <div className="bg-amber-100 rounded-lg px-6 py-3 flex-1 text-center min-w-[140px]">
+            <span className="text-gray-600 text-sm">🌍 RÉCORD MUNDIAL</span>
+            <span className="text-xl font-bold text-purple-700 block">
+              {recordMundial.nombre}: {recordMundial.puntuacion}
+            </span>
+            {recordMundial.telefono && (
+              <span className="text-xs text-gray-500 block">📞 {recordMundial.telefono}</span>
+            )}
           </div>
         </div>
 
@@ -433,7 +478,7 @@ export default function RunnerEscapa() {
         {mostrarInput && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <div className="bg-white rounded-xl p-6 max-w-sm w-full mx-4">
-              <h3 className="text-2xl font-bold text-yellow-600 mb-2">🏆 ¡NUEVO RÉCORD!</h3>
+              <h3 className="text-2xl font-bold text-yellow-600 mb-2">🏆 ¡NUEVO RÉCORD LOCAL!</h3>
               <p className="text-gray-700 mb-4">Puntuación: {recordLocal}</p>
               <input
                 type="text"
@@ -443,6 +488,14 @@ export default function RunnerEscapa() {
                 className="w-full px-3 py-2 bg-gray-100 text-gray-800 rounded mb-4 border border-gray-300"
                 maxLength={20}
                 autoFocus
+              />
+              <input
+                type="tel"
+                placeholder="Tu número de teléfono (ej: +5351234567)"
+                value={telefonoJugador}
+                onChange={(e) => setTelefonoJugador(e.target.value)}
+                className="w-full px-3 py-2 bg-gray-100 text-gray-800 rounded mb-4 border border-gray-300"
+                maxLength={20}
               />
               <button onClick={guardarRecordMundial} className="w-full bg-green-700 hover:bg-green-800 text-white py-2 rounded font-bold">
                 Guardar Récord
