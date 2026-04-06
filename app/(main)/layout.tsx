@@ -13,7 +13,7 @@ export default function MainLayout({
   
   const navLinks = [
     { name: 'Menú', href: '/menu' },
-    { name: 'Juego', href: '/cervecero'},
+    { name: 'Juego', href: '/juego'},
     { name: 'Combos', href: '/combos' },
     { name: 'Nosotros', href: '/nosotros' },
     { name: 'Contacto', href: '/contacto' },
