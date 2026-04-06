@@ -7,7 +7,8 @@
 - [x] Poner fotos en menu
 - [x] Poner historia y vision como pagina
 - [ ] Poner fotos en menu
-- [ ] Poner fotos en carros clasicos
-- [ ] Adornar las demas paginas
-- [ ] Cualquier juego para que sean felices y ponerlo como pagina
+- [ ] Poner fotos en carros clasicos en "Nosotros"
+- [ ] Poner icono bien
+- [x] Adornar las demas paginas
+- [x] Cualquier juego para que sean felices y ponerlo como pagina
 - [ ] Que al tocar una imagen esta se acerque
