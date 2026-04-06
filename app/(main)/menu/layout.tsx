@@ -7,15 +7,15 @@ export default function MenuLayout({
   children: React.ReactNode
 }) {
   const links = [
-    { href: "/menu/entrada", label: "Entrada" },
-    { href: "/menu/principal", label: "Principal" },
+    { href: "/menu/entradas", label: "Entradas" }, // cambió de entrada -> entradas
+    { href: "/menu/principales", label: "Principal" },
     { href: "/menu/viandas", label: "Viandas" },
-    { href: "/menu/ensalada", label: "Ensaladas" },
+    { href: "/menu/ensaladas", label: "Ensaladas" },
     { href: "/menu/parrillada", label: "Parrillada" },
     { href: "/menu/variedades", label: "Variedades" },
-    { href: "/menu/guarnicion", label: "Guarnición" },
-    { href: "/menu/postre", label: "Postre" },
-    { href: "/menu/bebida", label: "Bebida" },
+    { href: "/menu/guarniciones", label: "Guarnición" },
+    { href: "/menu/postres", label: "Postre" },
+    { href: "/menu/bebidas", label: "Bebida" },
     { href: "/menu/vip", label: "VIP" },
   ]
 
