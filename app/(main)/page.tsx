@@ -155,26 +155,21 @@ export default function Home() {
       </div>
 
       {/* Actividades */}
-      <div className="bg-[#F4ECE1] bg-[url('/images/tela.jpg')] py-24 border-y-2 border-[#3D2B1F]/10">
+      <div className="bg-[#F4ECE1] bg-[url('/images/tela.jpg')] pt-24 border-y-2 border-[#3D2B1F]/10">
         {/* Separador de madera con Gafas */}
         <div className="relative flex items-center justify-center w-full my-16 overflow-hidden">
           <div className="flex-1 flex items-center justify-end">
             <div className="h-7 w-full bg-[#3a2310] bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] shadow-[5px_10px_20px_rgba(0,0,0,0.5)] rounded-r-sm relative">
               <div className="absolute right-6 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#1A120B] opacity-60"></div>
             </div>
-            <div className="h-[2px] w-12 md:w-32 bg-gradient-to-l from-[#3D2B1F] to-transparent ml-2"></div>
+            <div className="h-[2px] w-24 md:w-64 bg-gradient-to-l from-[#3D2B1F] to-transparent ml-2"></div>
           </div>
           <div className="flex-shrink-0 mx-6 md:mx-10 text-[#3D2B1F] drop-shadow-xl transform hover:rotate-12 transition-transform">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-12 h-12 md:w-16 md:h-16">
-              <path d="M9 11c1.5 0 2 1 3 1s1.5-1 3-1" />
-              <path d="M4 11h3c1 0 2 1 2 3v1c0 2-1 3-2.5 3S4 17 4 15.5V11Z" />
-              <path d="M15 11h3v4.5c0 1.5-1 2.5-2.5 2.5S13 17 13 15v-1c0-2 1-3 2-3Z" />
-              <path d="M4 11h-1a1 1 0 0 1-1-1" /><path d="M18 11h1a1 1 0 0 0 1-1" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-utensils-crossed-icon lucide-utensils-crossed"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" /><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" /><path d="m2.1 21.8 6.4-6.3" /><path d="m19 5-7 7" /></svg>
           </div>
 
           <div className="flex-1 flex items-center justify-start">
-            <div className="h-[2px] w-12 md:w-32 bg-gradient-to-r from-[#3D2B1F] to-transparent mr-2"></div>
+            <div className="h-[2px] w-24 md:w-64 bg-gradient-to-r from-[#3D2B1F] to-transparent mr-2"></div>
             <div className="h-7 w-full bg-[#3a2310] bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] shadow-[-5px_10px_20px_rgba(0,0,0,0.5)] rounded-l-sm relative">
               <div className="absolute left-6 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#1A120B] opacity-60"></div>
             </div>
@@ -216,6 +211,16 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+        {/*Otro separador*/}
+        <div className="relative flex items-center justify-center w-full mt-16 mb-5">
+          <div className="flex-1 h-px bg-gradient-to-r from-[#D4B996] via-[#8B6914] to-[#D4B996]"></div>
+
+          <div className="flex-shrink-0 mx-4 md:mx-6 text-[#8B6914] drop-shadow-md transform hover:scale-110 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-utensils-crossed-icon lucide-utensils-crossed"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" /><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" /><path d="m2.1 21.8 6.4-6.3" /><path d="m19 5-7 7" /></svg>
+          </div>
+
+          <div className="flex-1 h-px bg-gradient-to-l from-[#D4B996] via-[#8B6914] to-[#D4B996]"></div>
         </div>
       </div>
     </main>
