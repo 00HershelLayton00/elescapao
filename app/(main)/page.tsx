@@ -9,9 +9,14 @@ const pacifico = Pacifico({
 export default function Home() {
 
   const actividades = [
-    { titulo: "🍕 Noche de Pizza", fecha: "20 Enero", desc: "50% off en todas las pizzas" },
-    { titulo: "🍷 Cata de Vinos", fecha: "25 Enero", desc: "Degustación exclusiva" },
-    { titulo: "🎉 Happy Hour", fecha: "21 Enero", desc: "2x1 en bebidas" }
+    { titulo: "🤡Shows de Payasos", fecha: "Todos los Días", desc: "Con divertidas ocurrencias y juegos para el disfrute en familia" },
+    { titulo: "🎤Caraoke Escapao", fecha: "Todos los Jueves", desc: "Ponemos la música y usted se convierte en el mejor de los cantantes" },
+    { titulo: "🎭Momento de Show", fecha: "Todos los Viernes", desc: "Shows diversos con artistas invitados" },
+    { titulo: "🌞Bonísimos Días", fecha: "Sábados y Domingos", desc: "Shows con payasos en la mañana, para niños y adultos" },
+    { titulo: "💃🏻Show de Cabaret", fecha: "Todos los Sábados", desc: "Excelenete música y baile con artistas invitados" },
+    { titulo: "✨Noche estrellada", fecha: "Todos los Domingos", desc: "Varios artistas de diferentes manifestaciones son invitados como fuente de esta noche escapa`" },
+
+
   ]
 
   return (
@@ -89,6 +94,8 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+
         {/*Otro separador*/}
         <div className="relative flex items-center justify-center w-full mt-16 mb-5">
           <div className="flex-1 h-px bg-gradient-to-r from-[#D4B996] via-[#8B6914] to-[#D4B996]"></div>
