@@ -37,7 +37,8 @@ export default function CategoryPage({ params }: { params: { category: string } 
                   <ProductCard 
                     name={p.nombre} 
                     description={p.desc} 
-                    price={p.precio} 
+                    price={p.precio}
+                    rating={p.rating} 
                   />
                 </div>
               ))}

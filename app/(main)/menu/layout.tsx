@@ -15,8 +15,6 @@ export default function MenuLayout({
     { href: "/menu/variedades", label: "Variedades" },
     { href: "/menu/guarniciones", label: "Guarnición" },
     { href: "/menu/postres", label: "Postre" },
-    { href: "/menu/bebidas", label: "Bebida" },
-    { href: "/menu/vip", label: "VIP" },
   ]
 
   return (

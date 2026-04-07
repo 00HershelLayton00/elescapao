@@ -1,24 +1,12 @@
 export const MENU_DATA = [
     {
-        id: "bebidas",
-        titulo: "Bebidas",
-        subcategorias: [
-            {
-                nombre: "Bebidas",
-                productos: [
-                    { nombre: "Limonada Natural", desc: "Fresca con hierbabuena", precio: "$4.99" }
-                ]
-            }
-        ]
-    },
-    {
         id: "entradas",
         titulo: "Entrada",
         subcategorias: [
             {
                 nombre: "Entrantes",
                 productos: [
-                    { nombre: "Croquetas de pescado", desc: "", precio: "$3000" },
+                    { nombre: "Croquetas de pescado", desc: "", precio: "$3000" ,rating:3.9},
                     { nombre: "Croquetas de Camarón", desc: "", precio: "$3000" },
                     { nombre: "Croqueta de Ahumada", desc: "", precio: "$3000" },
                     { nombre: "Croqueta de Queso", desc: "", precio: "$3000" },
