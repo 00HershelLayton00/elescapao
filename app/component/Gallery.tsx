@@ -9,14 +9,14 @@ const pacifico = Pacifico({
 
 // Estructura simplificada: solo URL y el texto que se mostrará
 const FOTOS_GALERIA = [
-  { id: 1, url: "/images/restaurante1.jpg", texto: "Momento #1" },
-  { id: 2, url: "/images/restaurante2.jpg", texto: "Momento #2" },
-  { id: 3, url: "/images/restaurante3.jpg", texto: "Momento #3" },
-  { id: 4, url: "/images/restaurante4.jpg", texto: "Momento #4" },
-  { id: 5, url: "/images/restaurante5.jpg", texto: "Momento #5" },
-  { id: 6, url: "/images/restaurante6.jpg", texto: "Momento #6" },
-  { id: 7, url: "/images/restaurante7.jpg", texto: "Momento #7" },
-  { id: 8, url: "/images/restaurante8.jpg", texto: "Momento #8" },
+  { id: 1, url: "/images/restaurante1.jpg", texto: "Bienvenido" },
+  { id: 2, url: "/images/restaurante2.jpg", texto: "Shows" },
+  { id: 3, url: "/images/restaurante3.jpg", texto: "Familia" },
+  { id: 4, url: "/images/restaurante4.jpg", texto: "Karaoke" },
+  { id: 5, url: "/images/restaurante5.jpg", texto: "Cantantes" },
+  { id: 6, url: "/images/restaurante6.jpg", texto: "Comida" },
+  { id: 7, url: "/images/restaurante7.jpg", texto: "Payasos" },
+  { id: 8, url: "/images/restaurante8.jpg", texto: "Manjares" },
 ];
 
 export default function Gallery() {
