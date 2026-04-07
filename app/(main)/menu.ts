@@ -241,8 +241,8 @@ export const MENU_DATA = [
             {
                 nombre: "Parrillada",
                 productos: [
-                    { nombre: "Mixta", desc: "Chuleta/pollo/ahumado/chorizo/brocheta/salteado de vegetales/vianda frita", precio: "$9500" },
-                    { nombre: "Montada", desc: "Bistec/chorizo/ahumado/huevo/vegetales salteados/viandas frita/salsa roja", precio: "" },
+                    { nombre: "Mixta", desc: "Chuleta/ pollo/ ahumado/ chorizo/ brocheta/ salteado de vegetales/ vianda frita", precio: "9500" },
+                    { nombre: "Montada", desc: "Bistec/ chorizo/ ahumado/ huevo/ vegetales salteados/ viandas frita/ salsa roja", precio: "" },
                     { nombre: "Cordero", desc: "Pierna de cordero al carbón con salsa roja", precio: "" }
                 ]
             }
