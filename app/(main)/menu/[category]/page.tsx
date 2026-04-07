@@ -1,42 +1,51 @@
 // app/menu/[category]/page.tsx
-import { MENU_DATA } from "../../menu"; // Ajusta la ruta a tu archivo
+import { MENU_DATA } from "../../menu"; 
 import ProductCard from "../../../component/ProductCard";
 import { notFound } from "next/navigation";
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
-  // Buscamos la categoría en el array que creamos antes
-  // El id debe coincidir con el nombre en la URL (ej: "bebidas", "entradas")
   const categoryData = MENU_DATA.find(item => item.id === params.category);
 
   if (!categoryData) {
-    notFound(); // Si la categoría no existe en el array, muestra un 404
+    notFound();
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-12 text-[#3D2B1F] uppercase tracking-widest">
-        {categoryData.titulo}
-      </h1>
+    <div className="container mx-auto px-4 py-16">
+      <div className="max-w-7xl mx-auto">
+        
+        {categoryData.subcategorias.map((sub, idx) => (
+          <div key={idx} className="mb-24 last:mb-0">
+            
+            {/* === SUBCATEGORÍA CENTRADA CON LÍNEAS === */}
+            <div className="flex items-center justify-center gap-6 mb-12">
+              {/* Línea decorativa Izquierda */}
+              <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#4E342E]/60 to-transparent"></div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold text-[#4E342E] text-center uppercase tracking-widest px-4">
+                {sub.nombre}
+              </h2>
+              
+              {/* Línea decorativa Derecha */}
+              <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-[#4E342E]/60 to-transparent"></div>
+            </div>
 
-      {categoryData.subcategorias.map((sub, idx) => (
-        <div key={idx} className="mb-16">
-          {/* Título de la subcategoría (ej: "Sopas y Potajes") */}
-          <h2 className="text-2xl font-semibold mb-6 border-b-2 border-[#4E342E]/20 pb-2 text-[#4E342E]">
-            {sub.nombre}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sub.productos.map((p, i) => (
-              <ProductCard 
-                key={i}
-                name={p.nombre} 
-                description={p.desc} 
-                price={p.precio} 
-              />
-            ))}
+            {/* Grid de productos */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
+              {sub.productos.map((p, i) => (
+                <div key={i} className="flex">
+                  <ProductCard 
+                    name={p.nombre} 
+                    description={p.desc} 
+                    price={p.precio} 
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+        
+      </div>
     </div>
   );
 }
