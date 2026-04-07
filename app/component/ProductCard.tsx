@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, description, price, ico
         {/* Precio Inferior */}
         <div className="mt-auto pt-4 flex items-baseline gap-1">
           <span className="text-3xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-            $ {typeof price === 'number' ? price.toLocaleString('es-ES') : price}
+             {typeof price === 'number' ? price.toLocaleString('es-ES') : price}
           </span>
         </div>
       </div>
