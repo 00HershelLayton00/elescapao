@@ -21,7 +21,7 @@ export default function MainLayout({
 
   return (
     <div className="min-h-screen bg-[#F4ECE1] text-[#3D2B1F] font-serif">
-      <nav className="bg-[#3a2310] bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] p-4 shadow-xl sticky top-0 z-50">
+      <nav className="bg-[#3a2310] z-50 bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] p-4 shadow-xl sticky top-0">
         <div className="container mx-auto">
 
           {/* Desktop Menu */}

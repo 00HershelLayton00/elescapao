@@ -22,7 +22,7 @@ export default function MenuLayout({
   return (
     <div className="flex flex-col min-h-screen">
       {/* Sub-Navegación Superior */}
-      <nav className="sticky top-[64px] w-full bg-[#4E342E] bg-[url('/images/wood_pattern.png')] border-b-2 border-[#3D2B1F] shadow-md">
+      <nav className="sticky z-30 top-[64px] w-full bg-[#4E342E] bg-[url('/images/wood_pattern.png')] border-b-2 border-[#3D2B1F] shadow-md">
         <div className="max-w-[1400px] mx-auto px-0 md:px-4">
           {/* Móvil: overflow-x-auto (permite scroll) + justify-start
               PC (lg): lg:overflow-x-hidden (quita scroll) + lg:justify-center
