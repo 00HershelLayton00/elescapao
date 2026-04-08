@@ -53,9 +53,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
           
           {/* Precio arriba a la derecha */}
           <div className="flex items-baseline gap-1 bg-black/20 px-3 py-1.5 rounded-full backdrop-blur-sm shrink-0 ml-4">
-            <span className="text-[10px] font-bold text-[#f2e2ce]/70 uppercase tracking-wider">$</span>
             <span className="text-xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-              {typeof price === 'number' ? price.toLocaleString('es-ES') : price}
+              {price}
             </span>
           </div>
         </div>
