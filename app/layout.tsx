@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Elescapao',
   description: 'Las cosas son cuando Son!!!',
+  icons:{
+    icon: 'favicon.ico',
+    shortcut: 'favicon.ico',
+    apple: 'favicon.ico',
+  }
 }
 
 export default function RootLayout({
