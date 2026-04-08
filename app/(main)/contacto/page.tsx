@@ -46,7 +46,7 @@ export default function ContactoPage() {
         <div className="flex items-center justify-center gap-6 mb-12">
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#4E342E]/60 to-transparent"></div>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#4E342E] uppercase tracking-widest px-4 flex items-center justify-center gap-4 text-red-900">
+            <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-widest px-4 flex items-center justify-center gap-4 text-red-900">
               <IconMapa />
               Contacto
               <IconMapa />
