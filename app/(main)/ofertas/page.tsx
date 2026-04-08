@@ -1,7 +1,7 @@
 import React from 'react';
+import SorteoSection from './SorteoSection';
 
-// === DEFINICIÓN DE ICONOS SVG (Limpios y en el color del título) ===
-
+// === ICONOS SVG ===
 const IconFamilia = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-16 h-16">
     <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -39,6 +39,7 @@ const IconFiesta = () => (
     <path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" />
   </svg>
 );
+
 const IconRegalo = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 inline-block mb-1">
     <path d="M12 7v14M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
@@ -46,16 +47,17 @@ const IconRegalo = () => (
     <rect x="3" y="7" width="18" height="4" rx="1" />
   </svg>
 );
+
 export default function CombosPage() {
   const combos = [
     { nombre: "Oferta para choferes", items: "Convenios con choferes para transportar clientes a nuestro local y llevar insignias del mismo en su vehículo, los interesados pueden contactarnos para más información", precio: "+53 51591471", ahorro: "Llama ya!", icon: <IconEjecutivo /> },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat py-12 px-4">
       <div className="max-w-6xl mx-auto">
 
-        {/* Cabecera estilo Subcategoría */}
+        {/* Cabecera */}
         <div className="flex items-center justify-center gap-6 mb-16">
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#4E342E]/60 to-transparent"></div>
           <div className="text-center">
@@ -68,6 +70,10 @@ export default function CombosPage() {
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-[#4E342E]/60 to-transparent"></div>
         </div>
 
+        {/* Componente Sorteo importado */}
+        <div className="mb-16">
+          <SorteoSection />
+        </div>
 
         {/* Grid de Combos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -94,8 +100,6 @@ export default function CombosPage() {
                       {combo.items}
                     </p>
                   </div>
-
-                  {/* === ICONO CON COLOR DEL TEXTO (#f2e2ce) === */}
                   <div className="text-[#f2e2ce] opacity-80 group-hover:opacity-100 transition-all duration-300">
                     {combo.icon}
                   </div>
@@ -110,13 +114,11 @@ export default function CombosPage() {
                   </p>
                 </div>
               </div>
-
-              {/* Brillo superior decorativo */}
               <div className="absolute inset-x-0 top-0 h-[2px] bg-white/10 rounded-t-[26px] pointer-events-none"></div>
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
