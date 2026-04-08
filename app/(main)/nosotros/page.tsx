@@ -93,7 +93,7 @@ export default function NosotrosPage() {
 
                 <p className="text-lg">
                   En la actualidad Holguín es el Hogar de esta familia y <span className="font-bold text-[#8B5A2B]">Julio</span>,
-                  el heredero del alias <span className="italic font-bold text-[#3D2B1F]">"Escapao"</span> nos brinda la posibilidad de llegar
+                  el heredero (alias) <span className="italic font-bold text-[#3D2B1F]">"el Escapao"</span> nos brinda la posibilidad de llegar
                   a este lugar de la geografía oriental y disfrutar de la Cuba que añoramos.
                 </p>
 
@@ -337,7 +337,7 @@ export default function NosotrosPage() {
           {/* Invitación final */}
           <div className="text-center mt-12">
             <div className="inline-block bg-[#D4A373] bg-[url('/images/madera.webp')] bg-[length:110%_100%] bg-no-repeat text-[#BD9E7D] px-10 py-4 rounded-full font-black text-xl shadow-2xl  hover:bg-[#c59462] transition-colors">
-              🍺 ¡Te esperamos para que te Escapés! 🍽️
+              🍺 Escápate con Nosotros 🍽️
             </div>
           </div>
         </div>

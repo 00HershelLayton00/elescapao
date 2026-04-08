@@ -48,11 +48,7 @@ const IconRegalo = () => (
 );
 export default function CombosPage() {
   const combos = [
-    { nombre: "Combo Familiar", items: "2 pizzas grandes + 2 bebidas 2L + postre familiar", precio: "$35.99", ahorro: "Ahorras $8.00", icon: <IconFamilia /> },
-    { nombre: "Combo Romántico", items: "1 entrada compartida + 2 platos principales + 1 botella de vino", precio: "$42.99", ahorro: "Ahorras $12.00", icon: <IconRomantico /> },
-    { nombre: "Combo Ejecutivo", items: "Plato principal + bebida + postre del día", precio: "$15.99", ahorro: "Ahorras $5.00", icon: <IconEjecutivo /> },
-    { nombre: "Combo Hamburguesa", items: "Hamburguesa + papas + refresco", precio: "$12.99", ahorro: "Ahorras $4.00", icon: <IconHamburguesa /> },
-    { nombre: "Combo Fiesta", items: "3 entradas + 3 platos + 3 postres + 3 bebidas", precio: "$59.99", ahorro: "Ahorras $15.00", icon: <IconFiesta /> }
+    { nombre: "Oferta para choferes", items: "Convenios con choferes para transportar clientes a nuestro local y llevar insignias del mismo en su vehículo, los interesados pueden contactarnos para más información", precio: "+53 51591471", ahorro: "Llama ya!", icon: <IconEjecutivo /> },
   ]
 
   return (
@@ -71,6 +67,7 @@ export default function CombosPage() {
           </div>
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-[#4E342E]/60 to-transparent"></div>
         </div>
+
 
         {/* Grid de Combos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

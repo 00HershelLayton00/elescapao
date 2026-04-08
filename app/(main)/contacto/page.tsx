@@ -46,9 +46,10 @@ export default function ContactoPage() {
         <div className="flex items-center justify-center gap-6 mb-12">
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#4E342E]/60 to-transparent"></div>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#4E342E] uppercase tracking-widest px-4 flex items-center justify-center gap-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#4E342E] uppercase tracking-widest px-4 flex items-center justify-center gap-4 text-red-900">
               <IconMapa />
               Contacto
+              <IconMapa />
             </h1>
             <p className="text-[#4E342E]/70 italic mt-2 font-medium">Estamos en el corazón de Holguín</p>
           </div>
@@ -141,7 +142,7 @@ export default function ContactoPage() {
 
         <div className="mt-12 text-center">
            <p className="text-[#4E342E]/40 italic text-base tracking-[0.2em] uppercase">
-              Visítanos y disfruta de la mejor comida 
+              Las Cosas Son Cuando SON!!
            </p>
         </div>
       </div>
