@@ -39,6 +39,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                     description={p.desc} 
                     price={p.precio}
                     rating={p.rating} 
+                    icono={p.icono}
                   />
                 </div>
               ))}

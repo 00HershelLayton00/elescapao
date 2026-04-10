@@ -4,7 +4,7 @@ interface ProductCardProps {
   name: string;
   description: string;
   price: number | string;
-  icon?: string;
+  icono?: string;
   rating?: number | string; // Puede ser 4.5, "★★★★☆", 5, etc.
 }
 
@@ -12,7 +12,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   name, 
   description, 
   price, 
-  icon = '🌿',
+  icono = '🌿',
   rating = 0 
 }) => {
   
@@ -53,9 +53,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
           
           {/* Precio arriba a la derecha */}
           <div className="flex items-baseline gap-1 bg-black/20 px-3 py-1.5 rounded-full backdrop-blur-sm shrink-0 ml-4">
-            <span className="text-[10px] font-bold text-[#f2e2ce]/70 uppercase tracking-wider">$</span>
             <span className="text-xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-              {typeof price === 'number' ? price.toLocaleString('es-ES') : price}
+              {price}
             </span>
           </div>
         </div>
@@ -81,7 +80,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Icono abajo a la derecha - con la misma lógica original */}
           <div className="text-2xl opacity-20 grayscale group-hover:opacity-50 group-hover:grayscale-0 transition-all duration-500 shrink-0">
-            {icon}
+            {icono}
           </div>
         </div>
       </div>
