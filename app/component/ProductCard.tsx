@@ -62,7 +62,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Descripción */}
         <div className="flex-1">
-          <p className="text-[#c5a88a] text-sm mt-2 font-medium italic opacity-90 line-clamp-3">
+          <p className="text-[#c5a88a] text-sm mt-2 font-medium italic opacity-90 line-clamp-4">
             {description}
           </p>
         </div>

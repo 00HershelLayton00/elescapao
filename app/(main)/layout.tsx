@@ -11,7 +11,7 @@ export default function MainLayout({
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   const navLinks = [
-    { name: "Menú", href: "/menu" },
+    //{ name: "Menú", href: "/menu" },
     { name: "Juego", href: "/juego" },
     { name: "Ofertas", href: "/ofertas" },
     { name: "Nosotros", href: "/nosotros" },

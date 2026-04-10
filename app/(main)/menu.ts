@@ -1,3 +1,4 @@
+import os from 'os';
 export const MENU_DATA = [
     {
         id: "entradas",
@@ -6,13 +7,8 @@ export const MENU_DATA = [
             {
                 nombre: "Entrantes",
                 productos: [
-                    { nombre: "Croquetas de pescado", desc: "", precio: "$3000" ,rating:3.9},
-                    { nombre: "Croquetas de Camarón", desc: "", precio: "$3000" },
-                    { nombre: "Croqueta de Ahumada", desc: "", precio: "$3000" },
-                    { nombre: "Croqueta de Queso", desc: "", precio: "$3000" },
-                    { nombre: "Brochetas de Cerdo", desc: "", precio: "$3800" },
-                    { nombre: "Brochetas de Pollo", desc: "", precio: "$3800" },
-                    { nombre: "Brochetas de vegetales", desc: "", precio: "$3800" },
+                    { nombre: "Croquetas", desc: `De pescado\nDe camarón\nAhumadas\nCon queso`, precio: "$3000" ,rating:3.9},
+                    { nombre: "Brochetas", desc: "De cerdo\n De pollo\n De vegetales", precio: "$3800" },
                     { nombre: "Albóndigas de Cerdo", desc: "100% Carne", precio: "$3000" },
                     { nombre: "Tira cervecera", desc: "Chorizo de cerdo hecho en casa", precio: "$3000" },
                     { nombre: "Ají Relleno", desc: "Pimiento relleno con carne de cerdo y gratinado con queso", precio: "$3000" },
