@@ -3,7 +3,8 @@ import Gallery from '@/app/component/Gallery';
 
 const pacifico = Pacifico({
   subsets: ['latin'],
-  weight: ['400']
+  weight: ['400'],
+  display: 'swap',
 })
 
 export default function Home() {

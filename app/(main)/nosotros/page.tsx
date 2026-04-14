@@ -5,6 +5,7 @@ const specialElite = Special_Elite({
   subsets: ['latin'],
   weight: ['400'], // Esta fuente solo suele tener peso 400 (normal)
   variable: '--font-special-elite', // Opcional: para usarla como variable CSS
+  display: 'swap', // Mejora la experiencia de carga de la fuente
 })
 export default function NosotrosPage() {
   return (
@@ -108,7 +109,7 @@ export default function NosotrosPage() {
 
                 <p className="text-xl">
                   En la actualidad, Holguín es el Hogar de esta familia y <span className="font-bold text-[#8A1A12]">Julio</span>,
-                  el heredero (alias) <span className="italic font-bold text-[#8A1A12]">"el Escapao"</span> nos brinda la posibilidad de llegar
+                  el heredero del alias <span className="italic font-bold text-[#8A1A12]">"Escapao"</span> nos brinda la posibilidad de llegar
                   a este lugar de la geografía oriental y disfrutar de la Cuba que añoramos,
                 </p>
 
@@ -201,7 +202,7 @@ export default function NosotrosPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
-                  <p className="mt-2 text-xs font-bold text-[#3D2B1F] uppercase tracking-tighter"></p>
+                  <p className="mt-2 text-xs font-bold text-[#3D2B1F] uppercase tracking-tighter">Clásico {i}</p>
                 </div>
               ))}
             </div>

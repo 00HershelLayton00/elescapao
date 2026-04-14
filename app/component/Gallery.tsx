@@ -4,7 +4,8 @@ import { Pacifico } from 'next/font/google';
 
 const pacifico = Pacifico({
   subsets: ['latin'],
-  weight: ['400']
+  weight: ['400'],
+  display: 'swap',
 });
 
 // Estructura simplificada: solo URL y el texto que se mostrará
