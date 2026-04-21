@@ -58,3 +58,6 @@
 - [ ] Mostrar algo estilo alerta con el texto: *"Somos cercanía"*
 - [ ] Debajo, una foto de Cuba con puentes conectando a muchas partes del mundo
 - [ ] Texto debajo de la foto: *"Conectados con cualquier parte del mundo, te damos la bienvenida desde donde te encuentres"*
+
+## Crear un apartado de los escapaos o algo así, como ultimo en todo
+se muestren fotos de gente y cosas asi
