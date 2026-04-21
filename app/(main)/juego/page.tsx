@@ -18,6 +18,29 @@ interface RecordMundial {
 
 const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwJJ8OEkQAUXrqDHZ7h88wE9smWyAKN4ttMlu_LH2lv5DyMRu_zqazSe6dAP1t6DGD4xw/exec';
 
+// ========== NUEVO: Configuración de horarios ==========
+const HORARIOS_PERMITIDOS = [
+  { inicio: 15, fin: 17 },  // 15:00 a 17:00
+  { inicio: 20, fin: 21 },  // 20:00 a 22:00
+  { inicio: 22, fin: 23 },
+];
+
+function puedeIniciarPartida(): boolean {
+  const ahora = new Date();
+  const horaActual = ahora.getHours();
+  
+  return HORARIOS_PERMITIDOS.some(horario => 
+    horaActual >= horario.inicio && horaActual < horario.fin
+  );
+}
+
+function obtenerTextoHorarios(): string {
+  return HORARIOS_PERMITIDOS
+    .map(h => `${h.inicio}:00 a ${h.fin}:00`)
+    .join(' o ');
+}
+// ========== FIN NUEVO ==========
+
 export default function RunnerEscapa() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [puntos, setPuntos] = useState(0);
@@ -28,6 +51,10 @@ export default function RunnerEscapa() {
   const [nombreJugador, setNombreJugador] = useState('');
   const [telefonoJugador, setTelefonoJugador] = useState('');
   const [mostrarInput, setMostrarInput] = useState(false);
+  
+  // ========== NUEVO: Estado para control horario ==========
+  const [horarioPermitido, setHorarioPermitido] = useState(true);
+  // ========== FIN NUEVO ==========
 
   // Refs del juego
   const gameRef = useRef({
@@ -55,6 +82,19 @@ export default function RunnerEscapa() {
   const fuerzaSalto = -11;
   const sueloY = 220;
   const autoYBase = sueloY - 40;
+
+  // ========== NUEVO: Verificar horario periódicamente ==========
+  useEffect(() => {
+    const verificarHorario = () => {
+      setHorarioPermitido(puedeIniciarPartida());
+    };
+    
+    verificarHorario();
+    const intervalo = setInterval(verificarHorario, 60000); // cada minuto
+    
+    return () => clearInterval(intervalo);
+  }, []);
+  // ========== FIN NUEVO ==========
 
   // Cargar récord local y mundial
   useEffect(() => {
@@ -187,9 +227,18 @@ export default function RunnerEscapa() {
       ctx.font = '20px monospace';
       ctx.fillStyle = '#8B5A2B';
       ctx.textAlign = 'center';
-      ctx.fillText('Presiona ESPACIO o TOCA para saltar', canvas.width/2, canvas.height/2);
-      ctx.font = '16px monospace';
-      ctx.fillText('🚗 Esquiva cactus, piedras y pozos 🚧', canvas.width/2, canvas.height/2 + 40);
+      
+      // ========== NUEVO: Mensaje personalizado si no hay horario ==========
+      if (!horarioPermitido) {
+        ctx.fillText(`⏰ Fuera de horario. Juego disponible: ${obtenerTextoHorarios()}`, canvas.width/2, canvas.height/2 - 20);
+        ctx.font = '16px monospace';
+        ctx.fillText('Presiona ESPACIO o TOCA cuando estés en horario', canvas.width/2, canvas.height/2 + 20);
+      } else {
+        ctx.fillText('Presiona ESPACIO o TOCA para saltar', canvas.width/2, canvas.height/2);
+        ctx.font = '16px monospace';
+        ctx.fillText('🚗 Esquiva cactus, piedras y pozos 🚧', canvas.width/2, canvas.height/2 + 40);
+      }
+      // ========== FIN NUEVO ==========
     }
 
     if (gameOver) {
@@ -201,7 +250,7 @@ export default function RunnerEscapa() {
       ctx.fillStyle = '#3D2B1F';
       ctx.fillText(`Puntos: ${Math.floor(gameRef.current.puntos)}`, canvas.width/2, canvas.height/2);
     }
-  }, [jugando, gameOver]);
+  }, [jugando, gameOver, horarioPermitido]);
 
   // Actualizar lógica
   const actualizar = useCallback(() => {
@@ -310,8 +359,13 @@ export default function RunnerEscapa() {
     animFrameRef.current = requestAnimationFrame(animacion);
   }, [actualizar]);
 
-  // Iniciar juego
+  // ========== NUEVO: Iniciar juego con verificación de horario ==========
   const iniciarJuego = useCallback(() => {
+    if (!puedeIniciarPartida()) {
+      alert(`⏰ Solo puedes empezar partidas en horarios: ${obtenerTextoHorarios()}`);
+      return;
+    }
+    
     autoRef.current = {
       y: autoYBase,
       velocidadY: 0,
@@ -343,6 +397,7 @@ export default function RunnerEscapa() {
     animFrameRef.current = requestAnimationFrame(animacion);
     dibujar();
   }, [animacion, dibujar, generarObstaculo]);
+  // ========== FIN NUEVO ==========
 
   // Saltar
   const saltar = useCallback(() => {
@@ -423,6 +478,19 @@ export default function RunnerEscapa() {
           🚗 Salta con ESPACIO o TOCANDO | 🎋 Más puntos = más velocidad
         </p>
 
+        {/* ========== NUEVO: Indicador de horario ========== */}
+        {!horarioPermitido && (
+          <div className="text-center mb-4 p-2 bg-red-100 text-red-700 rounded-lg">
+            ⏰ Fuera de horario. Juego disponible: {obtenerTextoHorarios()}
+          </div>
+        )}
+        {horarioPermitido && (
+          <div className="text-center mb-4 p-2 bg-green-100 text-green-700 rounded-lg">
+            ✅ Horario habilitado. ¡Puedes jugar!
+          </div>
+        )}
+        {/* ========== FIN NUEVO ========== */}
+
         <div className="flex flex-wrap justify-between gap-4 mb-4">
           <div className="bg-amber-100 rounded-lg px-6 py-3 flex-1 text-center min-w-[100px]">
             <span className="text-gray-600 text-sm">PUNTOS</span>
@@ -457,7 +525,12 @@ export default function RunnerEscapa() {
           <div className="text-center mt-6">
             <button
               onClick={iniciarJuego}
-              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg text-xl transition"
+              className={`font-bold py-3 px-8 rounded-lg text-xl transition ${
+                horarioPermitido 
+                  ? 'bg-green-700 hover:bg-green-800 text-white' 
+                  : 'bg-gray-400 cursor-not-allowed text-gray-200'
+              }`}
+              disabled={!horarioPermitido}
             >
               ▶ COMENZAR AVENTURA
             </button>
@@ -468,7 +541,12 @@ export default function RunnerEscapa() {
           <div className="text-center mt-6">
             <button
               onClick={iniciarJuego}
-              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg text-xl transition"
+              className={`font-bold py-3 px-8 rounded-lg text-xl transition ${
+                horarioPermitido 
+                  ? 'bg-green-700 hover:bg-green-800 text-white' 
+                  : 'bg-gray-400 cursor-not-allowed text-gray-200'
+              }`}
+              disabled={!horarioPermitido}
             >
               🔄 REINICIAR VIAJE
             </button>
