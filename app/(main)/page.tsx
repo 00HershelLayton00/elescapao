@@ -12,8 +12,8 @@ export default function Home() {
   const actividades = [
     { titulo: "🤡Shows de Payasos", fecha: "Todos los Días", desc: "Con divertidas ocurrencias y juegos para el disfrute en familia" },
     { titulo: "🎤Karaoke Escapao", fecha: "Todos los Jueves", desc: "Ponemos la música y usted se convierte en el mejor de los cantantes" },
-    { titulo: "Encuentro Cubano", fecha: "Todos los Viernes", desc: "Un momento para encontrarnos con nuestras raíces" },
-    { titulo: "Para Pasarlo en Familia", fecha: "Sábados y Domingos", desc: "Entre payasos y risas los adultos se hacen niños y los niños hacen grande a la familia" },
+    { titulo: "🇨🇺Encuentro Cubano", fecha: "Todos los Viernes", desc: "Un momento para encontrarnos con nuestras raíces" },
+    { titulo: "👪Para Pasarlo en Familia", fecha: "Sábados y Domingos", desc: "Entre payasos y risas los adultos se hacen niños y los niños hacen grande a la familia" },
     { titulo: "💃🏻Show de Cabaret Tradicional", fecha: "Todos los Sábados", desc: "Artistas, bailarines y humoristas; nacionales e internacionales siempre alegrando nuestras noches de armonía" },
     { titulo: "✨Noche  Bajo las Estrellas", fecha: "Todos los Domingos", desc: "Una noche donde la estrella siempre serás tú, escápate!" },
 
