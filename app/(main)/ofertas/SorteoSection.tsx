@@ -2,6 +2,8 @@
 
 import React, { useState, useRef } from 'react';
 
+const precio=15, numero_zelle=111111111;
+
 // Iconos específicos del sorteo
 const IconRuleta = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-12 h-12">
@@ -94,7 +96,7 @@ export default function SorteoSection({ participantesIniciales = [] }: SorteoSec
     
     try {
       const telefono = "5351591471";
-      const total = formData.tickets * 5;
+      const total = formData.tickets * precio;
       
       const mensaje = `🎰 SORTEO ESCAPAO 🎰
 
@@ -136,20 +138,24 @@ Quedo atento a la confirmacion.`;
         <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
           <div className="flex items-center gap-3">
             <IconRuleta />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#f2e2ce]">Gran Sorteo Escapao</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#f2e2ce]">Gran Sorteo Día de las Madres</h2>
           </div>
           <div className="flex items-center gap-3">
             <IconRuleta />
-            <h4 className="text-2xl md:text-1xl text-[#f2e2ce]">Sorteo motivado por el día de las madres. Fecha que se celebrará en Cuba este año el 9 de mayo; momento en el que anunciaremos a las familias premiadas. Se participa a traves de ZELLE, para hacerlo solo debe generar un comprobante con ayuda del sistema y realizar la transferencia.</h4>
+            <div>
+              <h4 className="text-2xl md:text-1xl text-[#f2e2ce]">Compra tu ticket ya y celebra a tu mamá a lo grande, porque siempre es mejor MÁS CERCA DE TI. Participa comprando un ticket por solo {precio} USD desde cualquier parte del mundo.</h4>
+              <h4 className="text-2xl md:text-1xl text-[#f2e2ce]">Métodos de pago: Zelle a {numero_zelle}</h4>
+              <h4 className="text-2xl md:text-1xl text-[#f2e2ce]">Contactar soporte a +5351591471</h4>
+            </div>
           </div>
-          <div className="bg-black/30 p-3 rounded-xl">
+          <div className="bg-black/30 p-3 rounded-xl items-center flex items-center gap-3">
             <p className="text-[#f2e2ce] text-xs uppercase tracking-wide">Tickets Confirmados Hasta Ahora</p>
             <p className="text-2xl md:text-3xl font-bold text-[#86efac] text-center">{totalTickets}</p>
           </div>
         </div>
 
         <p className="text-[#c5a88a] mb-6 text-center md:text-left">
-          Cada ticket cuesta <span className="text-[#86efac] font-bold">$5 USD</span>
+          Cada ticket cuesta <span className="text-[#86efac] font-bold">${precio} USD</span>
         </p>
 
         {/* Pestañas (Tabs) */}
@@ -252,7 +258,7 @@ Quedo atento a la confirmacion.`;
                       disabled={enviando}
                     />
                     <p className="text-[#c5a88a] text-sm mt-1">
-                      Total: <span className="text-[#86efac] font-bold">${formData.tickets * 5} USD</span>
+                      Total: <span className="text-[#86efac] font-bold">${formData.tickets * precio} USD</span>
                     </p>
                   </div>
                   
@@ -342,23 +348,10 @@ Quedo atento a la confirmacion.`;
           Toca los puntos o desliza ← → para cambiar
         </p>
 
-        {/* Premios */}
-        <div className="mt-8 grid grid-cols-3 gap-2 md:gap-4">
-          <div className="bg-gradient-to-r from-yellow-600/20 to-yellow-800/20 p-3 rounded-lg text-center">
-            <p className="text-lg md:text-2xl">🥇</p>
-            <p className="text-[#f2e2ce] text-xs md:text-sm font-bold">Premio Escapao</p>
-            <p className="text-[#86efac] text-sm md:text-base">Un lechón entero</p>
-          </div>
-          <div className="bg-gradient-to-r from-gray-400/20 to-gray-600/20 p-3 rounded-lg text-center">
-            <p className="text-lg md:text-2xl">🥈</p>
-            <p className="text-[#f2e2ce] text-xs md:text-sm font-bold">Premio Grande</p>
-            <p className="text-[#86efac] text-sm md:text-base">Por definir</p>
-          </div>
-          <div className="bg-gradient-to-r from-amber-700/20 to-amber-900/20 p-3 rounded-lg text-center">
-            <p className="text-lg md:text-2xl">🥉</p>
-            <p className="text-[#f2e2ce] text-xs md:text-sm font-bold">Premio Notable</p>
-            <p className="text-[#86efac] text-sm md:text-base">Por definir</p>
-          </div>
+        {/* Premio*/}
+        <div className="bg-gradient-to-r from-gray-400/20 to-gray-600/20 p-3 rounded-lg text-center">
+          <p className="text-[#f2e2ce] text-xs md:text-sm font-bold">Premio Grande</p>
+          <p className="text-[#86efac] text-sm md:text-base text-4xl">Lechón asado entero, arroz vianda y ensalada</p>       
         </div>
       </div>
 
