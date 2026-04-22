@@ -24,8 +24,8 @@
 - [ ] Fotos de carros de fondo en el menú, incluyendo cosas de la sección, gente y elementos tradicionales
 
 ## Funcionalidad del juego
-- [ ] El juego se activa solo en intervalos de tiempo definidos en un array
-- [ ] Fuera de esos intervalos, no se debe poder acceder al juego
+- [x] El juego se activa solo en intervalos de tiempo definidos en un array
+- [x] Fuera de esos intervalos, no se debe poder acceder al juego
 - [ ] Después de cada partida, recargar la página del juego para evitar problemas de carga anticipada
 
 ## Render y compilación

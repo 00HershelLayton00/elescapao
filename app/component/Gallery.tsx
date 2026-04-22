@@ -59,7 +59,7 @@ export default function Gallery() {
   };
 
   return (
-    <section className="relative pt-10 pb-20 mx-2 md:mx-10 lg:mx-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/papel_arrugado.png')] bg-repeat rounded-xl shadow-sm">
+    <section className="relative pt-10 pb-20 mx-2 md:mx-10 lg:mx-20 overflow-hidden">
       
       {/* TÍTULO SECCIÓN */}
       <div className="flex items-center justify-center gap-4 mb-12">
