@@ -202,7 +202,7 @@ export default function NosotrosPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
-                  <p className="mt-2 text-xs font-bold text-[#3D2B1F] uppercase tracking-tighter">Clásico {i}</p>
+                  <p className="mt-2 text-xs font-bold text-[#3D2B1F] uppercase tracking-tighter"></p>
                 </div>
               ))}
             </div>

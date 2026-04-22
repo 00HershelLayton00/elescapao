@@ -26,7 +26,11 @@
 ## Funcionalidad del juego
 - [x] El juego se activa solo en intervalos de tiempo definidos en un array
 - [x] Fuera de esos intervalos, no se debe poder acceder al juego
+<<<<<<< HEAD
 - [ ] Después de cada partida, recargar la página del juego para evitar problemas de carga anticipada
+=======
+- [x] Después de cada partida, recargar la página del juego para evitar problemas de carga anticipada
+>>>>>>> 4ffbace44c4ee45f6893df162a97963db2bd5025
 
 ## Render y compilación
 - [ ] Mantener en render la versión compilada
