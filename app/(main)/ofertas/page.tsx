@@ -32,8 +32,8 @@ const IconWhatsApp = () => (
 export default function CombosPage() {
   const numero_oscar = "+5354797723";
   const numero_vivi = "+5351591471";
-  const mensajeWhatsApp = "Saludos, me gustaría saber más sobre una oferta de menúes para mi familia";
-  const whatsappUrl = `https://wa.me/${numero_oscar}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+  const mensajeWhatsApp = "Saludos+me+gustaría+saber+más+sobre+una+oferta+de+menúes+para+mi+familia";
+  const whatsappUrl = `https://wa.me/${numero_oscar}?text=${mensajeWhatsApp}`;
 
   const combos = [
     { 
@@ -160,7 +160,7 @@ export default function CombosPage() {
                       className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20b859] text-white font-bold py-2.5 px-5 rounded-full transition-all duration-300 shadow-lg text-sm"
                     >
                       <IconWhatsApp />
-                      WhatsApp
+                      Contactar
                     </a>
                   </div>
                 </div>
