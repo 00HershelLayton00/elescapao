@@ -29,9 +29,9 @@ interface SorteoSectionProps {
 export default function SorteoSection({ participantesIniciales = [] }: SorteoSectionProps) {
   // Datos estáticos - TÚ ACTUALIZAS ESTO MANUALMENTE
   const [participantes, setParticipantes] = useState<Participante[]>([
-    { nombre: "Maria Gonzalez", tickets: 5, fecha: "2025-01-15" },
-    { nombre: "Carlos Perez", tickets: 3, fecha: "2025-01-16" },
-    { nombre: "Ana Rodriguez", tickets: 10, fecha: "2025-01-16" },
+    { nombre: "Maria Gonzalez", tickets: 5, fecha: "2026-04-22" },
+    { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-21" },
+    { nombre: "Ana Rodriguez", tickets: 10, fecha: "2026-04-21" },
     ...participantesIniciales
   ]);
 
@@ -95,7 +95,7 @@ export default function SorteoSection({ participantesIniciales = [] }: SorteoSec
     setEnviando(true);
     
     try {
-      const telefono = "5351591471";
+      const telefono = "+5351591471";
       const total = formData.tickets * precio;
       
       const mensaje = `🎰 SORTEO ESCAPAO 🎰

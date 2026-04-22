@@ -1,45 +1,7 @@
 import React from 'react';
 import SorteoSection from './SorteoSection';
 
-// === ICONOS SVG ===
-const IconFamilia = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-16 h-16">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-  </svg>
-);
-
-const IconRomantico = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-16 h-16">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-  </svg>
-);
-
-const IconEjecutivo = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-16 h-16">
-    <path d="M12 12h.01M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M22 13a18.15 18.15 0 0 1-20 0" />
-    <rect width="20" height="14" x="2" y="6" rx="2" />
-  </svg>
-);
-
-const IconHamburguesa = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-16 h-16">
-    <path d="M12 16H4a2 2 0 1 1 0-4h16a2 2 0 1 1 0 4h-4.25" />
-    <path d="M5 12a2 2 0 0 1-2-2 9 7 0 0 1 18 0 2 2 0 0 1-2 2" />
-    <path d="M5 16a2 2 0 0 0-2 2 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 2 2 0 0 0-2-2q0 0 0 0" />
-    <path d="m6.67 12 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2" />
-  </svg>
-);
-
-const IconFiesta = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-16 h-16">
-    <path d="M5.8 11.3 2 22l10.7-3.79M4 3h.01M22 8h.01M15 2h.01M22 20h.01" />
-    <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" />
-    <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17" />
-    <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" />
-    <path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" />
-  </svg>
-);
-
+// === ICONOS SVG UTILIZADOS ===
 const IconRegalo = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 inline-block mb-1">
     <path d="M12 7v14M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
@@ -48,9 +10,57 @@ const IconRegalo = () => (
   </svg>
 );
 
+const IconCorazon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-16 h-16 text-rose-400">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+  </svg>
+);
+
+const IconInfantil = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-16 h-16">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+    <path d="M8.25 13.5h7.5" />
+  </svg>
+);
+
+const IconWhatsApp = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+    <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22 1.5 14.948 1.5 6.75V4.5z" clipRule="evenodd" />
+  </svg>
+);
+
 export default function CombosPage() {
+  const numero_oscar = "+5354797723";
+  const numero_vivi = "+5351591471";
+  const mensajeWhatsApp = "Saludos, me gustaría saber más sobre una oferta de menúes para mi familia";
+  const whatsappUrl = `https://wa.me/${numero_oscar}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+
   const combos = [
-    { nombre: "Oferta para choferes", items: "Convenios con choferes para transportar clientes a nuestro local y llevar insignias del mismo en su vehículo, los interesados pueden contactarnos para más información", precio: "+53 51591471", ahorro: "Llama ya!", icon: <IconEjecutivo /> },
+    { 
+      nombre: "Menúes de Celebración", 
+      items: "✨ Cumpleaños • Aniversarios • Días Festivos • Bodas • Divorcios ✨", 
+      descripcion: "Bufé • Fotógrafos • Animadores • Shows artísticos • Decoración",
+      detalle: "Costo por número de personas",
+      precio: "Consultar", 
+      ahorro: "Eventos especiales", 
+      icon: <IconCorazon /> 
+    },
+    { 
+      nombre: "Para Niños", 
+      items: "🎂 Cumpleaños • Escuela • Solo por agradecer que está con nosotros 🎈", 
+      descripcion: "Bufé • Fotógrafos • Payasos • Decoraciones",
+      detalle: "Costo dependiendo de la cantidad de personas",
+      precio: "Consultar", 
+      ahorro: "Fiestas infantiles", 
+      icon: <IconInfantil /> 
+    },
+    { 
+      nombre: "Oferta para choferes", 
+      descripcion: "Convenios con choferes para transportar clientes a nuestro local y llevar insignias del mismo en su vehículo, los interesados pueden contactarnos para más información", 
+      precio: "+53 51591471", 
+      ahorro: "Llama ya!", 
+      icon: null 
+    },
   ];
 
   return (
@@ -75,12 +85,12 @@ export default function CombosPage() {
           <SorteoSection />
         </div>
 
-        {/* Grid de Combos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Grid de Combos - todas las cartas unificadas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {combos.map((combo, i) => (
             <div
               key={i}
-              className="relative group overflow-hidden rounded-[26px] flex flex-col p-8 transition-all duration-300"
+              className="relative group overflow-hidden rounded-[26px] flex flex-col p-6 transition-all duration-300 hover:scale-[1.02]"
               style={{
                 backgroundColor: '#3d2b1f',
                 backgroundImage: "url('/images/purty_wood.jpeg')",
@@ -91,27 +101,68 @@ export default function CombosPage() {
               }}
             >
               <div className="relative z-10 flex flex-col h-full">
-                <div className="flex justify-between items-start">
-                  <div className="max-w-[75%]">
-                    <h3 className="text-3xl font-bold text-[#f2e2ce] drop-shadow-md">
-                      {combo.nombre}
-                    </h3>
-                    <p className="text-[#c5a88a] mt-3 italic font-medium leading-relaxed">
-                      {combo.items}
-                    </p>
-                  </div>
-                  <div className="text-[#f2e2ce] opacity-80 group-hover:opacity-100 transition-all duration-300">
-                    {combo.icon}
-                  </div>
+                {/* Icono y título */}
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-2xl font-bold text-[#f2e2ce] drop-shadow-md leading-tight">
+                    {combo.nombre}
+                  </h3>
+                  {combo.icon && (
+                    <div className="text-[#f2e2ce] opacity-80 group-hover:opacity-100 transition-all duration-300">
+                      {combo.icon}
+                    </div>
+                  )}
                 </div>
 
-                <div className="mt-8">
-                  <p className="text-[#86efac] text-sm font-bold uppercase tracking-widest mb-1 drop-shadow-sm">
-                    {combo.ahorro}
+                {/* Items principales (con emojis) */}
+                <p className="text-[#e6c8a8] font-semibold text-lg mb-3">
+                  {combo.items}
+                </p>
+
+                {/* Descripción de servicios */}
+                {combo.descripcion && (
+                  <p className="text-[#c5a88a] font-medium mb-2">
+                    {combo.descripcion}
                   </p>
-                  <p className="text-4xl font-black text-white drop-shadow-lg">
-                    {combo.precio}
+                )}
+
+                {/* Detalle adicional */}
+                {combo.detalle && (
+                  <p className="text-[#a88868] text-sm italic mb-4">
+                    {combo.detalle}
                   </p>
+                )}
+
+                {/* Texto general para oferta de choferes */}
+                {combo.nombre === "Oferta para choferes" && (
+                  <p className="text-[#c5a88a] mt-2 italic font-medium leading-relaxed flex-1">
+                    {combo.items}
+                  </p>
+                )}
+
+                {/* Espaciador flexible */}
+                <div className="flex-1"></div>
+
+                {/* Precio y botón */}
+                <div className="mt-6">
+                  <div className="flex items-center justify-between flex-wrap gap-3">
+                    <div>
+                      <p className="text-[#86efac] text-sm font-bold uppercase tracking-widest mb-1 drop-shadow-sm">
+                        {combo.ahorro}
+                      </p>
+                      <p className="text-3xl font-black text-white drop-shadow-lg">
+                        {combo.precio}
+                      </p>
+                    </div>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20b859] text-white font-bold py-2.5 px-5 rounded-full transition-all duration-300 shadow-lg text-sm"
+                    >
+                      <IconWhatsApp />
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="absolute inset-x-0 top-0 h-[2px] bg-white/10 rounded-t-[26px] pointer-events-none"></div>
