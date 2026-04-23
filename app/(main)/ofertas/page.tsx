@@ -36,50 +36,73 @@ export default function CombosPage() {
   const whatsappUrl = `https://wa.me/${numero_oscar}?text=${mensajeWhatsApp}`;
 
   const combos = [
-    { 
-      nombre: "Menúes de Celebración", 
-      items: "✨ Cumpleaños • Aniversarios • Días Festivos • Bodas • Divorcios ✨", 
+    {
+      nombre: "Menúes de Celebración",
+      items: "✨ Cumpleaños • Aniversarios • Días Festivos • Bodas • Divorcios ✨",
       descripcion: "Bufé • Fotógrafos • Animadores • Shows artísticos • Decoración",
       detalle: "Costo por número de personas",
-      precio: "Consultar", 
-      ahorro: "Eventos especiales", 
-      icon: <IconCorazon /> 
+      precio: "Consultar",
+      ahorro: "Eventos especiales",
+      icon: <IconCorazon />
     },
-    { 
-      nombre: "Para Niños", 
-      items: "🎂 Cumpleaños • Escuela • Solo por agradecer que está con nosotros 🎈", 
+    {
+      nombre: "Para Niños",
+      items: "🎂 Cumpleaños • Escuela • Solo por agradecer que está con nosotros 🎈",
       descripcion: "Bufé • Fotógrafos • Payasos • Decoraciones",
       detalle: "Costo dependiendo de la cantidad de personas",
-      precio: "Consultar", 
-      ahorro: "Fiestas infantiles", 
-      icon: <IconInfantil /> 
+      precio: "Consultar",
+      ahorro: "Fiestas infantiles",
+      icon: <IconInfantil />
     },
-    { 
-      nombre: "Oferta para choferes", 
-      descripcion: "Convenios con choferes para transportar clientes a nuestro local y llevar insignias del mismo en su vehículo, los interesados pueden contactarnos para más información", 
-      precio: "+53 51591471", 
-      ahorro: "Llama ya!", 
-      icon: null 
+    {
+      nombre: "Oferta para choferes",
+      descripcion: "Convenios con choferes para transportar clientes a nuestro local y llevar insignias del mismo en su vehículo, los interesados pueden contactarnos para más información",
+      precio: "+53 51591471",
+      ahorro: "Llama ya!",
+      icon: null
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat py-12 pt-0">
+      <div
+        className="relative h-[40vh] md:h-[60vh] bg-cover bg-center mb-10 md:bg-fixed"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("/images/cerdo.webp")',
+          backgroundAttachment: 'scroll', // Por defecto en móvil para evitar zoom excesivo
+        }}
+      >
+        {/* Contenedor de contenido con mejor padding */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
 
-        {/* Cabecera */}
-        <div className="flex items-center justify-center gap-6 mb-16">
-          <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#4E342E]/60 to-transparent"></div>
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#4E342E] uppercase tracking-widest px-4 flex items-center justify-center gap-4">
-              <IconRegalo />
-              Ofertas y Combos
-            </h1>
-            <p className="text-[#4E342E]/70 italic mt-2 font-medium">Los mejores paquetes de El Escapao</p>
+          {/* Título principal */}
+          <h1 className="text-2xl md:text-7xl font-black text-[#FFF8DC] italic mb-4 tracking-tighter leading-tight">
+            Amor de madre, <br className="md:hidden" /> amor y tradición
+          </h1>
+
+          <div className="w-24 md:w-64 h-1 bg-[#D4A373] mb-6"></div>
+
+          {/* Cabecera de Ofertas */}
+          <div className="flex items-center justify-center gap-2 md:gap-6 w-full max-w-5xl">
+            <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#FFF8DC]/60 to-transparent"></div>
+
+            <div className="text-center">
+              <h1 className="text-xl md:text-5xl font-bold text-[#FFF8DC] uppercase tracking-[0.15em] px-2 flex items-center justify-center gap-2 md:gap-4">
+                <IconRegalo />
+                <span className="leading-none">Ofertas y Combos</span>
+              </h1>
+
+              <p className="text-xs md:text-base text-[#FFF8DC]/80 italic mt-3 font-medium tracking-wide">
+                Los mejores paquetes de El Escapao
+              </p>
+            </div>
+
+            <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-[#FFF8DC]/60 to-transparent"></div>
           </div>
-          <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-[#4E342E]/60 to-transparent"></div>
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto">
         {/* Componente Sorteo importado */}
         <div className="mb-16">
           <SorteoSection />

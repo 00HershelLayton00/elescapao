@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 
-const precio=15, numero_zelle=111111111;
+const precio=15, numero_zelle="+1 (786) 468-3518";
 
 // Iconos específicos del sorteo
 const IconRuleta = () => (
@@ -29,9 +29,9 @@ interface SorteoSectionProps {
 export default function SorteoSection({ participantesIniciales = [] }: SorteoSectionProps) {
   // Datos estáticos - TÚ ACTUALIZAS ESTO MANUALMENTE
   const [participantes, setParticipantes] = useState<Participante[]>([
-    { nombre: "Maria Gonzalez", tickets: 5, fecha: "2026-04-22" },
-    { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-21" },
-    { nombre: "Ana Rodriguez", tickets: 10, fecha: "2026-04-21" },
+    { nombre: "Maria Gonzalez", tickets: 1, fecha: "2026-04-22" },
+    // { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-21" },
+    // { nombre: "Ana Rodriguez", tickets: 10, fecha: "2026-04-21" },
     ...participantesIniciales
   ]);
 
