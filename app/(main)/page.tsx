@@ -12,7 +12,7 @@ export default function Home() {
   const actividades = [
     { titulo: "🤡Shows de Payasos", fecha: "Todos los Días", desc: "Con divertidas ocurrencias y juegos para el disfrute en familia" },
     { titulo: "🎤Karaoke Escapao", fecha: "Todos los Jueves", desc: "Ponemos la música y usted se convierte en el mejor de los cantantes" },
-    { titulo: "🇨🇺Encuentro Cubano", fecha: "Todos los Viernes", desc: "Un momento para encontrarnos con nuestras raíces" },
+    { titulo: "Encuentro Cubano", fecha: "Todos los Viernes", desc: "Un momento para encontrarnos con nuestras raíces" },
     { titulo: "👪Para Pasarlo en Familia", fecha: "Sábados y Domingos", desc: "Entre payasos y risas los adultos se hacen niños y los niños hacen grande a la familia" },
     { titulo: "💃🏻Show de Cabaret Tradicional", fecha: "Todos los Sábados", desc: "Artistas, bailarines y humoristas; nacionales e internacionales siempre alegrando nuestras noches de armonía" },
     { titulo: "✨Noche  Bajo las Estrellas", fecha: "Todos los Domingos", desc: "Una noche donde la estrella siempre serás tú, escápate!" },
@@ -23,34 +23,34 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <div 
-  className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
-  style={{
-    WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
-    maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
-  }}
->
+      <div
+        className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+        }}
+      >
 
         {/* --- Vehículos Decorativos (Fondo) --- */}
         <img
           src="/images/carro_azul.webp"
           alt="Chevrolet clásico azul"
-          className="absolute top-0 -left-60 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 -rotate-2 pointer-events-none z-0"
+          className="hidden md:block absolute top-0 -left-60 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 -rotate-2 pointer-events-none z-0"
         />
         <img
           src="/images/carro_gris.webp"
           alt="Chevrolet clásico gris"
-          className="absolute top-32 -left-40 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 scale-x-[-1] -rotate-2 pointer-events-none z-0"
+          className="hidden md:block absolute top-32 -left-40 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 scale-x-[-1] -rotate-2 pointer-events-none z-0"
         />
         <img
           src="/images/carro_rojo.webp"
           alt="Chevrolet clásico rojo"
-          className="absolute top-0 -right-60 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 rotate-2 scale-x-[-1] pointer-events-none z-0"
+          className="hidden md:block absolute top-0 -right-60 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 rotate-2 scale-x-[-1] pointer-events-none z-0"
         />
         <img
           src="/images/carro_verde.webp"
           alt="Chevrolet clásico verde"
-          className="absolute top-32 -right-40 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 rotate-2 scale-x-[-1] pointer-events-none z-0"
+          className="hidden md:block absolute top-32 -right-40 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 rotate-2 scale-x-[-1] pointer-events-none z-0"
         />
 
         {/* --- Contenido Principal --- */}
@@ -105,52 +105,68 @@ export default function Home() {
         />
       </div>
 
-
       <section className="relative py-12 px-4 bg-[#F4ECE1] overflow-hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          {/* Imagen Izquierda */}
+          <img
+            src="/images/madre1.webp"
+            alt="Madre e hija"
+            className="hidden md:block w-80 h-auto rounded-lg shadow-lg object-cover aspect-[3/4]"
+          />
 
-        {/* CONTENEDOR ÚNICO: El fondo se aplica aquí directamente */}
-        <div
-          className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center px-12 py-24 md:px-24 md:py-24 lg:px-48"
-          style={{
-            backgroundImage: "url('/images/frame.webp')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "100% 100%" // Obliga a la foto a cubrir el div completo (expandir/comprimir)
-          }}
-        >
+          {/* CONTENEDOR DEL MARCO (Tarjeta central) */}
+          <div
+            className="flex-1 text-center flex flex-col items-center justify-center px-10 py-16 md:px-16 md:py-20 lg:px-32 lg:py-24"
+            style={{
+              backgroundImage: "url('/images/frame.webp')",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "100% 100%" // Obliga a la foto a cubrir el div completo
+            }}
+          >
+            {/* Título (Letras más pequeñas: text-xs/text-sm) */}
+            <h3 className="text-[#3D2B1F] text-xs md:text-sm font-medium tracking-[0.25em] uppercase mb-5 font-serif opacity-80 p-4">
+              Actividad Especial (Día de las Madres - 9 Mayo)
+            </h3>
 
-          <h3 className="text-[#3D2B1F] text-base md:text-lg font-medium tracking-[0.25em] uppercase mb-6 font-serif opacity-80">
-            Actividad Especial (Día de las Madres - 9 Mayo)
-          </h3>
+            <div className="space-y-5 mb-8 max-w-3xl">
+              {/* Frase principal (Letras más pequeñas: text-2xl/text-4xl) */}
+              <p className="text-[#3D2B1F] text-2xl md:text-4xl leading-tight italic font-serif">
+                "El único día del año donde respiramos amor del bueno. Ven y festeja el Día de las Madres."
+              </p>
+              {/* Descripción (Letras más pequeñas: text-base/text-xl) */}
+              <p className="text-[#3D2B1F]/70 text-base md:text-xl font-light">
+                Ven y comparte con nosotros la experiencia de sentirte cerca de tus seres más queridos.
+              </p>
+            </div>
 
-          <div className="space-y-6 mb-10 max-w-4xl">
-            <p className="text-[#3D2B1F] text-3xl md:text-5xl leading-tight italic font-serif">
-              "El único día del año donde respiramos amor del bueno. Ven y festeja el Día de las Madres."
-            </p>
-            <p className="text-[#3D2B1F]/70 text-lg md:text-2xl font-light">
-              Ven y comparte con nosotros la experiencia de sentirte cerca de tus seres más queridos.
+            {/* Botón de WhatsApp (Letras más pequeñas: text-base/text-lg, padding ajustado) */}
+            <div className="flex justify-center">
+              <a
+                href="https://wa.me/5354797723"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center gap-2.5 px-10 py-3.5 bg-[#3D2B1F] text-[#F4ECE1] rounded-full transition-all duration-300 hover:bg-[#5D4037] hover:scale-105 shadow-xl"
+              >
+                <span className="text-base md:text-lg font-bold tracking-widest uppercase">
+                  Reserva por WhatsApp
+                </span>
+                <div className="absolute inset-0 rounded-full border-2 border-[#C5A880]/30 scale-110 group-hover:scale-100 transition-transform duration-500"></div>
+              </a>
+            </div>
+
+            {/* Número de WhatsApp (Letras más pequeñas: text-base/text-xl) */}
+            <p className="text-[#3D2B1F]/70 text-base md:text-xl font-light mt-3 mb-5">
+              WhatsApp : +53 5 4797723
             </p>
           </div>
 
-          {/* Botón de WhatsApp */}
-          <div className="flex justify-center">
-            <a
-              href="https://wa.me/5354797723"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 px-12 py-4 bg-[#3D2B1F] text-[#F4ECE1] rounded-full transition-all duration-300 hover:bg-[#5D4037] hover:scale-105 shadow-xl"
-            >
-              <span className="text-xl md:text-2xl font-bold tracking-widest uppercase">
-                Reserva por WhatsApp
-              </span>
-              <div className="absolute inset-0 rounded-full border-2 border-[#C5A880]/30 scale-110 group-hover:scale-100 transition-transform duration-500"></div>
-            </a>
-          </div>
-
-          <p className="mt-8 text-[#3D2B1F] font-mono text-lg md:text-xl tracking-widest">
-            +53 54797723
-          </p>
-
+          {/* Imagen Derecha */}
+          <img
+            src="/images/madre2.webp"
+            alt="Madre e hijo"
+            className="hidden md:block w-80 h-auto rounded-lg shadow-lg object-cover aspect-[3/4]"
+          />
         </div>
       </section>
 
@@ -202,11 +218,13 @@ export default function Home() {
             <span className="leading-tight">Próximas Actividades</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:px-10 md:grid-cols-3 gap-10">
             {actividades.map((act, i) => (
-              <div key={i} className="bg-[#F9F3EB] p-10 shadow-[10px_10px_0px_0px_rgba(26,18,11,1)] border border-[#D4B996] relative transform transition hover:translate-x-1 hover:translate-y-1">
-                <div className="absolute -top-5 -left-5 text-5xl rotate-[-15deg]">📌</div>
-                <h3 className="text-2xl font-black mb-4 border-b-2 border-[#3D2B1F]/10 pb-2 text-[#2C1E16]">
+              <div
+                key={i}
+                className="bg-[url('/images/frame_actividades.webp')] bg-[length:100%_100%] bg-center bg-no-repeat p-10 pb-44"
+              >
+                <h3 className="text-2xl font-black mb-4 text-[#2C1E16]">
                   {act.titulo}
                 </h3>
                 <p className="text-[#A0522D] font-black text-xl mb-3">{act.fecha}</p>
