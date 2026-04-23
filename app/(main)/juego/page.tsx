@@ -1,5 +1,6 @@
 'use client';
 
+import { redirect } from 'next/navigation';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface Obstaculo {
@@ -20,9 +21,8 @@ const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwJJ8OEkQAUXrqDHZ7h8
 
 // ========== NUEVO: Configuración de horarios ==========
 const HORARIOS_PERMITIDOS = [
-  { inicio: 15, fin: 17 },  // 15:00 a 17:00
-  { inicio: 20, fin: 21 },  // 20:00 a 22:00
-  { inicio: 22, fin: 23 },
+  { inicio: 12, fin: 13 },  // 15:00 a 17:00
+  { inicio: 18, fin: 19 },  // 20:00 a 22:00
 ];
 
 function puedeIniciarPartida(): boolean {
@@ -37,7 +37,7 @@ function puedeIniciarPartida(): boolean {
 function obtenerTextoHorarios(): string {
   return HORARIOS_PERMITIDOS
     .map(h => `${h.inicio}:00 a ${h.fin}:00`)
-    .join(' o ');
+    .join(' o de ');
 }
 // ========== FIN NUEVO ==========
 
@@ -87,8 +87,9 @@ export default function RunnerEscapa() {
   useEffect(() => {
     const verificarHorario = () => {
       setHorarioPermitido(puedeIniciarPartida());
+      
     };
-    
+  
     verificarHorario();
     const intervalo = setInterval(verificarHorario, 60000); // cada minuto
     
@@ -233,6 +234,7 @@ export default function RunnerEscapa() {
         ctx.fillText(`⏰ Fuera de horario. Juego disponible: ${obtenerTextoHorarios()}`, canvas.width/2, canvas.height/2 - 20);
         ctx.font = '16px monospace';
         ctx.fillText('Presiona ESPACIO o TOCA cuando estés en horario', canvas.width/2, canvas.height/2 + 20);
+        
       } else {
         ctx.fillText('Presiona ESPACIO o TOCA para saltar', canvas.width/2, canvas.height/2);
         ctx.font = '16px monospace';
@@ -453,7 +455,7 @@ export default function RunnerEscapa() {
     const handleTap = (e: TouchEvent) => {
       e.preventDefault();
       if (!jugando && !gameOver) {
-        iniciarJuego();
+        //iniciarJuego();
       } else {
         saltar();
       }
@@ -472,7 +474,7 @@ export default function RunnerEscapa() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full">
         <h1 className="text-4xl font-bold text-center text-[#3D2B1F] mb-2">
-          🚗 Runner Escapá
+          🚗 Chofér Escapao
         </h1>
         <p className="text-center text-gray-600 mb-4">
           🚗 Salta con ESPACIO o TOCANDO | 🎋 Más puntos = más velocidad
