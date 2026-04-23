@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 
-const precio=15, numero_zelle="+1 (786) 468-3518";
+const precio = 15, numero_zelle = "+1 (786) 468-3518";
 
 // Iconos específicos del sorteo
 const IconRuleta = () => (
@@ -77,7 +77,7 @@ export default function SorteoSection({ participantesIniciales = [] }: SorteoSec
       setTouchEnd(0);
       return;
     }
-    
+
     const diff = touchStart - touchEnd;
     if (Math.abs(diff) > 50) {
       if (diff > 0 && activeTab === 0) {
@@ -93,11 +93,11 @@ export default function SorteoSection({ participantesIniciales = [] }: SorteoSec
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setEnviando(true);
-    
+
     try {
       const telefono = "+5351591471";
       const total = formData.tickets * precio;
-      
+
       const mensaje = `🎰 SORTEO ESCAPAO 🎰
 
 Nombre: ${formData.nombre}
@@ -110,10 +110,10 @@ Quedo atento a la confirmacion.`;
 
       const urlWhatsApp = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
       window.open(urlWhatsApp, '_blank');
-      
+
       setMensajeEnviado(true);
       setTimeout(() => setMensajeEnviado(false), 5000);
-      
+
       setFormData({ nombre: '', correo: '', telefono: '', tickets: 1 });
     } catch (err) {
       console.error('Error:', err);
@@ -132,7 +132,7 @@ Quedo atento a la confirmacion.`;
         outlineOffset: '-1px',
         boxShadow: '0 0 30px rgba(0, 0, 0, 0.5)'
       }}>
-      
+
       <div className="relative z-10">
         {/* Cabecera del sorteo */}
         <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
@@ -162,21 +162,19 @@ Quedo atento a la confirmacion.`;
         <div className="flex mb-6 border-b border-[#4a3628]">
           <button
             onClick={() => setActiveTab(0)}
-            className={`flex-1 py-3 text-center font-bold transition-all duration-300 ${
-              activeTab === 0
+            className={`flex-1 py-3 text-center font-bold transition-all duration-300 ${activeTab === 0
                 ? 'text-[#86efac] border-b-2 border-[#86efac]'
                 : 'text-[#c5a88a] hover:text-[#f2e2ce]'
-            }`}
+              }`}
           >
             📝 Adquirir tickets
           </button>
           <button
             onClick={() => setActiveTab(1)}
-            className={`flex-1 py-3 text-center font-bold transition-all duration-300 ${
-              activeTab === 1
+            className={`flex-1 py-3 text-center font-bold transition-all duration-300 ${activeTab === 1
                 ? 'text-[#86efac] border-b-2 border-[#86efac]'
                 : 'text-[#c5a88a] hover:text-[#f2e2ce]'
-            }`}
+              }`}
           >
             👥 Participantes ({participantes.length})
           </button>
@@ -212,7 +210,7 @@ Quedo atento a la confirmacion.`;
                       disabled={enviando}
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-[#c5a88a] mb-2 font-medium text-sm">
                       Correo electrónico *
@@ -227,7 +225,7 @@ Quedo atento a la confirmacion.`;
                       disabled={enviando}
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-[#c5a88a] mb-2 font-medium text-sm">
                       Teléfono *
@@ -242,7 +240,7 @@ Quedo atento a la confirmacion.`;
                       disabled={enviando}
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-[#c5a88a] mb-2 font-medium text-sm">
                       Cantidad de tickets *
@@ -261,7 +259,7 @@ Quedo atento a la confirmacion.`;
                       Total: <span className="text-[#86efac] font-bold">${formData.tickets * precio} USD</span>
                     </p>
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={enviando}
@@ -269,7 +267,7 @@ Quedo atento a la confirmacion.`;
                   >
                     {enviando ? 'Preparando...' : '📲 Continuar por WhatsApp'}
                   </button>
-                  
+
                   {mensajeEnviado && (
                     <div className="p-3 bg-green-900/50 border border-green-500 rounded-lg">
                       <p className="text-green-200 text-center text-sm">
@@ -278,7 +276,7 @@ Quedo atento a la confirmacion.`;
                     </div>
                   )}
                 </form>
-                
+
                 <div className="mt-6 p-3 bg-[#2a1b12]/50 rounded-lg">
                   <p className="text-[#c5a88a] text-xs">
                     <span className="font-bold text-[#f2e2ce]2">📌 Importante:</span> Después de transferir, debes recibir confirmación en menos de 24 horas.
@@ -318,7 +316,7 @@ Quedo atento a la confirmacion.`;
                     </table>
                   </div>
                 )}
-                
+
                 <div className="mt-4 pt-4 border-t border-[#4a3628]">
                   <p className="text-[#c5a88a] text-sm text-center">
                     Total tickets: <span className="font-bold text-[#86efac]">{totalTickets}</span>
@@ -333,15 +331,13 @@ Quedo atento a la confirmacion.`;
         <div className="flex justify-center gap-2 mt-4">
           <button
             onClick={() => setActiveTab(0)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              activeTab === 0 ? 'w-6 bg-[#86efac]' : 'bg-[#4a3628]'
-            }`}
+            className={`w-2 h-2 rounded-full transition-all ${activeTab === 0 ? 'w-6 bg-[#86efac]' : 'bg-[#4a3628]'
+              }`}
           />
           <button
             onClick={() => setActiveTab(1)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              activeTab === 1 ? 'w-6 bg-[#86efac]' : 'bg-[#4a3628]'
-            }`}
+            className={`w-2 h-2 rounded-full transition-all ${activeTab === 1 ? 'w-6 bg-[#86efac]' : 'bg-[#4a3628]'
+              }`}
           />
         </div>
         <p className="text-center text-[#4a3628] text-xs mt-2">
@@ -351,7 +347,7 @@ Quedo atento a la confirmacion.`;
         {/* Premio*/}
         <div className="bg-gradient-to-r from-gray-400/20 to-gray-600/20 p-3 rounded-lg text-center">
           <p className="text-[#f2e2ce] text-xs md:text-sm font-bold">Premio Grande</p>
-          <p className="text-[#86efac] text-sm md:text-base text-4xl">Lechón asado entero, arroz vianda y ensalada</p>       
+          <p className="text-[#86efac] text-sm md:text-base text-4xl">Lechón asado entero, arroz vianda y ensalada</p>
         </div>
       </div>
 

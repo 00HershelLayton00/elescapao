@@ -50,18 +50,18 @@ se muestren fotos de gente y cosas asi
 # De la quincena pasada, ponerle fondo a todas las paginas
 
 ## Diseño y contenido visual
-- [ ] Buscar fotos más bonitas para mostrar:
+- [x] Buscar fotos más bonitas para mostrar:
   - Carros al final de la sección "Nosotros"
   - Carros en la página de inicio
-- [ ] Fondo de carros clásicos en inicio (reemplazar el papel actual, muy sofisticado)
-- [ ] Cambiar fondos en vistas a día de las madres
-- [ ] En la sección de ofertas, poner un puerco al final que se vea lejano (como en "Nosotros")
+- [x] Fondo de carros clásicos en inicio (reemplazar el papel actual, muy sofisticado)
+- [x] Cambiar fondos en vistas a día de las madres
+- [x] En la sección de ofertas, poner un puerco al final que se vea lejano (como en "Nosotros")
 - [ ] Fotos de carros de fondo en el menú, incluyendo cosas de la sección, gente y elementos tradicionales
 
 ## Alerta de bienvenida al entrar a la página
-- [ ] Mostrar algo estilo alerta con el texto: *"Somos cercanía"*
-- [ ] Debajo, una foto de Cuba con puentes conectando a muchas partes del mundo
-- [ ] Texto debajo de la foto: *"Conectados con cualquier parte del mundo, te damos la bienvenida desde donde te encuentres"*
+- [x] Mostrar algo estilo alerta con el texto: *"Somos cercanía"*
+- [x] Debajo, una foto de Cuba con puentes conectando a muchas partes del mundo
+- [x] Texto debajo de la foto: *"Conectados con cualquier parte del mundo, te damos la bienvenida desde donde te encuentres"*
 
 ## Render y compilación
 - [ ] Mantener en render la versión compilada

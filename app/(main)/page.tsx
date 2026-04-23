@@ -1,5 +1,6 @@
 import { Pacifico } from 'next/font/google'
 import Gallery from '@/app/component/Gallery';
+import WelcomeScreen from '../component/Welcome';
 
 const pacifico = Pacifico({
   subsets: ['latin'],
@@ -21,6 +22,8 @@ export default function Home() {
   ]
 
   return (
+    <>
+    <WelcomeScreen />
     <main>
       {/* Hero Section */}
       <div
@@ -247,5 +250,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </>
   )
 }
