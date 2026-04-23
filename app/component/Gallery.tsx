@@ -10,14 +10,14 @@ const pacifico = Pacifico({
 
 // Estructura simplificada: solo URL y el texto que se mostrará
 const FOTOS_GALERIA = [
-  { id: 1, url: "/images/restaurante1.jpg", texto: "Bienvenido" },
-  { id: 2, url: "/images/restaurante2.jpg", texto: "Shows" },
-  { id: 3, url: "/images/restaurante3.jpg", texto: "Familia" },
-  { id: 4, url: "/images/restaurante4.jpg", texto: "Karaoke" },
-  { id: 5, url: "/images/restaurante5.jpg", texto: "Cantantes" },
-  { id: 6, url: "/images/restaurante6.jpg", texto: "Comida" },
-  { id: 7, url: "/images/restaurante7.jpg", texto: "Payasos" },
-  { id: 8, url: "/images/restaurante8.jpg", texto: "Manjares" },
+  { id: 1, url: "bienvenido.webp", texto: "Bienvenido" },
+  { id: 2, url: "cantantes.webp", texto: "Cantantes" },
+  { id: 3, url: "cubania.webp", texto: "Cubanía" },
+  { id: 4, url: "bebidas.webp", texto: "Bebidas" },
+  { id: 5, url: "familia.webp", texto: "Familia" },
+  { id: 6, url: "folclor.webp", texto: "Folclor" },
+  { id: 7, url: "payasos.webp", texto: "Payasos" },
+  { id: 8, url: "variedades.webp", texto: "Variedades" },
 ];
 
 export default function Gallery() {
@@ -60,7 +60,7 @@ export default function Gallery() {
 
   return (
     <section className="relative pt-10 pb-20 mx-2 md:mx-10 lg:mx-20 overflow-hidden">
-      
+
       {/* TÍTULO SECCIÓN */}
       <div className="flex items-center justify-center gap-4 mb-12">
         <svg viewBox="0 0 24 24" fill="none" stroke="#3D2B1F" strokeWidth="2" className="w-8 h-8 md:w-12 md:h-12">
@@ -95,15 +95,14 @@ export default function Gallery() {
                 style={{ width: `${100 / itemsVisibles}%` }}
               >
                 <div className="bg-[#1A120B] p-4 pb-10 shadow-2xl rounded-sm transform transition-all duration-500 rotate-1 md:hover:rotate-0 hover:scale-[1.02] group">
-                  <div className="relative aspect-[4/5] md:h-72 w-full overflow-hidden border border-white/10">
+
+                  <div className="relative aspect-square w-full overflow-hidden border border-white/10">
                     <img
-                      src={foto.url}
+                      src={"/images/inicio__nuestro_espacio/" + foto.url}
                       alt={foto.texto}
                       className="w-full h-full object-cover pointer-events-none transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
-                  
-                  {/* UN SOLO TEXTO: Limpio y directo */}
                   <div className="mt-5 text-center">
                     <span className={`${pacifico.className} text-[#EBDCCB]/70 text-sm md:text-xl block leading-tight`}>
                       {foto.texto}
