@@ -23,28 +23,34 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <div className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
+      <div 
+  className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
+  style={{
+    WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+    maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+  }}
+>
 
         {/* --- Vehículos Decorativos (Fondo) --- */}
         <img
-          src="/images/carro_rojo.webp"
-          alt="Chevrolet clásico rojo"
-          className="absolute top-0 -left-60 w-72 md:w-[450px] object-contain opacity-90 sepia-[.60] contrast-125 brightness-90 saturate-50 -rotate-2 pointer-events-none z-0"
+          src="/images/carro_azul.webp"
+          alt="Chevrolet clásico azul"
+          className="absolute top-0 -left-60 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 -rotate-2 pointer-events-none z-0"
+        />
+        <img
+          src="/images/carro_gris.webp"
+          alt="Chevrolet clásico gris"
+          className="absolute top-32 -left-40 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 scale-x-[-1] -rotate-2 pointer-events-none z-0"
         />
         <img
           src="/images/carro_rojo.webp"
           alt="Chevrolet clásico rojo"
-          className="absolute top-32 -left-40 w-72 md:w-[450px] object-contain opacity-90 sepia-[.60] contrast-125 brightness-90 saturate-50 -rotate-2 pointer-events-none z-0"
+          className="absolute top-0 -right-60 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 rotate-2 scale-x-[-1] pointer-events-none z-0"
         />
         <img
-          src="/images/carro_rojo.webp"
-          alt="Chevrolet clásico rojo"
-          className="absolute top-0 -right-60 w-72 md:w-[450px] object-contain opacity-90 sepia-[.60] contrast-125 brightness-90 saturate-50 rotate-2 scale-x-[-1] pointer-events-none z-0"
-        />
-        <img
-          src="/images/carro_rojo.webp"
-          alt="Chevrolet clásico rojo"
-          className="absolute top-32 -right-40 w-72 md:w-[450px] object-contain opacity-90 sepia-[.60] contrast-125 brightness-90 saturate-50 rotate-2 scale-x-[-1] pointer-events-none z-0"
+          src="/images/carro_verde.webp"
+          alt="Chevrolet clásico verde"
+          className="absolute top-32 -right-40 w-96 md:w-[550px] object-contain opacity-90 sepia-[.35] contrast-120 brightness-95 saturate-75 rotate-2 scale-x-[-1] pointer-events-none z-0"
         />
 
         {/* --- Contenido Principal --- */}
@@ -53,7 +59,7 @@ export default function Home() {
           {/* Contenedor del Título con Esquinas de Rosas */}
           <div className="relative inline-flex flex-col items-center justify-center px-16 py-14 md:px-24 md:py-20  rounded-tl-3xl rounded-tr-3xl">
             {/* o si quieres que termine completamente transparente: to-transparent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] h-[100%] bg-[#EAD9BD] bg-opacity-40 rounded-full -z-10"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] h-[100%] bg-[#EAD9BD] bg-opacity-40 rounded-full -z-10"></div>
             {/* Rosa: Esquina Superior Derecha (Rotada 180° para que encaje) */}
             <img
               src="/images/rose_frame.webp"
@@ -98,51 +104,55 @@ export default function Home() {
           className="absolute -bottom-0 -right-20 w-72 md:w-[300px] object-contain opacity-90 sepia-[.60] contrast-125 brightness-90 saturate-50 rotate-2 pointer-events-none scale-x-[-1] z-0"
         />
       </div>
-    
-    
-    <section className="relative py-16 px-4 bg-[#F4ECE1]  overflow-hidden">
-      
-      {/* Contenedor con borde de encaje o decorativo simétrico */}
-      <div className="max-w-4xl mx-auto relative border-x-2 border-[#C5A880]/30 px-6 py-10 md:px-12">
-        
-        <div className="text-center relative z-10">
-          <h3 className="text-[#3D2B1F] text-lg md:text-xl font-medium tracking-widest uppercase mb-6 font-serif">
+
+
+      <section className="relative py-12 px-4 bg-[#F4ECE1] overflow-hidden">
+
+        {/* CONTENEDOR ÚNICO: El fondo se aplica aquí directamente */}
+        <div
+          className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center px-12 py-24 md:px-24 md:py-24 lg:px-48"
+          style={{
+            backgroundImage: "url('/images/frame.webp')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "100% 100%" // Obliga a la foto a cubrir el div completo (expandir/comprimir)
+          }}
+        >
+
+          <h3 className="text-[#3D2B1F] text-base md:text-lg font-medium tracking-[0.25em] uppercase mb-6 font-serif opacity-80">
             Actividad Especial (Día de las Madres - 9 Mayo)
           </h3>
 
-          <div className="space-y-4 mb-10">
-            <p className="text-[#3D2B1F] text-2xl md:text-4xl leading-relaxed italic font-serif">
+          <div className="space-y-6 mb-10 max-w-4xl">
+            <p className="text-[#3D2B1F] text-3xl md:text-5xl leading-tight italic font-serif">
               "El único día del año donde respiramos amor del bueno. Ven y festeja el Día de las Madres."
             </p>
-            <p className="text-[#3D2B1F]/80 text-xl md:text-2xl font-light">
+            <p className="text-[#3D2B1F]/70 text-lg md:text-2xl font-light">
               Ven y comparte con nosotros la experiencia de sentirte cerca de tus seres más queridos.
             </p>
           </div>
 
-          {/* Botón de WhatsApp Estilo Vintage/Premium */}
+          {/* Botón de WhatsApp */}
           <div className="flex justify-center">
             <a
-              href="https://wa.me/5354797723" // Ajustado según la imagen
+              href="https://wa.me/5354797723"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 px-10 py-4 bg-[#3D2B1F] text-[#F4ECE1] rounded-full transition-all duration-300 hover:bg-[#5D4037] hover:scale-105 shadow-xl"
+              className="group relative inline-flex items-center gap-3 px-12 py-4 bg-[#3D2B1F] text-[#F4ECE1] rounded-full transition-all duration-300 hover:bg-[#5D4037] hover:scale-105 shadow-xl"
             >
-              
-              <span className="text-xl font-bold tracking-wider uppercase">
+              <span className="text-xl md:text-2xl font-bold tracking-widest uppercase">
                 Reserva por WhatsApp
               </span>
-              
-              {/* Brillo decorativo alrededor del botón */}
-              <div className="absolute inset-0 rounded-full border-2 border-[#C5A880]/50 scale-110 group-hover:scale-105 transition-transform duration-500"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-[#C5A880]/30 scale-110 group-hover:scale-100 transition-transform duration-500"></div>
             </a>
           </div>
 
-          <p className="mt-6 text-[#3D2B1F] font-mono text-lg tracking-widest">
-            WhatsApp: +53 54797723
+          <p className="mt-8 text-[#3D2B1F] font-mono text-lg md:text-xl tracking-widest">
+            +53 54797723
           </p>
+
         </div>
-      </div>
-    </section>
+      </section>
 
 
 

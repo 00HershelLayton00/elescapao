@@ -14,6 +14,8 @@
 - [x] Que al tocar una imagen esta se acerque
 
 
+
+
 ## Diseño y contenido visual
 - [ ] Buscar fotos más bonitas para mostrar:
   - Carros al final de la sección "Nosotros"
@@ -49,14 +51,17 @@
 - [ ] Promocionar que la gente compre combos y reservaciones a través de la página
 
 ## Sorteo especial - Día de las Madres
-- [ ] Título: *"Gran Sorteo Día de las Madres"*
-- [ ] Premio: Lechón asado entero, arroz, vianda y ensalada
-- [ ] Precio del ticket: 15 USD
-- [ ] Texto promocional: *"Compra tu ticket ya y celebra a tu mamá a lo grande, porque siempre es mejor MÁS CERCA DE TI. Participa comprando un ticket por solo 15 USD desde cualquier parte del mundo."*
-- [ ] Métodos de pago: Zelle (generar comprobante con el sistema)
-- [ ] Contactar para reservas: #vivi, #yanelis
+- [x] Título: *"Gran Sorteo Día de las Madres"*
+- [x] Premio: Lechón asado entero, arroz, vianda y ensalada
+- [x] Precio del ticket: 15 USD
+- [x] Texto promocional: *"Compra tu ticket ya y celebra a tu mamá a lo grande, porque siempre es mejor MÁS CERCA DE TI. Participa comprando un ticket por solo 15 USD desde cualquier parte del mundo."*
+- [x] Métodos de pago: Zelle (generar comprobante con el sistema)
+- [x] Contactar para reservas: #vivi, #yanelis
 
 ## Alerta de bienvenida al entrar a la página
 - [ ] Mostrar algo estilo alerta con el texto: *"Somos cercanía"*
 - [ ] Debajo, una foto de Cuba con puentes conectando a muchas partes del mundo
 - [ ] Texto debajo de la foto: *"Conectados con cualquier parte del mundo, te damos la bienvenida desde donde te encuentres"*
+
+## Crear un apartado de los escapaos o algo así, como ultimo en todo
+se muestren fotos de gente y cosas asi
