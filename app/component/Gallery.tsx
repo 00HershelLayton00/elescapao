@@ -11,13 +11,13 @@ const pacifico = Pacifico({
 // Estructura simplificada: solo URL y el texto que se mostrará
 const FOTOS_GALERIA = [
   { id: 1, url: "bienvenido.webp", texto: "Bienvenido" },
-  { id: 2, url: "cantantes.webp", texto: "Cantantes" },
-  { id: 3, url: "cubania.webp", texto: "Cubanía" },
-  { id: 4, url: "bebidas.webp", texto: "Bebidas" },
   { id: 5, url: "familia.webp", texto: "Familia" },
+  { id: 4, url: "variedades.webp", texto: "Variedades" },
   { id: 6, url: "folclor.webp", texto: "Folclor" },
+  { id: 2, url: "cantantes.webp", texto: "Cantantes" },
   { id: 7, url: "payasos.webp", texto: "Payasos" },
-  { id: 8, url: "variedades.webp", texto: "Variedades" },
+  { id: 3, url: "cubania.webp", texto: "Cubanía" },
+  
 ];
 
 export default function Gallery() {
