@@ -143,7 +143,7 @@ export default function Home() {
             {/* Botón de WhatsApp (Letras más pequeñas: text-base/text-lg, padding ajustado) */}
             <div className="flex justify-center">
               <a
-                href="https://wa.me/5354797723"
+                href="https://wa.me/5354797723?text=Hola!+Me+gustaría+reservar+para+el+día+de+las+madres+en+Don+Santiago+El+Escapao"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-2.5 px-10 py-3.5 bg-[#3D2B1F] text-[#F4ECE1] rounded-full transition-all duration-300 hover:bg-[#5D4037] hover:scale-105 shadow-xl"
