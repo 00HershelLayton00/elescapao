@@ -1,12 +1,12 @@
-/** @type{import('next').NextConfig} */
-
+// next.config.js
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  // Si usas imágenes (next/image), Tailwind se encarga del CSS, 
-  // pero las imágenes necesitan este ajuste si no hay servidor de optimización:
+  output: 'export',  // Esto habilita la exportación estática
   images: {
-    unoptimized: true,
+    unoptimized: true, // Necesario para imágenes estáticas
   },
-};
+  // Opcional: Si tienes rutas dinámicas
+  trailingSlash: true, // Mejora compatibilidad con servidores estáticos
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

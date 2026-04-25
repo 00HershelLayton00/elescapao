@@ -1,37 +1,26 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function WelcomeScreen() {
-  const [isVisible, setIsVisible] = useState(false);
+// Definimos la interfaz para las props
+interface WelcomeScreenProps {
+  onFinished: () => void;
+}
+
+export default function WelcomeScreen({ onFinished }: WelcomeScreenProps) {
   const [isFading, setIsFading] = useState(false);
 
-  useEffect(() => {
-    // Comprobamos si existe la marca en el almacenamiento local
-    const hasVisited = localStorage.getItem("hasVisitedEscapao");
-    
-    if (!hasVisited) {
-      setIsVisible(true);
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
-
   const handleEnter = () => {
-    // 1. GUARDAMOS INMEDIATAMENTE QUE YA VISITÓ
+    // 1. Guardamos en el storage
     localStorage.setItem("hasVisitedEscapao", "true");
     
+    // 2. Iniciamos la animación
     setIsFading(true);
 
+    // 3. Avisamos al padre tras la animación
     setTimeout(() => {
-      setIsVisible(false);
-      document.body.style.overflow = "unset";
+      onFinished();
     }, 500); 
   };
-
-  if (!isVisible) return null;
 
   return (
     <div
