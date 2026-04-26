@@ -7,16 +7,30 @@ function getMultimediaPath(): string | null {
   const platform = os.platform();
   
   if (platform === 'win32') {
-    return process.env.MULTIMEDIA_PATH_WINDOWS || null;
+    return process.env.MULTIMEDIA_PATH_WINDOWS || 'D:/multimedia';
   } else if (platform === 'linux') {
-    return process.env.MULTIMEDIA_PATH_LINUX || null;
+    const homeDir = os.homedir();
+    const rutasPosibles = [
+      process.env.MULTIMEDIA_PATH_LINUX,
+      `${homeDir}/Escritorio/multimedia`,
+      `${homeDir}/Desktop/multimedia`,
+    ];
+    
+    for (const ruta of rutasPosibles) {
+      if (ruta && fs.existsSync(ruta)) {
+        return ruta;
+      }
+    }
+    return null;
   }
   return null;
 }
 
 export async function GET() {
-  // Detectar si estamos en producción (Render)
-  if (process.env.NODE_ENV === 'production') {
+  // 🔴 Forzar modo local (cambiar a process.env.NODE_ENV === 'production' cuando subas a Render)
+  const isProduction = false;
+  
+  if (isProduction) {
     return NextResponse.json(
       { error: 'feature_not_available', message: 'Esta funcionalidad solo está disponible en nuestra red local' },
       { status: 403 }
@@ -27,7 +41,7 @@ export async function GET() {
   
   if (!basePath || !fs.existsSync(basePath)) {
     return NextResponse.json(
-      { error: 'not_found', message: 'La carpeta multimedia no existe en este equipo local' },
+      { error: 'not_found', message: `No se encontró la carpeta multimedia en: ${basePath}` },
       { status: 404 }
     );
   }
@@ -38,7 +52,7 @@ export async function GET() {
     
     for (const entry of entries) {
       const fullPath = path.join(dirPath, entry);
-      const relPath = path.join(relativePath, entry);
+      const relPath = relativePath ? path.join(relativePath, entry) : entry;
       const stat = fs.statSync(fullPath);
       
       if (stat.isDirectory()) {
@@ -70,6 +84,6 @@ export async function GET() {
     const structure = readDirectory(basePath);
     return NextResponse.json({ success: true, data: structure });
   } catch (error) {
-    return NextResponse.json({ error: 'read_error', message: 'Error al leer la carpeta' }, { status: 500 });
+    return NextResponse.json({ error: 'read_error', message: String(error) }, { status: 500 });
   }
 }
