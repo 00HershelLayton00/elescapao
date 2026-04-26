@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import LogoEscapao from "../component/logotext";
+import PlatoIcon from "../component/tenedorycuchillo";
 
 export default function MainLayout({
   children,
@@ -14,6 +16,7 @@ export default function MainLayout({
     //{ name: "Menú", href: "/menu" },
     { name: "Juego", href: "/juego" },
     { name: "Ofertas", href: "/ofertas" },
+    { name: "Escapados", href: "/escapados" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Contacto", href: "/contacto" },
   ];
@@ -28,9 +31,10 @@ export default function MainLayout({
           <div className="hidden md:flex justify-between items-center">
             <Link
               href="/"
-              className="text-2xl md:text-3xl font-black text-[#FFF8DC] italic tracking-tighter hover:text-white transition shrink-0"
+              className="text-2xl md:text-3xl font-black text-[#FFF8DC] italic tracking-tighter hover:text-white transition shrink-0 flex"
             >
-              🍽️ ElEscapao
+              <PlatoIcon color="#FFF8DC" className="h-12 w-auto" />
+              <LogoEscapao color="#FFF8DC" className="h-8 md:h-12 w-auto" />
             </Link>
 
             <div className="flex gap-8 text-[#FFF8DC] font-bold uppercase text-xl tracking-wider">
@@ -53,9 +57,10 @@ export default function MainLayout({
           <div className="md:hidden flex justify-between items-center">
             <Link
               href="/"
-              className="text-xl font-black text-[#FFF8DC] italic tracking-tighter hover:text-white transition shrink-0"
+              className="text-xl font-black text-[#FFF8DC] italic tracking-tighter hover:text-white transition shrink-0 flex"
             >
-              🍽️ ElEscapao
+              <PlatoIcon color="#FFF8DC" className="h-8 w-auto" />
+              <LogoEscapao color="#FFF8DC" className="h-8 w-auto" />
             </Link>
 
             {/* Botón hamburguesa */}
