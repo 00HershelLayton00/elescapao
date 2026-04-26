@@ -29,9 +29,12 @@ interface SorteoSectionProps {
 export default function SorteoSection({ participantesIniciales = [] }: SorteoSectionProps) {
   // Datos estáticos - TÚ ACTUALIZAS ESTO MANUALMENTE
   const [participantes, setParticipantes] = useState<Participante[]>([
+    //falsos
     { nombre: "Maria Gonzalez", tickets: 1, fecha: "2026-04-22" },
-    // { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-21" },
-    // { nombre: "Ana Rodriguez", tickets: 10, fecha: "2026-04-21" },
+    { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-25" },
+    { nombre: "Ana Rodriguez", tickets: 2, fecha: "2026-04-26" },
+    { nombre: "Maria Gonzalez", tickets: 2, fecha: "2026-04-26" },
+    //reales
     ...participantesIniciales
   ]);
 
