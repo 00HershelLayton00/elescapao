@@ -34,6 +34,7 @@ export default function SorteoSection({ participantesIniciales = [] }: SorteoSec
     { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-25" },
     { nombre: "Ana Rodriguez", tickets: 2, fecha: "2026-04-26" },
     { nombre: "Maria Gonzalez", tickets: 2, fecha: "2026-04-26" },
+    { nombre: "Michel Ernesto", tickets:2, fecha: "2026-04-28"},
     //reales
     ...participantesIniciales
   ]);
