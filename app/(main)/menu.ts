@@ -1,4 +1,23 @@
-export const MENU_DATA = [
+export interface Producto {
+  nombre: string;
+  desc: string;
+  precio: string;
+  rating?: number;
+  icono?: string;
+}
+
+export interface Subcategoria {
+  nombre: string;
+  productos: Producto[];
+}
+
+export interface Categoria {
+  id: string;
+  titulo: string;
+  subcategorias: Subcategoria[];
+}
+
+export const MENU_DATA: Categoria[] = [
     {
         id: "entradas",
         titulo: "Entrada",

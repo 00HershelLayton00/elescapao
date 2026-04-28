@@ -3,8 +3,35 @@ import { MENU_DATA } from "../../menu";
 import ProductCard from "../../../component/ProductCard";
 import { notFound } from "next/navigation";
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryData = MENU_DATA.find(item => item.id === params.category);
+// Generar rutas estáticas para las categorías
+// app/menu/[category]/page.tsx
+export async function generateStaticParams() {
+  const categories = [
+    'entradas',
+    'principales', 
+    'viandas',
+    'ensaladas',
+    'parrillada',
+    'variedades',
+    'guarniciones',
+    'postres'
+  ]
+  
+  return categories.map((category) => ({
+    category: category,
+  }))
+}
+
+// Corregir el tipado de params (Next.js 15+)
+type Props = {
+  params: Promise<{ category: string }> | { category: string }
+}
+
+export default async function CategoryPage({ params }: Props) {
+  const resolvedParams = await params
+  const category = resolvedParams.category
+  
+  const categoryData = MENU_DATA.find(item => item.id === category);
 
   if (!categoryData) {
     notFound();
