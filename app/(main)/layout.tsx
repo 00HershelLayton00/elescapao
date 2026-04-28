@@ -23,7 +23,7 @@ export default function MainLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4ECE1] text-[#3D2B1F] font-serif">
+    <div className="min-h-screen bg-[#F4ECE1] text-[#3D2B1F] font-serif flex flex-col">
       {/* NAV */}
       <nav className="bg-[#3a2310] z-50 bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] p-4 shadow-xl sticky top-0">
         <div className="container mx-auto">
@@ -108,7 +108,7 @@ export default function MainLayout({
           {/* Menú */}
           <div className="fixed top-[73px] right-4 z-50">
             <div className="w-max max-w-[calc(100vw-2rem)] bg-[#3a2310] bg-[url('/images/wood_pattern.png')] border border-[#3D2B1F] shadow-2xl rounded-md overflow-hidden">
-              
+
               <div className="flex flex-col">
                 {navLinks.map((link) => (
                   <Link
@@ -127,7 +127,7 @@ export default function MainLayout({
         </>
       )}
 
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
 
       {/* FOOTER */}
       <footer className="bg-[#1A120B] bg-[url('/images/wood_pattern.png')] text-[#FFF8DC] py-6 border-t-4 border-[#3D2B1F]">
