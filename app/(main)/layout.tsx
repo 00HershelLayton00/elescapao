@@ -16,7 +16,8 @@ export default function MainLayout({
     //{ name: "Menú", href: "/menu" },
     { name: "Juego", href: "/juego" },
     { name: "Ofertas", href: "/ofertas" },
-    { name: "Escapados", href: "/escapados" },
+    //{ name: "Escapados", href: "/escapados" },
+    { name: "De Cine", href: "/multimedia" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Contacto", href: "/contacto" },
   ];
@@ -24,7 +25,7 @@ export default function MainLayout({
   return (
     <div className="min-h-screen bg-[#F4ECE1] text-[#3D2B1F] font-serif">
       {/* NAV */}
-      <nav className="bg-[#3a2310] z-50 bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] p-2 shadow-xl sticky top-0">
+      <nav className="bg-[#3a2310] z-50 bg-[url('/images/wood_pattern.png')] border-b-4 border-[#3D2B1F] p-4 shadow-xl sticky top-0">
         <div className="container mx-auto">
 
           {/* Desktop Menu */}
@@ -33,11 +34,11 @@ export default function MainLayout({
               href="/"
               className="text-2xl md:text-3xl font-black text-[#FFF8DC] italic tracking-tighter hover:text-white transition shrink-0 flex"
             >
-              <PlatoIcon color="#FFF8DC" className="h-10 w-auto" />
-              <LogoEscapao color="#FFF8DC" className="h-10 w-auto" />
+              <PlatoIcon color="#FFF8DC" className="h-12 w-auto" />
+              <LogoEscapao color="#FFF8DC" className="h-8 md:h-12 w-auto" />
             </Link>
 
-            <div className="flex gap-8 text-[#FFF8DC] font-bold uppercase text-sm tracking-wider">
+            <div className="flex gap-8 text-[#FFF8DC] font-bold uppercase text-xl tracking-wider">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

@@ -27,12 +27,14 @@ function getMultimediaPath(): string | null {
 }
 
 export async function GET() {
-  // 🔴 Forzar modo local (cambiar a process.env.NODE_ENV === 'production' cuando subas a Render)
-  const isProduction = false;
+  const isProduction = process.env.NODE_ENV === 'production';
   
   if (isProduction) {
     return NextResponse.json(
-      { error: 'feature_not_available', message: 'Esta funcionalidad solo está disponible en nuestra red local' },
+      { 
+        error: 'feature_not_available', 
+        message: 'Esta funcionalidad solo está disponible en nuestra red local' 
+      },
       { status: 403 }
     );
   }
@@ -41,7 +43,10 @@ export async function GET() {
   
   if (!basePath || !fs.existsSync(basePath)) {
     return NextResponse.json(
-      { error: 'not_found', message: `No se encontró la carpeta multimedia en: ${basePath}` },
+      { 
+        error: 'not_found', 
+        message: `No se encontró la carpeta multimedia` 
+      },
       { status: 404 }
     );
   }
@@ -84,6 +89,9 @@ export async function GET() {
     const structure = readDirectory(basePath);
     return NextResponse.json({ success: true, data: structure });
   } catch (error) {
-    return NextResponse.json({ error: 'read_error', message: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { error: 'read_error', message: 'Error al leer la carpeta' }, 
+      { status: 500 }
+    );
   }
 }

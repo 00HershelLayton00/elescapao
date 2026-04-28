@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import { downloadQueue } from '@/lib/downloadQueue';
 
 function getMultimediaPath(): string | null {
   const platform = os.platform();
@@ -9,13 +10,11 @@ function getMultimediaPath(): string | null {
   if (platform === 'win32') {
     return process.env.MULTIMEDIA_PATH_WINDOWS || 'D:/multimedia';
   } else if (platform === 'linux') {
-    // Probar varias rutas comunes en Linux en español
     const homeDir = os.homedir();
     const rutasPosibles = [
       process.env.MULTIMEDIA_PATH_LINUX,
       `${homeDir}/Escritorio/multimedia`,
       `${homeDir}/Desktop/multimedia`,
-      '/home/multimedia',
     ];
     
     for (const ruta of rutasPosibles) {
@@ -29,56 +28,127 @@ function getMultimediaPath(): string | null {
 }
 
 export async function GET(req: NextRequest) {
-  // 🔴 Forzar modo local para pruebas (cambiar a true cuando subas a Render)
-  const isProduction = false;
+  const isProduction = process.env.NODE_ENV === 'production';
   
-  if (isProduction) {
-    return NextResponse.json({ error: 'No disponible en producción' }, { status: 403 });
+  if (isProduction && process.env.DISABLE_DOWNLOADS_IN_PROD === 'true') {
+    return NextResponse.json(
+      { 
+        success: false,
+        friendlyMessage: '📡 Las descargas solo están disponibles en nuestra red local, ven a Don Santiago El Escapao.'
+      },
+      { status: 403 }
+    );
   }
 
   const filePath = req.nextUrl.searchParams.get('path');
   if (!filePath) {
-    return NextResponse.json({ error: 'Falta parámetro path' }, { status: 400 });
+    return NextResponse.json(
+      { 
+        success: false,
+        friendlyMessage: '❓ No se especificó qué archivo descargar. Por favor, intentá nuevamente desde el listado.'
+      },
+      { status: 400 }
+    );
   }
 
   const basePath = getMultimediaPath();
-  if (!basePath) {
-    return NextResponse.json({ error: 'Ruta no configurada' }, { status: 500 });
+  if (!basePath || !fs.existsSync(basePath)) {
+    return NextResponse.json(
+      { 
+        success: false,
+        friendlyMessage: '📁 La carpeta de archivos no está disponible en este momento. Contacte al administrador.'
+      },
+      { status: 404 }
+    );
   }
 
-  // Decodificar el path y construir ruta completa
   const decodedPath = decodeURIComponent(filePath);
   const fullPath = path.join(basePath, decodedPath);
   
-  // Seguridad: evitar path traversal
-  const resolvedPath = fs.realpathSync(fullPath);
-  const resolvedBase = fs.realpathSync(basePath);
-  if (!resolvedPath.startsWith(resolvedBase)) {
-    return NextResponse.json({ error: 'Acceso denegado' }, { status: 403 });
+  try {
+    const resolvedPath = fs.realpathSync(fullPath);
+    const resolvedBase = fs.realpathSync(basePath);
+    if (!resolvedPath.startsWith(resolvedBase)) {
+      return NextResponse.json(
+        { 
+          success: false,
+          friendlyMessage: '🔒 Acceso denegado. No se puede acceder a esta ubicación.'
+        },
+        { status: 403 }
+      );
+    }
+  } catch {
+    return NextResponse.json(
+      { 
+        success: false,
+        friendlyMessage: '📄 El archivo no existe o ha sido movido. Verifica en el listado actualizado.'
+      },
+      { status: 404 }
+    );
   }
 
   if (!fs.existsSync(fullPath)) {
-    return NextResponse.json({ error: 'Archivo no encontrado' }, { status: 404 });
+    return NextResponse.json(
+      { 
+        success: false,
+        friendlyMessage: '📄 El archivo que buscas ya no está disponible. Actualiza la página para ver el listado actual.'
+      },
+      { status: 404 }
+    );
   }
 
-  const fileBuffer = fs.readFileSync(fullPath);
-  const fileName = path.basename(fullPath);
-  
-  // Detectar MIME type según extensión
-  const ext = path.extname(fileName).toLowerCase();
-  let mimeType = 'application/octet-stream';
-  
-  if (['.jpg', '.jpeg'].includes(ext)) mimeType = 'image/jpeg';
-  else if (ext === '.png') mimeType = 'image/png';
-  else if (ext === '.gif') mimeType = 'image/gif';
-  else if (ext === '.webp') mimeType = 'image/webp';
-  else if (ext === '.mp4') mimeType = 'video/mp4';
-  else if (ext === '.pdf') mimeType = 'application/pdf';
-  
-  return new NextResponse(fileBuffer, {
-    headers: {
-      'Content-Disposition': `attachment; filename="${encodeURIComponent(fileName)}"`,
-      'Content-Type': mimeType,
-    },
-  });
+  try {
+    const fileBuffer = await downloadQueue.enqueue(fullPath);
+    
+    const fileName = path.basename(fullPath);
+    const ext = path.extname(fileName).toLowerCase();
+    let mimeType = 'application/octet-stream';
+    
+    if (['.jpg', '.jpeg'].includes(ext)) mimeType = 'image/jpeg';
+    else if (ext === '.png') mimeType = 'image/png';
+    else if (ext === '.gif') mimeType = 'image/gif';
+    else if (ext === '.webp') mimeType = 'image/webp';
+    else if (ext === '.mp4') mimeType = 'video/mp4';
+    else if (ext === '.pdf') mimeType = 'application/pdf';
+    
+    // 👈 Solución: Convertir Buffer a Uint8Array o usar Response en lugar de NextResponse
+    return new NextResponse(new Uint8Array(fileBuffer), {
+      headers: {
+        'Content-Disposition': `attachment; filename="${encodeURIComponent(fileName)}"`,
+        'Content-Type': mimeType,
+      },
+    });
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : '';
+    
+    if (errorMessage.includes('saturado')) {
+      return NextResponse.json(
+        { 
+          success: false,
+          friendlyMessage: '🕐 El servidor está con mucha actividad. Por favor, espera unos segundos y vuelve a intentarlo.',
+          queueFull: true
+        },
+        { status: 503 }
+      );
+    }
+    
+    if (errorMessage.includes('Tiempo de espera')) {
+      return NextResponse.json(
+        { 
+          success: false,
+          friendlyMessage: '⏳ La descarga demoró más de lo esperado. Hay muchas personas descargando al mismo tiempo. Intenta nuevamente en unos momentos.',
+          timeout: true
+        },
+        { status: 503 }
+      );
+    }
+    
+    return NextResponse.json(
+      { 
+        success: false,
+        friendlyMessage: '⚠️ Ocurrió un problema al procesar la descarga. Reintenta o contacta al administrador si el problema persiste.'
+      },
+      { status: 500 }
+    );
+  }
 }
