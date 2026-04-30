@@ -16,7 +16,7 @@ export default function MainLayout({
     //{ name: "Menú", href: "/menu" },
     { name: "Juego", href: "/juego" },
     { name: "Ofertas", href: "/ofertas" },
-    //{ name: "Escapados", href: "/escapados" },
+    { name: "Escapados", href: "/escapados" },
     { name: "De Cine", href: "/multimedia" },
     { name: "Nosotros", href: "/nosotros" },
     { name: "Contacto", href: "/contacto" },
