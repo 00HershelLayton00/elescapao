@@ -28,8 +28,9 @@ function getMultimediaPath(): string | null {
 
 export async function GET() {
   const isProduction = process.env.NODE_ENV === 'production';
-  
-  if (isProduction) {
+  const disableMultimediaInProd = process.env.DISABLE_MULTIMEDIA_IN_PROD === 'true';
+
+  if (isProduction && disableMultimediaInProd) {
     return NextResponse.json(
       { 
         error: 'feature_not_available', 

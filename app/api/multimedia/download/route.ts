@@ -8,7 +8,7 @@ function getMultimediaPath(): string | null {
   const platform = os.platform();
   
   if (platform === 'win32') {
-    return process.env.MULTIMEDIA_PATH_WINDOWS || 'D:/multimedia';
+    return process.env.MULTIMEDIA_PATH_WINDOWS || 'D://multimedia';
   } else if (platform === 'linux') {
     const homeDir = os.homedir();
     const rutasPosibles = [
