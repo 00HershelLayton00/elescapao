@@ -1,14 +1,10 @@
 "use client"; // Asegúrate de que Home sea un Client Component si manejas este estado aquí
 import { useState, useEffect } from 'react';
-import { Pacifico } from 'next/font/google';
+
 import Gallery from '@/app/component/Gallery';
 import WelcomeScreen from '../component/Welcome';
 
-const pacifico = Pacifico({
-  subsets: ['latin'],
-  weight: ['400'],
-  display: 'swap',
-})
+
 
 export default function Home() {
 
@@ -93,7 +89,7 @@ export default function Home() {
                 className="absolute top-0 left-0 w-32 md:w-48 object-contain pointer-events-none rotate-180 drop-shadow-sm sepia-[.60] contrast-125 brightness-90 saturate-50"
               />
 
-              <h1 className={`text-5xl md:text-7xl font-bold text-[#3D2B1F] tracking-tight drop-shadow-sm ${pacifico.className}`}>
+              <h1 className={`text-5xl md:text-7xl font-bold text-[#3D2B1F] tracking-tight drop-shadow-sm`}>
                 Don Santiago el Escapao
               </h1>
 
@@ -107,7 +103,7 @@ export default function Home() {
                 "Donde las cosas son cuando SON!!"
               </p>
               <div className="bg-[url('/images/banner.png')] bg-cover bg-center bg-no-repeat py-2 flex items-center justify-center px-10 md:px-20 mt-5">
-                <span className={`text-xl md:text-2xl text-[#6B4423] tracking-wide text-center ${pacifico.className}`}>
+                <span className={`text-xl md:text-2xl text-[#6B4423] tracking-wide text-center`}>
                   ¡Feliz Día de las Madres!
                 </span>
               </div>
@@ -221,7 +217,7 @@ export default function Home() {
           </div>
 
           <div className="container mx-auto px-4">
-            <h2 className={`flex items-center justify-center gap-2 md:gap-4 text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 ${pacifico.className} text-[#2C1E16]`}>
+            <h2 className={`flex items-center justify-center gap-2 md:gap-4 text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 text-[#2C1E16]`}>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"

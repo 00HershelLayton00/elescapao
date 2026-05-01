@@ -1,0 +1,8 @@
+=== CÓMO USAR ===
+1. Ejecuta: ./iniciar.sh
+2. La primera vez te pedirá la ruta multimedia.
+   - Ejemplo Linux: /home/usuario/Escritorio/multimedia
+   - Ejemplo Windows: D:/multimedia
+3. Abre en navegador: http://localhost:3000
+
+Para cambiar la ruta después: edita el archivo .env o borra la línea MULTIMEDIA_PATH

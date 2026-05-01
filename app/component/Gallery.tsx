@@ -1,12 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Pacifico } from 'next/font/google';
-
-const pacifico = Pacifico({
-  subsets: ['latin'],
-  weight: ['400'],
-  display: 'swap',
-});
 
 // Estructura simplificada: solo URL y el texto que se mostrará
 const FOTOS_GALERIA = [
@@ -68,7 +61,7 @@ export default function Gallery() {
           <circle cx="12" cy="12.5" r="3" />
           <path d="M7 6V4h4v2" />
         </svg>
-        <h2 className={`${pacifico.className} text-3xl md:text-5xl font-black text-[#3D2B1F]`}>
+        <h2 className={`text-3xl md:text-5xl font-black text-[#3D2B1F]`}>
           Nuestro Espacio
         </h2>
       </div>
@@ -104,7 +97,7 @@ export default function Gallery() {
                     />
                   </div>
                   <div className="mt-5 text-center">
-                    <span className={`${pacifico.className} text-[#EBDCCB]/70 text-sm md:text-xl block leading-tight`}>
+                    <span className={`text-[#EBDCCB]/70 text-sm md:text-xl block leading-tight`}>
                       {foto.texto}
                     </span>
                   </div>

@@ -1,12 +1,7 @@
 'use client';
-import { Special_Elite } from 'next/font/google'
+
 import Image from 'next/image';
-const specialElite = Special_Elite({
-  subsets: ['latin'],
-  weight: ['400'], // Esta fuente solo suele tener peso 400 (normal)
-  variable: '--font-special-elite', // Opcional: para usarla como variable CSS
-  display: 'swap', // Mejora la experiencia de carga de la fuente
-})
+
 export default function NosotrosPage() {
   return (
     <div className="min-h-screen overflow-hidden">
@@ -42,7 +37,7 @@ export default function NosotrosPage() {
           {/* Historia Principal - Se usa blanco con opacidad para legibilidad */}
           {/* Contenedor principal: ¡IMPORTANTE! Quitamos overflow-hidden */}
           <div
-            className={`relative rounded-lg shadow-2xl p-8 md:p-14 mb-12 transform hover:scale-[1.005] transition-all font-serif ${specialElite.className}`}
+            className={`relative rounded-lg shadow-2xl p-8 md:p-14 mb-12 transform hover:scale-[1.005] transition-all font-serif`}
             style={{
               backgroundImage: "url('/images/papel_arrugado.webp')",
               backgroundRepeat: 'no-repeat',

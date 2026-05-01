@@ -58,7 +58,10 @@ export default function MultimediaPage() {
     if (bytes < 1024 * 1024) {
       return `${(bytes / 1024).toFixed(1)} KB`;
     }
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    if (bytes < 1024 * 1024 * 1024) {
+      return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    }
+    return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`;
   };
 
   // Truncar nombre para móvil
@@ -149,7 +152,7 @@ export default function MultimediaPage() {
   return (
     <div className="max-w-6xl mx-auto py-6 px-3 md:py-8 md:px-4">
       {queueMessage && (
-        <div className="mb-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg">
+        <div className="mb-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg animate-fade-in">
           <div className="flex items-start gap-3">
             <span className="text-2xl">ℹ️</span>
             <p className="text-blue-800 text-sm leading-relaxed">{queueMessage}</p>
@@ -190,7 +193,7 @@ function FileTree({
   onDownload: (path: string, name: string) => void;
   downloading: string | null;
   formatFileSize: (bytes: number) => string;
-  truncateName: (name: string) => string;
+  truncateName: (name: string, maxLength?: number) => string;
   isMobile: boolean;
 }) {
   return (
@@ -199,7 +202,7 @@ function FileTree({
         <li key={item.path}>
           {item.type === 'folder' ? (
             <details className="group">
-              <summary className="cursor-pointer font-medium text-blue-600 hover:text-blue-800 py-3 px-4 rounded">
+              <summary className="cursor-pointer font-medium text-blue-600 hover:text-blue-800 py-3 px-4 rounded transition-colors">
                 📁 {item.name}
               </summary>
               <div className="pl-4 md:pl-6 border-l-2 border-gray-200 ml-2">
@@ -219,6 +222,7 @@ function FileTree({
                 <span className="text-xl flex-shrink-0">
                   {item.fileType === 'image' && '🖼️'}
                   {item.fileType === 'video' && '🎬'}
+                  {item.fileType === 'audio' && '🎵'}
                   {(!item.fileType || item.fileType === 'document') && '📄'}
                 </span>
                 <div className="flex-1 min-w-0">
@@ -236,16 +240,16 @@ function FileTree({
               <button
                 onClick={() => onDownload(item.path, item.name)}
                 disabled={downloading === item.name}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                className={`flex-shrink-0 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${
                   downloading === item.name
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700'
+                    : 'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 hover:shadow-md'
                 }`}
               >
                 {downloading === item.name ? (
                   <span className="flex items-center gap-1">
                     <span className="inline-block w-3 h-3 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></span>
-                    <span className="hidden xs:inline">Descargando...</span>
+                    <span className="hidden sm:inline">Descargando...</span>
                   </span>
                 ) : (
                   <span>⬇️ {!isMobile && 'Descargar'}</span>
