@@ -5,7 +5,6 @@ import path from 'path';
 export const dynamic = 'force-dynamic';
 
 function getMultimediaPath(): string | null {
-  // Solo usa la variable de entorno universal
   const envPath = process.env.MULTIMEDIA_PATH;
   if (envPath && fs.existsSync(envPath)) {
     return envPath;
@@ -15,37 +14,47 @@ function getMultimediaPath(): string | null {
 
 function readDirectory(dirPath: string, relativePath: string = '') {
   const items: any[] = [];
-  const entries = fs.readdirSync(dirPath);
+  
+  try {
+    const entries = fs.readdirSync(dirPath);
 
-  for (const entry of entries) {
-    if (entry.startsWith('.')) continue;
+    for (const entry of entries) {
+      if (entry.startsWith('.')) continue;
 
-    const fullPath = path.join(dirPath, entry);
-    const relPath = relativePath ? path.join(relativePath, entry) : entry;
-    const stat = fs.statSync(fullPath);
+      const fullPath = path.join(dirPath, entry);
+      const relPath = relativePath ? path.join(relativePath, entry) : entry;
 
-    if (stat.isDirectory()) {
-      items.push({
-        name: entry,
-        type: 'folder',
-        path: relPath,
-        children: readDirectory(fullPath, relPath),
-      });
-    } else {
-      const ext = path.extname(entry).toLowerCase();
-      let fileType = 'document';
-      if (['.jpg','.jpeg','.png','.gif','.webp','.bmp'].includes(ext)) fileType = 'image';
-      else if (['.mp4','.webm','.mov','.avi','.mkv'].includes(ext)) fileType = 'video';
-      else if (['.mp3','.wav','.ogg'].includes(ext)) fileType = 'audio';
+      try {
+        const stat = fs.statSync(fullPath);
 
-      items.push({
-        name: entry,
-        type: 'file',
-        fileType,
-        path: relPath,
-        size: stat.size,
-      });
+        if (stat.isDirectory()) {
+          items.push({
+            name: entry,
+            type: 'folder',
+            path: relPath,
+            children: readDirectory(fullPath, relPath),
+          });
+        } else {
+          const ext = path.extname(entry).toLowerCase();
+          let fileType = 'document';
+          if (['.jpg','.jpeg','.png','.gif','.webp','.bmp'].includes(ext)) fileType = 'image';
+          else if (['.mp4','.webm','.mov','.avi','.mkv'].includes(ext)) fileType = 'video';
+          else if (['.mp3','.wav','.ogg','.flac'].includes(ext)) fileType = 'audio';
+
+          items.push({
+            name: entry,
+            type: 'file',
+            fileType,
+            path: relPath,
+            size: stat.size,
+          });
+        }
+      } catch (err) {
+        continue;
+      }
     }
+  } catch (error) {
+    console.error('Error leyendo directorio:', error);
   }
 
   return items.sort((a, b) => {
@@ -67,7 +76,7 @@ export async function GET() {
 
   if (!basePath) {
     return NextResponse.json(
-      { error: 'not_found', message: 'Carpeta multimedia no encontrada' },
+      { error: 'not_found', message: 'Carpeta multimedia no encontrada. Configure MULTIMEDIA_PATH' },
       { status: 404 }
     );
   }
@@ -77,7 +86,7 @@ export async function GET() {
     return NextResponse.json({ success: true, data });
   } catch (error) {
     return NextResponse.json(
-      { error: 'read_error', message: 'Error al leer la carpeta' },
+      { error: 'read_error', message: 'Error al leer la carpeta multimedia' },
       { status: 500 }
     );
   }
