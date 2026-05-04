@@ -471,8 +471,9 @@ export default function RunnerEscapa() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full">
+    
+    <div className="bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiplymin-h-screen bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply flex items-center justify-center p-4 ">
+      <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat py-16 ">
         <h1 className="text-4xl font-bold text-center text-[#3D2B1F] mb-2">
           🚗 Chofér Escapao
         </h1>

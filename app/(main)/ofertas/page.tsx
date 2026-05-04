@@ -64,7 +64,8 @@ export default function CombosPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat py-12 pt-0">
+    <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-repeat py-12 pt-0">
+      
       <div
         className="relative h-[40vh] md:h-[60vh] bg-cover bg-center mb-10 md:bg-fixed"
         style={{
@@ -73,7 +74,7 @@ export default function CombosPage() {
         }}
       >
         {/* Contenedor de contenido con mejor padding */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 ">
 
           {/* Título principal */}
           <h1 className="text-2xl md:text-7xl font-black text-[#FFF8DC] italic mb-4 tracking-tighter leading-tight">
@@ -102,7 +103,7 @@ export default function CombosPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto ">
         {/* Componente Sorteo importado */}
         <div className="mb-16">
           <SorteoSection />

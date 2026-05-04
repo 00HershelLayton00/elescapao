@@ -39,7 +39,7 @@ export default function ContactoPage() {
   const embedMapa = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0741297!2d-76.3153237!3d20.8741297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x21f703b89d144908!2sPaladar%20Don%20Santiago%20%22El%20Escapao%22!5e0!3m2!1ses!2s!4v1743712345678!5m2!1ses!2s`;
 
   return (
-    <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/papel.png')] bg-repeat py-12 px-4">
+    <div className="min-h-screen bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply px-4">
       <div className="max-w-6xl mx-auto">
         
         {/* Cabecera */}

@@ -143,7 +143,7 @@ export default function MultimediaPage() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[400px]">
+      <div className="flex justify-center items-center min-h-[400px] ">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
           <div className="text-gray-500">Cargando archivos...</div>
@@ -154,8 +154,8 @@ export default function MultimediaPage() {
 
   if (!localMode) {
     return (
-      <div className="max-w-2xl mx-auto py-12 px-4">
-        <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
+      <div className="max-w-2xl mx-auto py-12 px-4 ">
+        <div className="bg-[url('/images/papel.png')] bg-repeat py-16  ">
           <h1 className="text-2xl font-bold text-yellow-800 mb-2">🍿 Cine en Don Santiago El Escapao</h1>
           <p className="text-yellow-700">
             {error || 'Esta sección solo está disponible en nuestra red local. Ven a visitarnos.'}
@@ -183,7 +183,6 @@ export default function MultimediaPage() {
         {data.length} película{data.length !== 1 ? 's' : ''} disponible{data.length !== 1 ? 's' : ''}
       </p>
       
-      {/* Barra de progreso global de descarga */}
       {/* Barra de progreso global de descarga */}
 {downloading && (
   <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 shadow-sm">
@@ -234,17 +233,17 @@ export default function MultimediaPage() {
 )}
 
       {/* Lista de archivos */}
-      <div className="bg-white rounded-lg shadow-sm border divide-y">
+      <div className="bg-[url('/images/papel.png')] bg-repeat py-3 ">
         {data.map((item) => (
           <div key={item.path} className="flex items-center justify-between py-3 px-4 hover:bg-gray-50 gap-3">
             <div className="flex items-center gap-3 min-w-0 flex-1">
               <span className="text-xl flex-shrink-0">🎬</span>
               <div className="min-w-0">
-                <p className="text-gray-700 truncate text-sm md:text-base" title={item.name}>
+                <p className="text-gray-900 truncate text-sm md:text-base" title={item.name}>
                   {item.name}
                 </p>
                 {item.size && (
-                  <p className="text-gray-400 text-xs">{formatFileSize(item.size)}</p>
+                  <p className="text-gray-700 text-xs">{formatFileSize(item.size)}</p>
                 )}
               </div>
             </div>

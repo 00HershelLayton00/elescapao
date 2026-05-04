@@ -99,7 +99,7 @@ export default function Home() {
                 alt="Rosas decorativas"
                 className="absolute bottom-0 right-0 w-32 md:w-48 object-contain pointer-events-none drop-shadow-sm sepia-[.60] contrast-125 brightness-90 saturate-50"
               />
-              <p className="text-xl md:text-2xl mt-6 max-w-3xl font-light text-[#3D2B1F] italic font-serif">
+              <p className="text-xl md:text-2xl mt-6 max-w-3xl font-light text-[#3D2B1F]">
                 "Donde las cosas son cuando SON!!"
               </p>
               <div className="bg-[url('/images/banner.png')] bg-cover bg-center bg-no-repeat py-2 flex items-center justify-center px-10 md:px-20 mt-5">
@@ -195,7 +195,7 @@ export default function Home() {
 
 
         {/* Actividades */}
-        <div className="bg-[#F4ECE1] bg-[url('/images/tela.jpg')] pt-24 border-y-2 border-[#3D2B1F]/10">
+        <div className="bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
           {/* Separador de madera con Gafas */}
           <div className="relative flex items-center justify-center w-full my-16 overflow-hidden">
             <div className="flex-1 flex items-center justify-end">

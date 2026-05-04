@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
   const basePath = getMultimediaPath();
   if (!basePath) {
     return NextResponse.json(
-      { error: true, message: 'Carpeta multimedia no configurada. Configure MULTIMEDIA_PATH' },
+      { error: true, message: 'Esta sección solo está disponible en nuestra red local. Ven a visitarnos.' },
       { status: 404 }
     );
   }

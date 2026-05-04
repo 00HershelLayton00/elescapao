@@ -66,10 +66,10 @@ const actividadesData: Actividad[] = [
 export default function EscapadosPage() {
   return (
     /* Contenedor principal: min-h-screen y flex-col para controlar el alto total */
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ">
       {/* Primera sección: Fondo de papel, contenido centrado */}
-      <section className="bg-[url('/images/papel.png')] bg-repeat py-16">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <section className="bg-[url('/images/papel.png')] bg-repeat py-16 ">
+        <div className="container mx-auto px-4 max-w-6xl bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
 
           {/* Título adaptado al nuevo diseño */}
           <div className="flex items-center justify-center gap-6">
