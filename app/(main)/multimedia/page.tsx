@@ -56,90 +56,90 @@ export default function MultimediaPage() {
   };
 
   const handleDownload = async (filePath: string, fileName: string, fileSize: number) => {
-  if (downloading) {
-    setQueueMessage('⚠️ Ya hay una descarga en curso. Espera a que termine.');
-    return;
-  }
-  
-  setDownloading(fileName);
-  setDownloadPercent(0);
-  setDownloadSpeed('');
-  setQueueMessage(null);
-  
-  try {
-    const startTime = Date.now();
-    const response = await fetch(`/api/multimedia/download?path=${encodeURIComponent(filePath)}`);
-    
-    if (response.headers.get('content-type')?.includes('application/json')) {
-      const error = await response.json();
-      setQueueMessage(error.message || 'Error al descargar');
-      setDownloading(null);
+    if (downloading) {
+      setQueueMessage('⚠️ Ya hay una descarga en curso. Espera a que termine.');
       return;
     }
-    
-    // Obtener el tipo MIME real que envió el servidor
-    const mimeType = response.headers.get('content-type') || 'video/mp4';
-    
-    // Leer con progreso real
-    const contentLength = response.headers.get('content-length');
-    const total = contentLength ? parseInt(contentLength) : fileSize;
-    
-    const reader = response.body?.getReader();
-    if (!reader) throw new Error('No se puede leer la respuesta');
-    
-    const chunks: Uint8Array[] = [];
-    let receivedLength = 0;
-    
-    while (true) {
-      const { done, value } = await reader.read();
-      
-      if (done) break;
-      
-      chunks.push(value);
-      receivedLength += value.length;
-      
-      // Calcular progreso
-      const percent = Math.round((receivedLength / total) * 100);
-      setDownloadPercent(percent);
-      
-      // Calcular velocidad
-      const elapsed = (Date.now() - startTime) / 1000;
-      if (elapsed > 0) {
-        const speed = receivedLength / elapsed;
-        setDownloadSpeed(formatFileSize(speed) + '/s');
-      }
-    }
-    
-    // Crear blob CON el tipo MIME correcto
-    const blob = new Blob(chunks as unknown as BlobPart[], { type: mimeType });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName; // Mantiene nombre y extensión original
-    document.body.appendChild(a);
-    a.click();
-    
-    // Pequeño delay para asegurar que se inició la descarga
-    setTimeout(() => {
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }, 100);
-    
-    setDownloadPercent(100);
-    setQueueMessage(`✅ ¡${fileName} descargado!`);
-    setTimeout(() => setQueueMessage(null), 4000);
-    
-  } catch (err) {
-    console.error('Error descargando:', err);
-    setQueueMessage('❌ Error durante la descarga. Intenta de nuevo.');
-  }
-  
-  setTimeout(() => {
-    setDownloading(null);
+
+    setDownloading(fileName);
     setDownloadPercent(0);
     setDownloadSpeed('');
-  }, 2000);
-};
+    setQueueMessage(null);
+
+    try {
+      const startTime = Date.now();
+      const response = await fetch(`/api/multimedia/download?path=${encodeURIComponent(filePath)}`);
+
+      if (response.headers.get('content-type')?.includes('application/json')) {
+        const error = await response.json();
+        setQueueMessage(error.message || 'Error al descargar');
+        setDownloading(null);
+        return;
+      }
+
+      // Obtener el tipo MIME real que envió el servidor
+      const mimeType = response.headers.get('content-type') || 'video/mp4';
+
+      // Leer con progreso real
+      const contentLength = response.headers.get('content-length');
+      const total = contentLength ? parseInt(contentLength) : fileSize;
+
+      const reader = response.body?.getReader();
+      if (!reader) throw new Error('No se puede leer la respuesta');
+
+      const chunks: Uint8Array[] = [];
+      let receivedLength = 0;
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        chunks.push(value);
+        receivedLength += value.length;
+
+        // Calcular progreso
+        const percent = Math.round((receivedLength / total) * 100);
+        setDownloadPercent(percent);
+
+        // Calcular velocidad
+        const elapsed = (Date.now() - startTime) / 1000;
+        if (elapsed > 0) {
+          const speed = receivedLength / elapsed;
+          setDownloadSpeed(formatFileSize(speed) + '/s');
+        }
+      }
+
+      // Crear blob CON el tipo MIME correcto
+      const blob = new Blob(chunks as unknown as BlobPart[], { type: mimeType });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName; // Mantiene nombre y extensión original
+      document.body.appendChild(a);
+      a.click();
+
+      // Pequeño delay para asegurar que se inició la descarga
+      setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 100);
+
+      setDownloadPercent(100);
+      setQueueMessage(`✅ ¡${fileName} descargado!`);
+      setTimeout(() => setQueueMessage(null), 4000);
+
+    } catch (err) {
+      console.error('Error descargando:', err);
+      setQueueMessage('❌ Error durante la descarga. Intenta de nuevo.');
+    }
+
+    setTimeout(() => {
+      setDownloading(null);
+      setDownloadPercent(0);
+      setDownloadSpeed('');
+    }, 2000);
+  };
 
   if (loading) {
     return (
@@ -154,11 +154,20 @@ export default function MultimediaPage() {
 
   if (!localMode) {
     return (
-      <div className="max-w-2xl mx-auto py-12 px-4 ">
-        <div className="bg-[url('/images/papel.png')] bg-repeat py-16  ">
-          <h1 className="text-2xl font-bold text-yellow-800 mb-2">🍿 Cine en Don Santiago El Escapao</h1>
-          <p className="text-yellow-700">
-            {error || 'Esta sección solo está disponible en nuestra red local. Ven a visitarnos.'}
+
+      <div className="w-full flex-1 flex flex-col items-center justify-center text-center bg-[url('/images/papel.png')] bg-repeat border-y border-yellow-200/50 shadow-inner px-6 py-20">
+
+        {/* Decoración superior opcional para dar estilo de cine */}
+        <div className="mb-6 text-6xl animate-bounce">🍿</div>
+
+        <h1 className="text-3xl md:text-5xl font-black text-yellow-900 mb-4 tracking-tighter uppercase">
+          Cine en Don Santiago <br className="hidden md:block" />
+          <span className="text-yellow-600 font-serif">El Escapao</span>
+        </h1>
+
+        <div className="max-w-xl">
+          <p className="text-lg md:text-xl text-yellow-800 leading-relaxed font-medium opacity-90">
+            {'Esta sección solo está disponible en nuestra red local. Ven a visitarnos y disfruta de la función.'}
           </p>
         </div>
       </div>
@@ -169,11 +178,10 @@ export default function MultimediaPage() {
     <div className="max-w-6xl mx-auto py-6 px-3 md:py-8 md:px-4">
       {/* Mensajes */}
       {queueMessage && (
-        <div className={`mb-4 p-3 rounded-lg text-sm font-medium ${
-          queueMessage.includes('✅') ? 'bg-green-50 text-green-800 border border-green-200' : 
-          queueMessage.includes('❌') || queueMessage.includes('⚠️') ? 'bg-red-50 text-red-800 border border-red-200' : 
-          'bg-blue-50 text-blue-800 border border-blue-200'
-        }`}>
+        <div className={`mb-4 p-3 rounded-lg text-sm font-medium ${queueMessage.includes('✅') ? 'bg-green-50 text-green-800 border border-green-200' :
+          queueMessage.includes('❌') || queueMessage.includes('⚠️') ? 'bg-red-50 text-red-800 border border-red-200' :
+            'bg-blue-50 text-blue-800 border border-blue-200'
+          }`}>
           {queueMessage}
         </div>
       )}
@@ -182,55 +190,53 @@ export default function MultimediaPage() {
       <p className="text-gray-500 text-sm mb-4">
         {data.length} película{data.length !== 1 ? 's' : ''} disponible{data.length !== 1 ? 's' : ''}
       </p>
-      
+
       {/* Barra de progreso global de descarga */}
-{downloading && (
-  <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 shadow-sm">
-    <div className="flex items-center justify-between mb-2">
-      <span className="text-sm font-medium text-blue-800 truncate flex-1 mr-3">
-        ⬇️ {downloadPercent < 100 ? 'Descargando:' : 'Completado:'} {downloading}
-      </span>
-      <span className={`text-sm font-bold whitespace-nowrap ${
-        downloadPercent >= 100 ? 'text-green-600' : 'text-blue-600'
-      }`}>
-        {downloadPercent}%
-      </span>
-    </div>
-    
-    {/* Barra de progreso real */}
-    <div className="w-full bg-gray-200 rounded-full h-3 mb-2 overflow-hidden">
-      <div 
-        className={`h-3 rounded-full transition-all duration-300 ease-out ${
-          downloadPercent >= 100 ? 'bg-green-500' : 'bg-blue-500'
-        }`}
-        style={{ width: `${downloadPercent}%` }}
-      ></div>
-    </div>
-    
-    <div className="flex items-center justify-between text-xs">
-      <span className={downloadPercent >= 100 ? 'text-green-600' : 'text-blue-600'}>
-        {downloadPercent < 100 ? (
-          <span className="flex items-center gap-1">
-            <span className="animate-pulse">●</span> Recibiendo datos...
-          </span>
-        ) : (
-          <span className="flex items-center gap-1">
-            ✅ Guardando archivo...
-          </span>
-        )}
-      </span>
-      {downloadSpeed && downloadPercent < 100 && (
-        <span className="text-blue-500 font-medium">{downloadSpeed}</span>
+      {downloading && (
+        <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 shadow-sm">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-medium text-blue-800 truncate flex-1 mr-3">
+              ⬇️ {downloadPercent < 100 ? 'Descargando:' : 'Completado:'} {downloading}
+            </span>
+            <span className={`text-sm font-bold whitespace-nowrap ${downloadPercent >= 100 ? 'text-green-600' : 'text-blue-600'
+              }`}>
+              {downloadPercent}%
+            </span>
+          </div>
+
+          {/* Barra de progreso real */}
+          <div className="w-full bg-gray-200 rounded-full h-3 mb-2 overflow-hidden">
+            <div
+              className={`h-3 rounded-full transition-all duration-300 ease-out ${downloadPercent >= 100 ? 'bg-green-500' : 'bg-blue-500'
+                }`}
+              style={{ width: `${downloadPercent}%` }}
+            ></div>
+          </div>
+
+          <div className="flex items-center justify-between text-xs">
+            <span className={downloadPercent >= 100 ? 'text-green-600' : 'text-blue-600'}>
+              {downloadPercent < 100 ? (
+                <span className="flex items-center gap-1">
+                  <span className="animate-pulse">●</span> Recibiendo datos...
+                </span>
+              ) : (
+                <span className="flex items-center gap-1">
+                  ✅ Guardando archivo...
+                </span>
+              )}
+            </span>
+            {downloadSpeed && downloadPercent < 100 && (
+              <span className="text-blue-500 font-medium">{downloadSpeed}</span>
+            )}
+          </div>
+
+          {downloadPercent > 0 && downloadPercent < 100 && (
+            <p className="text-xs text-gray-400 mt-2 text-center">
+              No cierres esta página hasta que termine
+            </p>
+          )}
+        </div>
       )}
-    </div>
-    
-    {downloadPercent > 0 && downloadPercent < 100 && (
-      <p className="text-xs text-gray-400 mt-2 text-center">
-        No cierres esta página hasta que termine
-      </p>
-    )}
-  </div>
-)}
 
       {/* Lista de archivos */}
       <div className="bg-[url('/images/papel.png')] bg-repeat py-3 ">
@@ -247,17 +253,16 @@ export default function MultimediaPage() {
                 )}
               </div>
             </div>
-            
+
             <button
               onClick={() => handleDownload(item.path, item.name, item.size || 0)}
               disabled={downloading !== null}
-              className={`flex-shrink-0 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-                downloading === item.name
-                  ? 'bg-blue-100 text-blue-600 border border-blue-300'
-                  : downloading
+              className={`flex-shrink-0 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 whitespace-nowrap ${downloading === item.name
+                ? 'bg-blue-100 text-blue-600 border border-blue-300'
+                : downloading
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700'
-              }`}
+                }`}
             >
               {downloading === item.name ? (
                 <span className="flex items-center gap-1">
@@ -273,7 +278,7 @@ export default function MultimediaPage() {
           </div>
         ))}
       </div>
-      
+
       {/* Ayuda para móviles */}
       {isMobile && (
         <p className="text-xs text-gray-400 mt-3 text-center">

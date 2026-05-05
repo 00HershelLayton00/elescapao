@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <>
       {isNewUser && <WelcomeScreen onFinished={handleWelcomeFinished} />}
-      <main className={isNewUser ? "hidden" : "block"}>
+      <main className={isNewUser ? "hidden" : "block h-full"}>
         {/* Hero Section */}
         <div
           className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
@@ -195,7 +195,7 @@ export default function Home() {
 
 
         {/* Actividades */}
-        <div className="bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
+        <div className="bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply pb-5">
           {/* Separador de madera con Gafas */}
           <div className="relative flex items-center justify-center w-full my-16 overflow-hidden">
             <div className="flex-1 flex items-center justify-end">
@@ -257,7 +257,7 @@ export default function Home() {
 
 
           {/*Otro separador*/}
-          <div className="relative flex items-center justify-center w-full mt-16 mb-5">
+          <div className="relative flex items-center justify-center w-full mt-16 ">
             <div className="flex-1 h-px bg-gradient-to-r from-[#D4B996] via-[#8B6914] to-[#D4B996]"></div>
 
             <div className="flex-shrink-0 mx-4 md:mx-6 text-[#8B6914] drop-shadow-md transform hover:scale-110 transition-transform">

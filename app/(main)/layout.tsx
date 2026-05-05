@@ -127,7 +127,7 @@ export default function MainLayout({
         </>
       )}
 
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 flex flex-col">{children}</main>
 
       {/* FOOTER */}
       <footer className="bg-[#1A120B] bg-[url('/images/wood_pattern.png')] text-[#FFF8DC] py-6 border-t-4 border-[#3D2B1F]">
