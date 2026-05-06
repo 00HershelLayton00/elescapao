@@ -91,7 +91,7 @@ export default function EscapadosPage() {
             {escapadosData.map((escapado, index) => (
               <div
                 key={index}
-                className="bg-[#fdfcfaf5] p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col border border-white/60"
+                className="bg-[#0] p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col border border-white/60"
               >
                 {/* Contenedor de la imagen con bordes redondeados */}
                 <div className="rounded-xl overflow-hidden mb-5 shadow-sm">

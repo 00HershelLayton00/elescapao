@@ -67,19 +67,14 @@ export default function CombosPage() {
     <div className="min-h-screen bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-repeat py-12 pt-0">
       
       <div
-        className="relative h-[40vh] md:h-[60vh] bg-cover bg-center mb-10 md:bg-fixed"
+        className="relative h-[20vh]  bg-cover bg-center mb-10 md:bg-fixed"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("/images/cerdo.webp")',
+          
           backgroundAttachment: 'scroll', // Por defecto en móvil para evitar zoom excesivo
         }}
       >
         {/* Contenedor de contenido con mejor padding */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 ">
-
-          {/* Título principal */}
-          <h1 className="text-2xl md:text-7xl font-black text-[#FFF8DC] italic mb-4 tracking-tighter leading-tight">
-            Amor de madre, <br className="md:hidden" /> amor y tradición
-          </h1>
 
           <div className="w-24 md:w-64 h-1 bg-[#D4A373] mb-6"></div>
 
@@ -88,12 +83,12 @@ export default function CombosPage() {
             <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#FFF8DC]/60 to-transparent"></div>
 
             <div className="text-center">
-              <h1 className="text-xl md:text-5xl font-bold text-[#FFF8DC] uppercase tracking-[0.15em] px-2 flex items-center justify-center gap-2 md:gap-4">
+              <h1 className="text-xl md:text-5xl font-bold text-[#0] uppercase tracking-[0.15em] px-2 flex items-center justify-center gap-2 md:gap-4">
                 <IconRegalo />
                 <span className="leading-none">Ofertas y Combos</span>
               </h1>
 
-              <p className="text-xs md:text-base text-[#FFF8DC]/80 italic mt-3 font-medium tracking-wide">
+              <p className="text-xs md:text-base text-[#0]/80 italic mt-3 font-medium tracking-wide">
                 Los mejores paquetes de El Escapao
               </p>
             </div>

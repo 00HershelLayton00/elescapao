@@ -102,8 +102,8 @@ export default function Home() {
               <p className="text-xl md:text-2xl mt-6 max-w-3xl font-light text-[#3D2B1F]">
                 "Donde las cosas son cuando SON!!"
               </p>
-              <div className="bg-[url('/images/banner.png')] bg-cover bg-center bg-no-repeat py-2 flex items-center justify-center px-10 md:px-20 mt-5">
-                <span className={`text-xl md:text-2xl text-[#6B4423] tracking-wide text-center`}>
+              <div className="bg-white bg-cover bg-center bg-no-repeat py-2 flex items-center justify-center px-10 md:px-20 mt-5">
+                <span className={`text-xl md:text-3xl text-red-500 tracking-wide text-center`}>
                   ¡Feliz Día de las Madres!
                 </span>
               </div>
@@ -195,7 +195,13 @@ export default function Home() {
 
 
         {/* Actividades */}
-        <div className="bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
+        <div
+          className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+          }}
+        >
           {/* Separador de madera con Gafas */}
           <div className="relative flex items-center justify-center w-full my-16 overflow-hidden">
             <div className="flex-1 flex items-center justify-end">

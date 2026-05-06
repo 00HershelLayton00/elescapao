@@ -152,14 +152,26 @@ Quedo atento a la confirmacion.`;
               <h4 className="text-2xl md:text-1xl text-[#f2e2ce]">Contactar soporte a +5351591471</h4>
             </div>
           </div>
-          <div className="bg-black/30 p-3 rounded-xl items-center flex items-center gap-3">
+          
+        </div>
+
+        
+        {/* Puerco en sorteo */}
+      <div
+        className="relative h-[40vh] md:h-[60vh] bg-cover bg-center mb-10 md:bg-fixed"
+        style={{
+          backgroundImage: 'url("/images/cerdo.webp")',
+          backgroundAttachment: 'scroll', // Por defecto en móvil para evitar zoom excesivo
+        }}
+      >  
+      </div>
+      <div className="bg-black/30 p-3 rounded-xl items-center flex items-center gap-3">
             <p className="text-[#f2e2ce] text-xs uppercase tracking-wide">Tickets Confirmados Hasta Ahora</p>
             <p className="text-2xl md:text-3xl font-bold text-[#86efac] text-center">{totalTickets}</p>
           </div>
-        </div>
-
+      
         <p className="text-[#c5a88a] mb-6 text-center md:text-left">
-          Cada ticket cuesta <span className="text-[#86efac] font-bold">${precio} USD</span>
+          Cada ticket cuesta solo <span className="text-[#86efac] font-bold">${precio} USD</span>
         </p>
 
         {/* Pestañas (Tabs) */}
