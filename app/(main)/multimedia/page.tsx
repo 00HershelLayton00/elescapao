@@ -143,29 +143,54 @@ export default function MultimediaPage() {
 
   if (loading) {
     return (
+    <div
+          className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+          }}
+        >
+
       <div className="flex justify-center items-center min-h-[400px] ">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
           <div className="text-gray-500">Cargando archivos...</div>
         </div>
       </div>
+      </div>
     );
   }
 
   if (!localMode) {
     return (
+      <div
+          className="relative flex flex-col items-center pb-20 overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+          }}
+        >
+
       <div className="max-w-2xl mx-auto py-12 px-4 ">
         <div className="bg-[url('/images/papel.png')] bg-repeat py-16  ">
           <h1 className="text-2xl font-bold text-yellow-800 mb-2">🍿 Cine en Don Santiago El Escapao</h1>
           <p className="text-yellow-700">
-            {error || 'Esta sección solo está disponible en nuestra red local. Ven a visitarnos.'}
+            {'Esta sección solo está disponible en nuestra red local. Ven a visitarnos.'}
           </p>
         </div>
+      </div>
       </div>
     );
   }
 
   return (
+    <div
+          className="overflow-hidden bg-[#F4ECE1] bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+          }}
+        >
     <div className="max-w-6xl mx-auto py-6 px-3 md:py-8 md:px-4">
       {/* Mensajes */}
       {queueMessage && (
@@ -230,7 +255,7 @@ export default function MultimediaPage() {
       </p>
     )}
   </div>
-)}
+)}</div>
 
       {/* Lista de archivos */}
       <div className="bg-[url('/images/papel.png')] bg-repeat py-3 ">

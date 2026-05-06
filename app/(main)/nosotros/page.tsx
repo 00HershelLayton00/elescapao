@@ -153,29 +153,12 @@ export default function NosotrosPage() {
               {/* Overlay suave para mejorar contraste */}
               <div className="absolute inset-0 bg-black/10 rounded-lg"></div>
 
-              {/* Contenido */}
-              <div className="relative px-8 py-10 md:px-14 md:py-12">
-
-                {/* Comillas superiores */}
-                <span className="absolute top-4 left-6 text-4xl md:text-5xl text-black/60 font-serif">
-                  “
-                </span>
-
-                {/* Texto */}
-                <p className="text-lg md:text-2xl font-serif italic text-stone-900 leading-relaxed tracking-wide drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]">
-                  Un pedazo de Cuba donde el tiempo se detiene y los sabores hablan por sí mismos
-                </p>
-
-                {/* Comillas inferiores */}
-                <span className="absolute bottom-4 right-6 text-4xl md:text-5xl text-black/60 font-serif">
-                  ”
-                </span>
-              </div>
+              
             </div>
           </div>
 
           {/* Autos clásicos - Sección especial */}
-          <div className="bg-white/95 backdrop-blur-sm bg-[url('/images/tela.jpg')] rounded-2xl shadow-2xl p-8 md:p-12 border border-[#3D2B1F]/10">
+          <div className="bg-white/95 backdrop-blur-sm bg-[url('/images/bg.webp')] rounded-2xl shadow-2xl p-8 md:p-12 border border-[#3D2B1F]/10">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-4xl">🚗</span>
               <h2 className="text-2xl md:text-3xl font-bold text-[#3D2B1F] uppercase">
