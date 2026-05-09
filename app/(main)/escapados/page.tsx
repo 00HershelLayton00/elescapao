@@ -1,5 +1,19 @@
 "use client";
+import Gallery from '@/app/component/Gallery';
 import ActivityCarousel from '../../component/ActivityCarousel';
+import Caurosel from '../../component/ActivityCarousel';
+
+const Fot1 = [
+  { id: 1, url: "bienvenido.webp", texto: "Bienvenido" },
+  { id: 5, url: "familia.webp", texto: "Familia" },
+];
+const Fot2 = [
+  { id: 4, url: "variedades.webp", texto: "Variedades" },
+  { id: 6, url: "folclor.webp", texto: "Folclor" },
+  { id: 2, url: "cantantes.webp", texto: "Cantantes" },
+  { id: 7, url: "payasos.webp", texto: "Payasos" },
+  { id: 3, url: "cubania.webp", texto: "Cubanía" },
+];
 
 interface Escapado {
   urlfoto: string;
@@ -41,27 +55,6 @@ const escapadosData: Escapado[] = [
   }
 ];
 
-const actividadesData: Actividad[] = [
-  {
-    titulo: 'Fiesta de Verano',
-    descripcion: 'Una celebración inolvidable bajo el sol',
-    fotos: [
-      { url: '/images/actividad1_1.jpg', texto: 'Baile al atardecer' },
-      { url: '/images/actividad1_2.jpg', texto: 'Comida típica' },
-      { url: '/images/actividad1_3.jpg', texto: 'Juegos para todos' }
-    ]
-  },
-  {
-    titulo: 'Noche Cultural',
-    descripcion: 'Descubre la riqueza de nuestras tradiciones',
-    fotos: [
-      { url: '/images/actividad2_1.jpg', texto: 'Música tradicional' },
-      { url: '/images/actividad2_2.jpg', texto: 'Danzas folclóricas' },
-      { url: '/images/actividad2_3.jpg', texto: 'Artesanías locales' }
-    ]
-  },
-  // Agrega más actividades aquí
-];
 
 export default function EscapadosPage() {
   return (
@@ -83,8 +76,8 @@ export default function EscapadosPage() {
           </div>
           <div className="flex items-center justify-center gap-6 mb-16">
             <p className="text-[#3D2B1F]/80 italic mt-3 font-medium text-lg">
-                Momentos inolvidables junto a nosotros
-              </p>
+              Momentos inolvidables junto a nosotros
+            </p>
           </div>
           {/* Grid de Tarjetas */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -109,22 +102,22 @@ export default function EscapadosPage() {
                   )}
 
                   <div className="flex justify-center mt-auto">
-  {/* El contenedor externo crea el efecto de "marco" o borde profundo */}
-  <div className="w-[90%] p-[3px] bg-[#5d3a1a]/20 rounded-full flex justify-center shadow-inner">
-    <a
-      href={escapado.urlfacebook}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center justify-center gap-2 w-full bg-gradient-to-b from-[#946743] to-[#7c5332] text-white px-5 py-2.5 rounded-full hover:from-[#7c5332] hover:to-[#634125] transition-all shadow-[0_4px_8px_rgba(0,0,0,0.2)] font-medium text-[15px] border border-[#a17654]"
-    >
-      {/* Icono de Facebook (SVG) */}
-      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-      </svg>
-      Ver en Facebook
-    </a>
-  </div>
-</div>
+                    {/* El contenedor externo crea el efecto de "marco" o borde profundo */}
+                    <div className="w-[90%] p-[3px] bg-[#5d3a1a]/20 rounded-full flex justify-center shadow-inner">
+                      <a
+                        href={escapado.urlfacebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full bg-gradient-to-b from-[#946743] to-[#7c5332] text-white px-5 py-2.5 rounded-full hover:from-[#7c5332] hover:to-[#634125] transition-all shadow-[0_4px_8px_rgba(0,0,0,0.2)] font-medium text-[15px] border border-[#a17654]"
+                      >
+                        {/* Icono de Facebook (SVG) */}
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Ver en Facebook
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -132,36 +125,14 @@ export default function EscapadosPage() {
         </div>
       </section>
 
-      {/* Aquí debajo iría tu segunda sección de actividades... */}
+    {/* Aquí debajo iría tu segunda sección de actividades... */}
+    <div className="bg-[url('/images/papel.png')] bg-repeat py-16">
+      <div className="container mx-auto px-4 max-w-6xl bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
+        <Caurosel Fotos_Mostrar={Fot1} Titulo={"1"}></Caurosel>
+        <Caurosel Fotos_Mostrar={Fot2} Titulo={"2"}></Caurosel>
+      </div>
     </div>
+  </div>
   );
 }
 
-//  {/* Segunda sección: Ancho completo (w-full), flex-grow para ocupar el resto hacia abajo */}
-// <section className="bg-[#f4eee0] w-full flex-grow py-16 px-4 font-serif border-t border-[#e0d6c8]">
-//         <div className="max-w-6xl mx-auto">
-//           {/* Título Principal con líneas laterales */}
-//           <div className="flex items-center justify-center mb-2">
-//             <div className="h-px bg-[#a69b8d] w-16 md:w-32"></div>
-//             <h2 className="text-4xl font-medium px-4 text-[#4a3728] flex items-center gap-3">
-//               <span className="text-2xl">📅</span> Nuestras Actividades
-//             </h2>
-//             <div className="h-px bg-[#a69b8d] w-16 md:w-32"></div>
-//           </div>
-//           <p className="text-center text-[#6e5d4e] italic mb-12">Vive momentos únicos en El Escapao</p>
-
-//           <div className="space-y-20">
-//             {actividadesData.map((actividad, index) => (
-//               <div key={index} className="border-t border-[#d8cdbf] pt-10">
-//                 <h3 className="text-3xl font-bold mb-3 text-[#4a3728]">
-//                   {actividad.titulo}
-//                 </h3>
-//                 <p className="text-gray-700 max-w-2xl mb-8 leading-relaxed">
-//                   {actividad.descripcion}
-//                 </p>
-//                 <ActivityCarousel fotos={actividad.fotos} />
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>

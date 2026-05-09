@@ -2,7 +2,7 @@
 
 // === ICONOS SVG PERSONALIZADOS ===
 const IconMapa = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 inline-block mb-1 text-[#4E342E]">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 inline-block mb-1 text-red-900">
     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
   </svg>
 );
@@ -43,7 +43,7 @@ export default function ContactoPage() {
       <div className="max-w-6xl mx-auto">
         
         {/* Cabecera */}
-        <div className="flex items-center justify-center gap-6 mb-12">
+        <div className="flex items-center justify-center gap-6 mb-12 ">
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-l from-[#4E342E]/60 to-transparent"></div>
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-widest px-4 flex items-center justify-center gap-4 text-red-900">
@@ -51,18 +51,18 @@ export default function ContactoPage() {
               Contacto
               <IconMapa />
             </h1>
-            <p className="text-[#4E342E]/70 italic mt-2 font-medium">Estamos en el corazón de Holguín</p>
+            <p className="text-red-800 italic mt-2 font-medium">Estamos en el corazón de Holguín</p>
           </div>
           <div className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-[#4E342E]/60 to-transparent"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-8 items-start ">
           {/* Card de Información (Altura ajustada: 420px) */}
           <div 
-            className="relative rounded-[26px] p-8 shadow-xl flex flex-col justify-between h-[420px]"
+            className="relative rounded-[26px] p-8 shadow-xl flex flex-col justify-between h-[420px] "
             style={{
               backgroundColor: '#FFFFFF',
-              backgroundImage: "url('/images/tela.jpg')",
+              backgroundImage: "url('/images/papel.png')",
               backgroundRepeat: 'repeat',
               backgroundSize: 'auto',
               border: '2px solid #D1C4B9',
@@ -71,7 +71,7 @@ export default function ContactoPage() {
             }}
           >
             <div>
-              <h2 className="text-2xl font-bold text-[#3d2b1f] mb-6 border-b border-[#3d2b1f]/10 pb-3 uppercase tracking-widest">
+              <h2 className="text-2xl font-bold text-[#3d2b1f] mb-6 border-b border-[#3d2b1f]/10 pb-3 uppercase tracking-widest ">
                 Información
               </h2>
 
@@ -111,7 +111,7 @@ export default function ContactoPage() {
               </div>
             </div>
             
-            <div className="mt-6">
+            <div className="mt-6 ">
               <a
                 href={linkMapas}
                 target="_blank"
@@ -125,7 +125,7 @@ export default function ContactoPage() {
           </div>
 
           {/* Mapa (Altura ajustada: 420px) */}
-          <div className="rounded-[26px] overflow-hidden border-4 border-[#4E342E]/10 shadow-xl bg-white h-[420px]">
+          <div className="rounded-[26px] overflow-hidden border-4 border-[#4E342E]/10 shadow-xl bg-[url('/images/papel.png')] bg-repeat py-16  h-[420px] ">
             <iframe
               src={embedMapa}
               width="100%"
