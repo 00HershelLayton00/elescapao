@@ -125,13 +125,13 @@ export default function EscapadosPage() {
         </div>
       </section>
 
-    {/* Aquí debajo iría tu segunda sección de actividades... */}
-    <div className="bg-[url('/images/papel.png')] bg-repeat py-16">
+    {/* Segunda sección de actividades... */}
+    {/* <div className="bg-[url('/images/papel.png')] bg-repeat py-16">
       <div className="container mx-auto px-4 max-w-6xl bg-[url('/images/bg.webp')] bg-no-repeat bg-cover bg-blend-multiply">
         <Caurosel Fotos_Mostrar={Fot1} Titulo={"1"}></Caurosel>
         <Caurosel Fotos_Mostrar={Fot2} Titulo={"2"}></Caurosel>
       </div>
-    </div>
+    </div> */}
   </div>
   );
 }

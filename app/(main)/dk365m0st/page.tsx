@@ -81,7 +81,7 @@ export default function OfertaDonSantiago() {
               
               <div className="mt-8 rounded-xl bg-white bg-opacity-60 p-6 shadow-inner">
                 <p className="text-lg md:text-xl text-[#3D2B1F]">
-                  📱 Para participar escanea el código QR del payaso, lee su mensaje y haz lo que dice.
+                  📱 Para participar escanea el código QR del payaso o del pollo, lee su mensaje y haz lo que dice. Ellos salen de vez en cuando, sigue nuestra página de Facebook para enterarte de sus próximas salidas y de como optar por tus cenas gratis.
                   <br />
                   ¡Será super fácil, verás que sí 😌!
                 </p>

@@ -99,10 +99,6 @@ export default function CombosPage() {
       </div>
 
       <div className="max-w-6xl mx-auto ">
-        {/* Componente Sorteo importado */}
-        <div className="mb-16">
-          <SorteoSection />
-        </div>
 
         {/* Grid de Combos - todas las cartas unificadas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

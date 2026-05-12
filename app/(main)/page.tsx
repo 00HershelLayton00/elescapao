@@ -81,12 +81,11 @@ export default function Home() {
             <div className="relative inline-flex flex-col items-center justify-center px-16 py-14 md:px-24 md:py-20  rounded-tl-3xl rounded-tr-3xl">
               {/* o si quieres que termine completamente transparente: to-transparent */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] h-[100%] bg-[#EAD9BD] bg-opacity-40 rounded-full -z-10"></div>
-              {/* Rosa: Esquina Superior Derecha (Rotada 180° para que encaje) */}
+              {/* carro: Esquina Superior izquierda*/}
               <img
-                src="/images/rose_frame.webp"
+                src="/images/carro_verde.webp"
                 alt="Rosas decorativas"
-
-                className="absolute top-0 left-0 w-32 md:w-48 object-contain pointer-events-none rotate-180 drop-shadow-sm sepia-[.60] contrast-125 brightness-90 saturate-50"
+                className="absolute top-0 left-0 w-32 md:w-48 object-contain pointer-events-none rotate-0 drop-shadow-sm sepia-[.60] contrast-125 brightness-90 saturate-50"
               />
 
               <h1 className={`text-5xl md:text-7xl font-bold text-[#3D2B1F] tracking-tight drop-shadow-sm`}>
@@ -95,18 +94,13 @@ export default function Home() {
 
               {/* Rosa: Esquina Inferior Izquierda (Posición original) */}
               <img
-                src="/images/rose_frame.webp"
+                src="/images/carro_gris.webp"
                 alt="Rosas decorativas"
                 className="absolute bottom-0 right-0 w-32 md:w-48 object-contain pointer-events-none drop-shadow-sm sepia-[.60] contrast-125 brightness-90 saturate-50"
               />
               <p className="text-xl md:text-2xl mt-6 max-w-3xl font-light text-[#3D2B1F]">
                 "Donde las cosas son cuando SON!!"
               </p>
-              <div className="bg-white bg-cover bg-center bg-no-repeat py-2 flex items-center justify-center px-10 md:px-20 mt-5">
-                <span className={`text-xl md:text-3xl text-red-500 tracking-wide text-center`}>
-                  ¡Feliz Día de las Madres!
-                </span>
-              </div>
             </div>
 
           </div>
@@ -126,72 +120,7 @@ export default function Home() {
           />
         </div>
 
-        <section className="relative py-12 px-4 bg-[#F4ECE1] overflow-hidden">
-          <div className="max-w-7xl mx-auto flex items-center justify-center">
-            {/* Imagen Izquierda */}
-            <img
-              src="/images/madre1.webp"
-              alt="Madre e hija"
-              className="hidden md:block w-80 h-auto rounded-lg shadow-lg object-cover aspect-[3/4]"
-            />
-
-            {/* CONTENEDOR DEL MARCO (Tarjeta central) */}
-            <div
-              className="flex-1 text-center flex flex-col items-center justify-center px-10 py-16 md:px-16 md:py-20 lg:px-32 lg:py-24"
-              style={{
-                backgroundImage: "url('/images/frame.webp')",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundSize: "100% 100%" // Obliga a la foto a cubrir el div completo
-              }}
-            >
-              {/* Título (Letras más pequeñas: text-xs/text-sm) */}
-              <h3 className="text-[#3D2B1F] text-xs md:text-sm font-medium tracking-[0.25em] uppercase mb-5 font-serif opacity-80 p-4">
-                Actividad Especial (Día de las Madres - 9 Mayo)
-              </h3>
-
-              <div className="space-y-5 mb-8 max-w-3xl">
-                {/* Frase principal (Letras más pequeñas: text-2xl/text-4xl) */}
-                <p className="text-[#3D2B1F] text-2xl md:text-4xl leading-tight italic font-serif">
-                  "El único día del año donde respiramos amor del bueno. Ven y festeja el Día de las Madres."
-                </p>
-                {/* Descripción (Letras más pequeñas: text-base/text-xl) */}
-                <p className="text-[#3D2B1F]/70 text-base md:text-xl font-light">
-                  Ven y comparte con nosotros la experiencia de sentirte cerca de tus seres más queridos.
-                </p>
-              </div>
-
-              {/* Botón de WhatsApp (Letras más pequeñas: text-base/text-lg, padding ajustado) */}
-              <div className="flex justify-center">
-                <a
-                  href="https://wa.me/5354797723?text=Hola!+Me+gustaría+reservar+para+el+día+de+las+madres+en+Don+Santiago+El+Escapao"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center gap-2.5 px-10 py-3.5 bg-[#3D2B1F] text-[#F4ECE1] rounded-full transition-all duration-300 hover:bg-[#5D4037] hover:scale-105 shadow-xl"
-                >
-                  <span className="text-base md:text-lg font-bold tracking-widest uppercase">
-                    Reserva por WhatsApp
-                  </span>
-                  <div className="absolute inset-0 rounded-full border-2 border-[#C5A880]/30 scale-110 group-hover:scale-100 transition-transform duration-500"></div>
-                </a>
-              </div>
-
-              {/* Número de WhatsApp (Letras más pequeñas: text-base/text-xl) */}
-              <p className="text-[#3D2B1F]/70 text-base md:text-xl font-light mt-3 mb-5">
-                WhatsApp : +53 5 4797723
-              </p>
-            </div>
-
-            {/* Imagen Derecha */}
-            <img
-              src="/images/madre2.webp"
-              alt="Madre e hijo"
-              className="hidden md:block w-80 h-auto rounded-lg shadow-lg object-cover aspect-[3/4]"
-            />
-          </div>
-        </section>
-
-
+        
 
 
         {/* Actividades */}

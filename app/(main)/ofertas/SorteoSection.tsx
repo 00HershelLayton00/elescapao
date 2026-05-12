@@ -31,10 +31,6 @@ export default function SorteoSection({ participantesIniciales = [] }: SorteoSec
   const [participantes, setParticipantes] = useState<Participante[]>([
     //falsos
     { nombre: "Maria Gonzalez", tickets: 1, fecha: "2026-04-22" },
-    { nombre: "Carlos Perez", tickets: 3, fecha: "2026-04-25" },
-    { nombre: "Ana Rodriguez", tickets: 2, fecha: "2026-04-26" },
-    { nombre: "Maria Gonzalez", tickets: 2, fecha: "2026-04-26" },
-    { nombre: "Michel Ernesto", tickets:2, fecha: "2026-04-28"},
     //reales
     ...participantesIniciales
   ]);
